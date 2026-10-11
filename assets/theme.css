@@ -1,0 +1,26 @@
+
+/* Study BFA : thème clair/sombre commun */
+:root{color-scheme:light;--navy:#142d4e;--blue:#3269a8;--ink:#203047;--muted:#62728a;--line:#e5eaf1;--bg:#f6f8fb;--white:#fff;--surface:#fff;--surface-soft:#fbfcfe;--soft-blue:#e8f0fb;--nav-text:#53647a;--footer:#142d4e}
+html[data-theme="dark"]{color-scheme:dark;--navy:#e8f1ff;--blue:#8cbcff;--ink:#e2eaf6;--muted:#b1bfd2;--line:#33465f;--bg:#101827;--white:#182439;--surface:#182439;--surface-soft:#1d2b41;--soft-blue:#253a57;--nav-text:#d3deed;--footer:#0b1320}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.theme-toggle:hover,.theme-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] header{background:var(--surface);border-color:var(--line)}
+html[data-theme="dark"] nav a{color:var(--nav-text)}
+html[data-theme="dark"] .brand,html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3{color:var(--navy)}
+html[data-theme="dark"] .hero{background:radial-gradient(ellipse at 50% 0%,#203858 0%,#101827 70%)}
+html[data-theme="dark"] .eyebrow,html[data-theme="dark"] .schedule,html[data-theme="dark"] .chip{background:var(--soft-blue);border-color:var(--line);color:var(--blue)}
+html[data-theme="dark"] .story,html[data-theme="dark"] .modules-section,html[data-theme="dark"] .updates-section{background:var(--bg)}
+html[data-theme="dark"] .feature,html[data-theme="dark"] .module,html[data-theme="dark"] .update,html[data-theme="dark"] .panel,html[data-theme="dark"] .item,html[data-theme="dark"] .link{background:var(--surface);border-color:var(--line);box-shadow:none}
+html[data-theme="dark"] .symbol,html[data-theme="dark"] .avatar,html[data-theme="dark"] .video-frame{background:var(--soft-blue);color:var(--blue)}
+html[data-theme="dark"] .story-panel p,html[data-theme="dark"] .panel p,html[data-theme="dark"] .identity p{color:var(--muted)}
+html[data-theme="dark"] .feature p,html[data-theme="dark"] .module p,html[data-theme="dark"] .update p,html[data-theme="dark"] .intro p,html[data-theme="dark"] .section>p,html[data-theme="dark"] .item p,html[data-theme="dark"] .lead{color:var(--muted)}
+html[data-theme="dark"] .btn.secondary{background:var(--surface);border-color:var(--line);color:var(--ink)}
+html[data-theme="dark"] .btn.primary{background:#83b6fa;border-color:#83b6fa;color:#0c1a2c}
+html[data-theme="dark"] .module .state,html[data-theme="dark"] .back,html[data-theme="dark"] .item a{color:var(--blue)}
+html[data-theme="dark"] .link:hover{background:var(--surface-soft)}
+html[data-theme="dark"] footer{background:var(--footer);color:#e2eaf6}
+html[data-theme="dark"] .footer-inner .brand{color:#fff}
+html[data-theme="dark"] .footer-inner p,html[data-theme="dark"] .footer-inner a{color:#c9d7e8}
+html[data-theme="dark"] .signature,html[data-theme="dark"] .signature small,html[data-theme="dark"] .note,html[data-theme="dark"] .photo-note{color:var(--muted)}
+@media(max-width:780px){.theme-toggle{padding:7px 10px}}
