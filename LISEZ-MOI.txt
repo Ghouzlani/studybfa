@@ -1,0 +1,27 @@
+STUDY BFA — INSTALLATION
+
+Le dossier « studybfa » contient tous les fichiers du site.
+Pour GitHub : ouvrez ce dossier et transférez SON CONTENU à la racine du dépôt (pas le dossier « studybfa » lui-même).
+Conservez les chemins des fichiers :
+- index.html
+- porteur-du-projet/index.html
+- matieres/<nom-de-la-matiere>/index.html (9 dossiers)
+- assets/matieres.css
+- assets/matieres.js
+- assets/ressources.js
+
+AJOUTER UNE VIDEO
+1. Téléversez la vidéo sur YouTube et copiez son URL publique ou non répertoriée.
+2. Dans GitHub, ouvrez assets/ressources.js, puis cliquez sur Modifier (crayon).
+3. Trouvez la matière, par exemple "fiscalite".
+4. Remplacez videos: [] par :
+   videos: [{ titre: "Récapitulatif d’octobre 2026", mois: "Octobre 2026", url: "https://youtu.be/XXXXXXXXXXX", description: "Les notions essentielles du mois." }]
+5. Commit changes. Cloudflare Pages republiera le site automatiquement.
+Pour plusieurs vidéos, séparez les objets par une virgule à l'intérieur des crochets.
+
+AJOUTER DES NOTES
+Ajoutez un fichier PDF sous documents/ dans GitHub, puis dans la matière voulue :
+notes: [{ titre: "Notes du chapitre 1", url: "/documents/chapitre-1.pdf", description: "Résumé du cours." }]
+Les synthèses fonctionnent de la même manière avec examens: [...].
+
+IMPORTANT : ne remplacez pas les dossiers matieres/ et assets/ par un fichier unique.
