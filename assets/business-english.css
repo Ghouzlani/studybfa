@@ -74,3 +74,15 @@ html[data-theme="dark"] .be-quiz-stage .be-question-banner{background:var(--surf
   .be-card-chip{min-width:0;flex-wrap:wrap;justify-content:center;text-align:center}
   .be-actions .be-btn{min-width:0;flex:1 1 0;padding:12px 8px}
 }
+
+/* iOS Safari structural fix: the flip stage is a block container, not a native button.
+   The former button could shrink-wrap its absolutely positioned 3D faces. */
+.be-flashcard{display:block!important;width:100%!important;min-width:0;max-width:100%;box-sizing:border-box;position:relative;touch-action:manipulation}
+.be-flip-inner{display:block;width:100%!important;min-width:0;box-sizing:border-box}
+.be-flip-face{box-sizing:border-box;left:0;right:0;width:100%;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.be-flashcard:focus-visible{outline:3px solid #5b9cbd}
+@media(max-width:650px){
+ .be-flashcard{width:100%!important;min-height:340px}
+ .be-flip-inner{height:340px;min-height:340px}
+ .be-flip-face{padding:20px 16px}
+}
