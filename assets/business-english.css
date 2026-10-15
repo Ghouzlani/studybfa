@@ -63,3 +63,14 @@ html[data-theme="dark"] .be-eyebrow{color:#91cfca}html[data-theme="dark"] .be-qu
 .be-map-detail{border-left:4px solid #387f82;transition:background .2s}.be-map-detail strong{display:block;margin-bottom:6px}.be-map-detail p{margin:0;line-height:1.65}
 html[data-theme="dark"] .be-quiz-stage .be-question-banner{background:var(--surface-soft)}
 @media(prefers-reduced-motion:reduce){.be-animate-in{animation:none}.be-map-branch,.map-node rect,.be-quiz-stage .be-question-icon{transition:none}}
+
+/* Mobile-only flashcard width fix: preserve desktop layout and 3D animation. */
+@media (max-width:650px){
+  .be-section, .be-learning-top, .be-meter, .be-actions{min-width:0;max-width:100%;box-sizing:border-box}
+  .be-flashcard{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;appearance:none;-webkit-appearance:none;overflow:visible}
+  .be-flip-inner{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+  .be-flip-face{box-sizing:border-box;width:100%;max-width:100%;min-width:0;padding:20px 16px}
+  .be-flip-face strong{display:block;width:100%;max-width:100%;font-size:clamp(18px,4.8vw,22px);line-height:1.4;overflow-wrap:break-word;word-break:normal;white-space:normal}
+  .be-card-chip{min-width:0;flex-wrap:wrap;justify-content:center;text-align:center}
+  .be-actions .be-btn{min-width:0;flex:1 1 0;padding:12px 8px}
+}
