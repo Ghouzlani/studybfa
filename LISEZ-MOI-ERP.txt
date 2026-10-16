@@ -1,0 +1,7 @@
+STUDY BFA — VERSION AVEC SYSTÈME D’INFORMATION & ERP
+
+Décompressez cette archive et publiez tous les fichiers à la racine de votre dépôt GitHub Pages.
+La matière est accessible à /matieres/systeme-information-erp/
+3 chapitres, 3 fiches, 30 flashcards, 24 questions et 3 cartes mentales.
+Les vidéos sont des emplacements réservés, à remplacer après leur enregistrement.
+Les autres matières et le design du site ont été conservés.

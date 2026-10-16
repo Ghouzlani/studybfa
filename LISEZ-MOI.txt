@@ -25,3 +25,5 @@ notes: [{ titre: "Notes du chapitre 1", url: "/documents/chapitre-1.pdf", descri
 Les synthèses fonctionnent de la même manière avec examens: [...].
 
 IMPORTANT : ne remplacez pas les dossiers matieres/ et assets/ par un fichier unique.
+
+FISCALITÉ : 3 chapitres, 30 flashcards, 24 questions et 3 cartes mentales interactives. Les vidéos sont à ajouter après publication.

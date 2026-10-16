@@ -86,3 +86,11 @@ html[data-theme="dark"] .be-quiz-stage .be-question-banner{background:var(--surf
  .be-flip-inner{height:340px;min-height:340px}
  .be-flip-face{padding:20px 16px}
 }
+
+/* Shared responsive chapter navigation */
+.chapter-selector{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
+.chapter-choice{font:inherit;text-align:left;display:flex;flex-direction:column;gap:7px;min-width:0;border:1px solid var(--border,#ccd6e2);border-radius:15px;padding:16px;background:var(--card,#fff);color:inherit;cursor:pointer;transition:box-shadow .2s,border-color .2s}
+.chapter-choice b{font-size:14px;color:#387f82}.chapter-choice span{font-size:16px;font-weight:700}.chapter-choice small{font-size:12px;opacity:.7;line-height:1.5}
+.chapter-choice.active{border:2px solid #387f82;box-shadow:0 3px 14px #387f8222}
+.chapter-video-only{margin:20px 0}.chapter-video-only[hidden],#business-chapter-1[hidden]{display:none!important}
+@media(max-width:560px){.chapter-selector{grid-template-columns:1fr}.chapter-choice{padding:13px}}
