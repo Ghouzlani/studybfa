@@ -22,3 +22,34 @@
 .ai-map-center{margin:auto;max-width:380px;text-align:center;background:#172c49;color:white;padding:20px;border-radius:15px;font-weight:700}.ai-map-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:22px 0}.ai-map-node{font:inherit;font-weight:600;border:2px solid var(--accent);border-radius:12px;padding:17px 10px;background:var(--card,#fff);color:inherit;cursor:pointer;position:relative}.ai-map-node.active{box-shadow:0 0 0 3px #387f8230}.ai-detail{padding:16px;border-radius:12px;background:var(--surface,#edf1f5)}
 body[data-theme=dark] .ai-panel,html[data-theme=dark] .ai-panel,body.dark .ai-panel{border-color:#42516a}
 @media(max-width:650px){.ai-main{padding:18px 12px 50px}.ai-hero{padding:22px}.chapter-selector{grid-template-columns:1fr}.ai-panel{padding:15px}.ai-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.ai-tabs button{font-size:13px;padding:10px 6px}.ai-map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ai-card{min-height:290px}.ai-video{min-height:210px}}
+
+/* Study BFA — correctifs de contraste, de thèmes et de mise en page */
+.ai-main{--card:#ffffff;--text:#172c49;color:var(--text);}
+html[data-theme="dark"] .ai-main{--card:#182439;--text:#e2eaf6;--surface:#1d2b41;color:var(--text)}
+.ai-panel{background:var(--card);color:var(--text);border-color:var(--line,#d6dfe8)}
+.ai-panel h3,.ai-panel h2,.ai-chapter-head h2{color:var(--text)}
+.ai-sheet{color:var(--text)}
+.ai-sheet p,.ai-sheet li,.ai-panel>p{color:var(--text)}
+.ai-sheet h4{color:#26787b}
+.ai-video{aspect-ratio:auto;min-height:280px;height:clamp(280px,34vw,420px);max-height:420px;color:#fff}
+.ai-video strong,.ai-video p,.ai-video .ai-play{color:#fff}
+.ai-video p{color:#d6e5f2}
+.ai-chapter-head span,.ai-top{color:#387f82}
+.ai-map-node,.chapter-choice,.ai-tabs button,.ai-option{background:var(--card);color:var(--text)}
+.ai-detail,.ai-feedback{background:var(--surface,#edf1f5);color:var(--text)}
+html[data-theme="dark"] .ai-sheet h4,html[data-theme="dark"] .ai-chapter-head span,html[data-theme="dark"] .ai-top,html[data-theme="dark"] .chapter-choice b{color:#8ed2ce}
+html[data-theme="dark"] .ai-hero h1,html[data-theme="dark"] .ai-hero p{color:#fff}
+html[data-theme="dark"] .ai-hero p{color:#d8e4ee}
+html[data-theme="dark"] .ai-panel h3,html[data-theme="dark"] .ai-panel h2,html[data-theme="dark"] .ai-chapter-head h2{color:#e2eaf6}
+html[data-theme="dark"] .ai-sheet p,html[data-theme="dark"] .ai-sheet li,html[data-theme="dark"] .ai-panel>p{color:#e2eaf6}
+html[data-theme="dark"] .ai-video strong,html[data-theme="dark"] .ai-video .ai-play{color:#fff}
+html[data-theme="dark"] .ai-video p{color:#d6e5f2}
+html[data-theme="dark"] .ai-card:not(.flipped){background:#233f46;color:#f2fffd;border-color:#548b84}
+html[data-theme="dark"] .ai-card.flipped{background:#10263e;color:#fff;border-color:#6487ac}
+html[data-theme="dark"] .ai-tabs button[aria-selected="true"]{background:#345f85;color:#fff;border-color:#75a5c9}
+html[data-theme="dark"] .ai-option.correct{background:#204c44;color:#edfff9;border-color:#6ac6ab}
+html[data-theme="dark"] .ai-option.incorrect{background:#512e3b;color:#fff0f3;border-color:#d48d9d}
+html[data-theme="dark"] .ai-map-center{background:#10263e;color:#fff}
+html[data-theme="dark"] .ai-detail,html[data-theme="dark"] .ai-feedback{background:#24344c;color:#e2eaf6}
+html[data-theme="dark"] .ai-map-node{border-color:var(--accent,#6487ac)}
+@media(max-width:650px){.ai-video{height:auto;min-height:235px;max-height:none}.ai-main{overflow-wrap:anywhere}}
