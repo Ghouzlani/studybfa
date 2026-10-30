@@ -1,0 +1,28 @@
+/* Study BFA Académie 2.1 — Academic Blue */
+:root{--bfa-navy:#173B65;--bfa-blue:#3478B8;--bfa-ice:#EAF2FA;--bfa-paper:#F7F9FC}
+body{overflow-x:hidden}h1,h2,h3,.heading,.brandwords,.course strong,.brand,.identity h2{font-family:"Times New Roman",Times,serif!important;letter-spacing:normal!important}
+.bfa-brand-unit{display:inline-flex;align-items:center;gap:10px;vertical-align:middle;max-width:100%}.bfa-est-logo{width:57px;height:43px;object-fit:contain;flex:none;background:white;border-radius:4px;padding:2px}.bfa-brand-title{display:flex;flex-direction:column;font:normal 26px/1 "Times New Roman",Times,serif!important;letter-spacing:0!important;color:inherit}.bfa-brand-title small{font:600 9px/1.5 Arial,sans-serif;letter-spacing:2px;margin-top:3px}
+a.brand{display:inline-flex!important;align-items:center!important;text-decoration:none!important;white-space:nowrap!important;flex-shrink:0}
+header .nav{gap:12px!important}header .nav nav{flex-wrap:wrap;gap:12px!important}
+.bfa-download{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;margin:12px 0 18px;border-radius:7px;background:#173B65;color:#fff!important;text-decoration:none!important;font:600 13px Arial,sans-serif;max-width:100%;text-align:center}
+.bfa-download:hover{background:#3478B8}.bfa-download[hidden]{display:none!important}
+.bfa-disclaimer{font-size:12px;color:#62728a;border-top:1px solid #dce6f0;margin-top:25px;padding-top:16px}
+.sb-progress,.sb-resume,.sb-card-tools{display:none!important}
+.be-map-viewport,.academy-be-map-viewport{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.be-map-detail,.ai-detail{line-height:1.6}
+.be-flashcard,.ai-card{max-width:100%;touch-action:manipulation}
+body.academy-home{--gold:#3478B8;--forest:#173B65;--deep:#101D2D;--cream:#F7F9FC}
+body.academy-home .seal{display:none!important}
+body.academy-home .top,body.academy-home header{background:#173B65!important}
+body.academy-home .hero{background:linear-gradient(135deg,#F7F9FC,#EAF2FA)!important}
+body.academy-home .hero h1,body.academy-home .section-title h2{color:#173B65!important}
+body.academy-home .course{border-color:#DCE6F0!important}
+body.academy-home .cta{background:#173B65!important;color:white!important}
+body.academy-home .eyebrow,body.academy-home .num{color:#3478B8!important}
+body:not(.academy-home) header{background:#173B65!important;color:white!important}
+body:not(.academy-home) header .brand,body:not(.academy-home) header nav a{color:white!important}
+body:not(.academy-home) header .theme-toggle{color:inherit}
+body:not(.academy-home) h1,body:not(.academy-home) h2,body:not(.academy-home) h3{color:#173B65}
+@media(max-width:650px){header .nav{padding:12px 14px!important;justify-content:center!important}header .nav nav{width:100%;justify-content:center;order:3}header .nav .theme-toggle{font-size:11px}.bfa-est-logo{width:49px;height:39px}.bfa-brand-title{font-size:23px}.be-actions,.ai-actions{display:flex!important;gap:9px;flex-wrap:wrap}.be-actions button,.ai-actions button{flex:1;min-width:110px}.courses{grid-template-columns:1fr!important}.hero{padding:35px 18px!important}.be-main,main{max-width:100%}.be-map-tools{display:flex;flex-wrap:wrap;gap:6px}.be-map-tools button{font-size:11px}.panel{padding:22px!important}}
+body[data-theme="dark"] .bfa-download,html[data-theme="dark"] .bfa-download{background:#3478B8}
+body[data-theme="dark"] h1,body[data-theme="dark"] h2,body[data-theme="dark"] h3,html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3{color:#DCEBFF!important}
