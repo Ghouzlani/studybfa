@@ -26,3 +26,27 @@ body:not(.academy-home) h1,body:not(.academy-home) h2,body:not(.academy-home) h3
 @media(max-width:650px){header .nav{padding:12px 14px!important;justify-content:center!important}header .nav nav{width:100%;justify-content:center;order:3}header .nav .theme-toggle{font-size:11px}.bfa-est-logo{width:49px;height:39px}.bfa-brand-title{font-size:23px}.be-actions,.ai-actions{display:flex!important;gap:9px;flex-wrap:wrap}.be-actions button,.ai-actions button{flex:1;min-width:110px}.courses{grid-template-columns:1fr!important}.hero{padding:35px 18px!important}.be-main,main{max-width:100%}.be-map-tools{display:flex;flex-wrap:wrap;gap:6px}.be-map-tools button{font-size:11px}.panel{padding:22px!important}}
 body[data-theme="dark"] .bfa-download,html[data-theme="dark"] .bfa-download{background:#3478B8}
 body[data-theme="dark"] h1,body[data-theme="dark"] h2,body[data-theme="dark"] h3,html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] h3{color:#DCEBFF!important}
+
+/* v2.1.1 complete palette and mobile corrections */
+:root,html[data-theme="light"]{--academy-bg:#F7F9FC;--academy-card:#FFFFFF;--academy-text:#263648;--academy-muted:#60758A;--academy-line:#DCE6F0;--academy-hero:#EAF2FA;--academy-accent:#173B65;--academy-link:#3478B8;--academy-gold:#3478B8;--academy-tint:#EAF2FA;--border:#DCE6F0;--card:#FFFFFF;--navy:#173B65;--blue:#3478B8;--ink:#263648;--muted:#60758A;--line:#DCE6F0;--bg:#F7F9FC;--white:#FFFFFF;--surface:#FFFFFF;--surface-soft:#F1F6FC;--soft-blue:#EAF2FA;--nav-text:#53687D;--footer:#173B65;--gold:#3478B8;--forest:#173B65;--deep:#101D2D;--cream:#F7F9FC}
+html[data-theme="dark"]{color-scheme:dark;--academy-bg:#101D2D;--academy-card:#1B2C41;--academy-text:#F0F6FF;--academy-muted:#A8BDD2;--academy-line:#34516F;--academy-hero:#21364F;--academy-accent:#9ACBFF;--academy-link:#9ACBFF;--academy-gold:#9ACBFF;--academy-tint:#294560;--border:#34516F;--card:#1B2C41;--navy:#F0F6FF;--blue:#9ACBFF;--ink:#F0F6FF;--muted:#A8BDD2;--line:#34516F;--bg:#101D2D;--white:#1B2C41;--surface:#1B2C41;--surface-soft:#21364F;--soft-blue:#294560;--nav-text:#D1E1F2;--footer:#0C1725;--gold:#9ACBFF;--forest:#101D2D;--deep:#101D2D;--cream:#101D2D}
+html,body{background:var(--bg)!important;color:var(--ink)!important}
+body.academy-home .hero{background:linear-gradient(125deg,var(--academy-bg),var(--academy-hero))!important}
+body.academy-home .hero h1,body.academy-home .section-title h2{color:var(--ink)!important}
+body.academy-home .course,body.academy-home .panel,body.academy-home .subject-card{background:var(--surface)!important;border-color:var(--line)!important;color:var(--ink)!important}
+body.academy-home .course strong,body.academy-home .course .meta{color:var(--ink)!important}
+body.academy-home .top,body.academy-home header{background:#173B65!important}
+body.academy-home .top .brand,body.academy-home .top .brand *,body.academy-home .top nav a,body.academy-home .top .theme-toggle{color:#FFFFFF!important}
+header .theme-toggle,[data-theme-toggle]{border-color:#8DAED0!important;background:transparent!important;color:#FFFFFF!important}
+.bfa-est-logo{width:92px!important;height:72px!important;object-fit:contain!important;background:#fff!important;padding:4px!important;border-radius:6px!important}
+.bfa-brand-title{font-size:clamp(25px,3vw,32px)!important;color:#fff!important}
+.bfa-brand-title small{color:#D5E6F6!important}
+body.academy-home .hero-art .arch,body.academy-home .hero-art .inner-arch{border-color:#9BBDE0!important;background-color:#EAF2FA!important;color:#173B65!important}
+body.academy-home .hero-art .book,body.academy-home .hero-art .leaf{color:#173B65!important}
+body.academy-home .cta,.btn.primary{background:#173B65!important;color:#fff!important;border-color:#173B65!important}
+html[data-theme="dark"] body.academy-home .hero{background:linear-gradient(125deg,#101D2D,#21364F)!important}
+html[data-theme="dark"] body.academy-home .hero-art .arch,html[data-theme="dark"] body.academy-home .hero-art .inner-arch{background:#294560!important;border-color:#52769C!important}
+html[data-theme="dark"] body.academy-home .hero-art .book,html[data-theme="dark"] body.academy-home .hero-art .leaf{color:#EAF2FA!important}
+html[data-theme="dark"] body.academy-home .course strong,html[data-theme="dark"] body.academy-home .course .meta{color:#F0F6FF!important}
+html[data-theme="dark"] body.academy-home .cta{background:#3478B8!important}
+@media(max-width:650px){.bfa-est-logo{width:70px!important;height:56px!important}.bfa-brand-title{font-size:25px!important}header .nav{justify-content:space-between!important}header .nav nav{justify-content:flex-start!important;overflow-x:auto!important}.hero-art{max-width:100%!important}img,video,iframe{max-width:100%} .bfa-brand-unit{gap:9px!important}}
