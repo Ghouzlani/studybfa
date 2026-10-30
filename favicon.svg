@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="13" fill="#173B65"/><path d="M13 12h38v4H13z" fill="#9ACBFF"/><text x="32" y="41" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="22" fill="#fff">BFA</text><path d="M13 49h38v3H13z" fill="#9ACBFF"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Study BFA open book">
+  <rect width="64" height="64" rx="13" fill="#FFFFFF"/>
+  <path d="M32 20C25 14 17 14 9 17v28c8-3 16-2 23 4V20Z" fill="#8CC3EB"/>
+  <path d="M32 20c7-6 15-6 23-3v28c-8-3-16-2-23 4V20Z" fill="#6BA9DB"/>
+  <path d="M9 17v28c9-3 17-1 23 5 6-6 14-8 23-5V17" fill="none" stroke="#103D70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 20v30" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M7 48c10-2 18 0 25 5 7-5 15-7 25-5" fill="none" stroke="#103D70" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
