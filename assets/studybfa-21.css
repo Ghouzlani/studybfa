@@ -50,3 +50,20 @@ html[data-theme="dark"] body.academy-home .hero-art .book,html[data-theme="dark"
 html[data-theme="dark"] body.academy-home .course strong,html[data-theme="dark"] body.academy-home .course .meta{color:#F0F6FF!important}
 html[data-theme="dark"] body.academy-home .cta{background:#3478B8!important}
 @media(max-width:650px){.bfa-est-logo{width:70px!important;height:56px!important}.bfa-brand-title{font-size:25px!important}header .nav{justify-content:space-between!important}header .nav nav{justify-content:flex-start!important;overflow-x:auto!important}.hero-art{max-width:100%!important}img,video,iframe{max-width:100%} .bfa-brand-unit{gap:9px!important}}
+
+/* v2.1.2 approved typography, logo and universal 3D flashcards */
+.bfa-est-logo{width:92px!important;height:72px!important;padding:0!important;object-fit:cover!important;object-position:center!important;background:#fff!important;border-radius:6px!important}
+.be-sheet,.be-sheet p,.be-sheet li,.be-sheet h3,.ai-sheet,.ai-sheet p,.ai-sheet li,.ai-sheet h4,.be-question,.be-option,.be-feedback,.be-score,.ai-option,.ai-feedback,#ai-quiz-body,.be-flip-face,.be-flip-face strong,.be-card-chip,.be-card-hint,.ai-card,.ai-card strong,.ai-card span,.ai-card small,.ai-card-face,.ai-card-face strong{font-family:"Times New Roman",Times,serif!important}
+.be-sheet p,.ai-sheet p,.be-option,.ai-option{font-size:17px;line-height:1.65}
+.ai-card{display:block!important;position:relative!important;padding:0!important;min-height:300px;perspective:1400px;background:transparent!important;border:0!important;overflow:visible!important}
+.ai-card-inner{display:block;position:relative;width:100%;height:300px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.75,.2,1)}
+.ai-card.flipped .ai-card-inner{transform:rotateY(180deg)}
+.ai-card-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:16px;padding:27px 20px;border-radius:17px;border:1px solid #C9DCEF;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:auto;text-align:center;box-sizing:border-box}
+.ai-card-face strong{font-size:clamp(21px,3.5vw,27px);line-height:1.4;overflow-wrap:anywhere;margin:auto 0}
+.ai-card-front{background:#EAF2FA;color:#173B65}
+.ai-card-back{background:#173B65;color:#fff;transform:rotateY(180deg);border-color:#173B65}
+.ai-card-face span,.ai-card-face small{font-size:13px}
+html[data-theme="dark"] .ai-card-front{background:#294560;color:#F0F6FF;border-color:#52769C}
+html[data-theme="dark"] .ai-card-back{background:#173B65;color:#fff;border-color:#52769C}
+@media(max-width:650px){.bfa-est-logo{width:70px!important;height:56px!important}.ai-card,.ai-card-inner{min-height:320px;height:320px}.ai-card-face{padding:22px 16px}.ai-card-face strong{font-size:clamp(19px,5vw,24px)}}
+@media(prefers-reduced-motion:reduce){.ai-card-inner{transition:none}}
