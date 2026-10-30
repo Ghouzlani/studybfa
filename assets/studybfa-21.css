@@ -98,3 +98,13 @@ html[data-theme="dark"] body .ai-card .ai-card-front *{color:#F0F6FF!important}
 
 body .ai-card .ai-card-inner,body .ai-card .ai-card-face{visibility:visible!important}
 body .ai-card .ai-card-front strong,body .ai-card .ai-card-back strong{display:block!important;opacity:1!important}
+
+/* 2.1.5: revision text should read as an unboxed document */
+body .ai-sheet, body .be-sheet {
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:transparent!important;padding:0!important;
+  margin:18px 0 22px!important;
+}
+body .ai-sheet :is(p,li,h3,h4),body .be-sheet :is(p,li,h3,h4){
+  font-family:"Times New Roman",Times,serif!important;
+}
