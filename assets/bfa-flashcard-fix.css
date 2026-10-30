@@ -1,0 +1,13 @@
+/* Isolated flip implementation; uses the same structure as working Business English cards. */
+.bfa-flashcard{display:block;position:relative;width:100%;min-height:320px;padding:0;border:0;border-radius:22px;background:transparent;perspective:1400px;cursor:pointer;appearance:none;-webkit-appearance:none;outline-offset:4px;color:inherit;font-family:"Times New Roman",Times,serif}
+.bfa-flip-inner{position:relative;display:block;width:100%;height:320px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.75,.2,1)}
+.bfa-flashcard.is-flipped .bfa-flip-inner{transform:rotateY(180deg)}
+.bfa-flip-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:15px;padding:25px;border-radius:22px;box-sizing:border-box;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:auto;text-align:center}
+.bfa-flip-front{background:#EAF2FA;color:#173B65;border:1px solid #C9DCEF}
+.bfa-flip-back{background:#173B65;color:#fff;transform:rotateY(180deg);border:1px solid #52769C}
+.bfa-flip-face strong{display:block;font-family:"Times New Roman",Times,serif;font-size:clamp(21px,3.5vw,27px);line-height:1.4;overflow-wrap:anywhere;margin:auto 0;max-width:700px}
+.bfa-flip-face>span,.bfa-flip-face>small{font-family:"Times New Roman",Times,serif;font-size:13px;opacity:.85}
+html[data-theme="dark"] .bfa-flip-front{background:#294560;color:#F0F6FF;border-color:#52769C}
+html[data-theme="dark"] .bfa-flip-back{background:#173B65;color:#fff;border-color:#52769C}
+@media(max-width:650px){.bfa-flashcard,.bfa-flip-inner{min-height:330px;height:330px}.bfa-flip-face{padding:20px 16px}.bfa-flip-face strong{font-size:clamp(19px,5vw,24px)}}
+@media(prefers-reduced-motion:reduce){.bfa-flip-inner{transition:none}}
