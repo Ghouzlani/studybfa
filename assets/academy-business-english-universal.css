@@ -25,11 +25,7 @@ body :is(.ai-panel,.subject-panel,.tec-card){border:1px solid var(--academy-line
 body :is(.ai-panel,.subject-panel,.tec-card) h2,body :is(.ai-panel,.subject-panel,.tec-card) h3{font-family:Georgia,serif!important;color:var(--academy-text)!important}
 body .ai-video{background:var(--academy-hero)!important;border:1px solid var(--academy-line)!important;border-radius:14px!important}
 body .ai-sheet{background:var(--academy-card)!important;border:1px solid var(--academy-line)!important;border-radius:14px!important}
-body .ai-card{min-height:245px!important;border-radius:18px!important;box-shadow:0 10px 30px #00000010}
-body .ai-card:not(.flipped){background:#EAF2FA!important;color:#173B65!important;border:2px solid #b9d1bd!important}
-body .ai-card.flipped{background:#173B65!important;color:#fff!important;border:2px solid #9ACBFF!important}
-body .ai-card:not(.flipped) *{color:#173B65!important}
-body .ai-card.flipped *{color:#fff!important}
+/* Legacy single-face card styles removed: 3D faces controlled by studybfa-21.css */
 body .ai-top{color:var(--academy-gold)!important;font-weight:700}
 body .ai-option{display:block;width:100%;text-align:left;padding:18px!important;border-radius:13px!important;margin:10px 0!important;transition:background .15s,border-color .15s!important}
 body .ai-option.selected:not(.correct):not(.incorrect){background:#f5d47b!important;color:#21362b!important;border:3px solid #e5b84c!important;box-shadow:0 0 0 3px #e6bd5b40!important}

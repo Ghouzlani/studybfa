@@ -67,3 +67,34 @@ html[data-theme="dark"] .ai-card-front{background:#294560;color:#F0F6FF;border-c
 html[data-theme="dark"] .ai-card-back{background:#173B65;color:#fff;border-color:#52769C}
 @media(max-width:650px){.bfa-est-logo{width:70px!important;height:56px!important}.ai-card,.ai-card-inner{min-height:320px;height:320px}.ai-card-face{padding:22px 16px}.ai-card-face strong{font-size:clamp(19px,5vw,24px)}}
 @media(prefers-reduced-motion:reduce){.ai-card-inner{transition:none}}
+
+/* 2.1.3: explicit front/back faces; override old generic flashcard rules */
+body .ai-card,body .ai-card:not(.flipped),body .ai-card.flipped {
+ display:block!important;width:100%!important;height:300px!important;min-height:300px!important;
+ padding:0!important;border:0!important;background:transparent!important;
+ box-shadow:none!important;overflow:visible!important;perspective:1400px;
+}
+body .ai-card .ai-card-inner{
+ display:block!important;position:relative!important;width:100%!important;height:100%!important;
+ transform-style:preserve-3d!important;transition:transform .55s ease!important;
+}
+body .ai-card.flipped .ai-card-inner{transform:rotateY(180deg)!important}
+body .ai-card .ai-card-face{
+ display:flex!important;position:absolute!important;inset:0!important;
+ flex-direction:column!important;align-items:center!important;justify-content:space-between!important;
+ padding:25px 18px!important;box-sizing:border-box!important;opacity:1!important;
+ backface-visibility:hidden!important;-webkit-backface-visibility:hidden!important;
+ border-radius:17px!important;overflow:auto!important;gap:12px!important;
+}
+body .ai-card .ai-card-front{background:#EAF2FA!important;color:#173B65!important;border:1px solid #C9DCEF!important;transform:rotateY(0)!important}
+body .ai-card .ai-card-back{background:#173B65!important;color:white!important;border:1px solid #52769C!important;transform:rotateY(180deg)!important}
+body .ai-card .ai-card-front *{color:#173B65!important}
+body .ai-card .ai-card-back *{color:white!important}
+body .ai-card .ai-card-face strong{font-family:"Times New Roman",Times,serif!important;font-size:clamp(21px,3.5vw,27px)!important;line-height:1.4!important;opacity:1!important;margin:auto 0!important}
+body .ai-card .ai-card-face>span,body .ai-card .ai-card-face>small{font-size:13px!important;opacity:.85!important}
+html[data-theme="dark"] body .ai-card .ai-card-front{background:#294560!important;border-color:#52769C!important}
+html[data-theme="dark"] body .ai-card .ai-card-front *{color:#F0F6FF!important}
+@media(max-width:650px){body .ai-card,body .ai-card:not(.flipped),body .ai-card.flipped{height:320px!important;min-height:320px!important}}
+
+body .ai-card .ai-card-inner,body .ai-card .ai-card-face{visibility:visible!important}
+body .ai-card .ai-card-front strong,body .ai-card .ai-card-back strong{display:block!important;opacity:1!important}
