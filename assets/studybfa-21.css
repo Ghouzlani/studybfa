@@ -123,3 +123,45 @@ body .bfa-est-logo {
 body.academy-home .hero-art{display:none!important}
 body.academy-home .hero{grid-template-columns:minmax(0,1fr)!important}
 body.academy-home .hero-copy{max-width:760px!important}
+
+/* 2.1.8 — centered, balanced homepage hero and proportionate header mark */
+body.academy-home .hero{
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ min-height:360px!important;
+ padding:0 24px!important;
+}
+body.academy-home .hero-copy{
+ width:min(100%,800px)!important;
+ max-width:800px!important;
+ margin:0 auto!important;
+ padding:54px 12px!important;
+ display:flex!important;
+ flex-direction:column!important;
+ align-items:center!important;
+ justify-content:center!important;
+ text-align:center!important;
+}
+body.academy-home .hero-copy h1,
+body.academy-home .hero-copy p,
+body.academy-home .hero-copy .eyebrow{
+ text-align:center!important;
+}
+body.academy-home .hero-copy p{max-width:620px!important;margin-left:auto!important;margin-right:auto!important}
+body.academy-home .hero-copy .cta{align-self:center!important}
+body .bfa-brand-unit{gap:14px!important;align-items:center!important}
+body .bfa-est-logo{
+ width:122px!important;height:90px!important;
+ object-fit:contain!important;object-position:center!important;
+ background:transparent!important;padding:0!important;
+ border:0!important;border-radius:0!important;
+}
+body .bfa-brand-title{font-size:clamp(28px,3vw,34px)!important}
+@media(max-width:650px){
+ body.academy-home .hero{min-height:320px!important;padding:0 16px!important}
+ body.academy-home .hero-copy{padding:45px 0!important}
+ body .bfa-brand-unit{gap:8px!important}
+ body .bfa-est-logo{width:83px!important;height:65px!important}
+ body .bfa-brand-title{font-size:24px!important}
+}
