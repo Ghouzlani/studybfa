@@ -165,3 +165,19 @@ body .bfa-brand-title{font-size:clamp(28px,3vw,34px)!important}
  body .bfa-est-logo{width:83px!important;height:65px!important}
  body .bfa-brand-title{font-size:24px!important}
 }
+
+/* 2.1.9 — identical white branding across every page; larger EST mark */
+header .nav a.brand .bfa-brand-unit .bfa-brand-title,
+header .nav a.brand .bfa-brand-unit .bfa-brand-title small,
+body:not(.academy-home) header .nav a.brand .bfa-brand-unit .bfa-brand-title,
+body:not(.academy-home) header .nav a.brand .bfa-brand-unit .bfa-brand-title small {color:#fff!important;opacity:1!important;}
+header .nav .bfa-brand-unit{display:inline-flex!important;align-items:center!important;gap:15px!important;}
+header .nav img.bfa-est-logo{width:180px!important;height:112px!important;max-width:none!important;flex-shrink:0!important;object-fit:contain!important;object-position:center!important;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;}
+header .nav .bfa-brand-title{font-size:clamp(30px,3vw,42px)!important;line-height:1.02!important;}
+header .nav .bfa-brand-title small{font-size:11px!important;letter-spacing:2.4px!important;}
+@media(max-width:650px){
+ header .nav img.bfa-est-logo{width:115px!important;height:78px!important;}
+ header .nav .bfa-brand-unit{gap:7px!important;}
+ header .nav .bfa-brand-title{font-size:clamp(22px,5vw,28px)!important;}
+ header .nav .bfa-brand-title small{font-size:9px!important;}
+}
