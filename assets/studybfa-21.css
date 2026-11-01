@@ -255,3 +255,17 @@ header .nav .bfa-brand-title small{
  header .nav .bfa-brand-title{font-size:24px!important;margin-left:0!important}
  header .nav .bfa-brand-title small{font-size:8px!important}
 }
+
+/* 2.2.2 — restrained EST-led wordmark, compact header */
+header.top .nav { min-height:78px!important; padding-top:7px!important; padding-bottom:7px!important; }
+header .nav .bfa-brand-unit { display:inline-flex!important; gap:5px!important; align-items:center!important; }
+header .nav img.bfa-est-logo { width:137px!important; height:69px!important; max-width:none!important; object-fit:contain!important; margin:0!important; padding:0!important; filter:none!important; mix-blend-mode:normal!important; }
+header .nav .bfa-brand-title { font-family:Georgia,'Times New Roman',serif!important; font-style:italic!important; font-weight:400!important; font-size:23px!important; line-height:1.03!important; margin-left:0!important; white-space:nowrap!important; color:#fff!important; }
+header .nav .bfa-brand-title small { font-family:Arial,sans-serif!important; font-style:normal!important; font-weight:600!important; font-size:8px!important; letter-spacing:1.6px!important; margin-top:5px!important; }
+@media(max-width:650px) {
+ header.top .nav { min-height:0!important; padding:9px 12px!important; }
+ header .nav img.bfa-est-logo { width:99px!important; height:52px!important; }
+ header .nav .bfa-brand-unit { gap:4px!important; }
+ header .nav .bfa-brand-title { font-size:18px!important; }
+ header .nav .bfa-brand-title small { font-size:7px!important; letter-spacing:1.1px!important; }
+}
