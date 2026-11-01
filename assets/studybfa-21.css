@@ -269,3 +269,17 @@ header .nav .bfa-brand-title small { font-family:Arial,sans-serif!important; fon
  header .nav .bfa-brand-title { font-size:18px!important; }
  header .nav .bfa-brand-title small { font-size:7px!important; letter-spacing:1.1px!important; }
 }
+
+/* 2.2.3 — clean EST emblem, centered and connected to subordinate Study BFA wordmark */
+header.top .nav {min-height:76px!important;padding-top:7px!important;padding-bottom:7px!important}
+header .nav .bfa-brand-unit{gap:3px!important;align-items:center!important}
+header .nav img.bfa-est-logo{width:143px!important;height:53px!important;object-fit:contain!important;object-position:center!important;background:transparent!important;filter:none!important;mix-blend-mode:normal!important}
+header .nav .bfa-brand-title{font-size:21px!important;margin-left:0!important;font-style:italic!important;font-weight:400!important}
+header .nav .bfa-brand-title small{font-size:8px!important;margin-top:4px!important}
+@media(max-width:650px){
+ header.top .nav{min-height:0!important;padding:9px 12px!important}
+ header .nav img.bfa-est-logo{width:102px!important;height:40px!important}
+ header .nav .bfa-brand-unit{gap:2px!important}
+ header .nav .bfa-brand-title{font-size:17px!important}
+ header .nav .bfa-brand-title small{font-size:7px!important}
+}
