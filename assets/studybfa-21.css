@@ -283,3 +283,12 @@ header .nav .bfa-brand-title small{font-size:8px!important;margin-top:4px!import
  header .nav .bfa-brand-title{font-size:17px!important}
  header .nav .bfa-brand-title small{font-size:7px!important}
 }
+
+/* 2.2.4 — move ONLY the emblem to the far-left edge; wordmark stays in place */
+header.top{position:relative!important;}
+header .nav .bfa-brand-unit{padding-left:146px!important;gap:3px!important;}
+header .nav img.bfa-est-logo{position:absolute!important;left:12px!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;}
+@media(max-width:650px){
+ header .nav .bfa-brand-unit{padding-left:104px!important;gap:2px!important;}
+ header .nav img.bfa-est-logo{left:7px!important;}
+}
