@@ -108,3 +108,18 @@ body .ai-sheet, body .be-sheet {
 body .ai-sheet :is(p,li,h3,h4),body .be-sheet :is(p,li,h3,h4){
   font-family:"Times New Roman",Times,serif!important;
 }
+
+/* 2.1.7 — approved homepage cleanup, preserving learning components */
+body .bfa-est-logo {
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  padding:0!important;
+  object-fit:contain!important;
+  /* White in the original logo becomes transparent on navy; artwork appears light. */
+  filter:grayscale(1) invert(1) contrast(1.5)!important;
+  mix-blend-mode:screen!important;
+}
+body.academy-home .hero-art{display:none!important}
+body.academy-home .hero{grid-template-columns:minmax(0,1fr)!important}
+body.academy-home .hero-copy{max-width:760px!important}
