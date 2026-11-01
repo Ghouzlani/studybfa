@@ -221,3 +221,37 @@ header .nav .bfa-brand-title small{
  header .nav .bfa-brand-title{font-size:19px!important;margin-left:-7px!important}
  header .nav .bfa-brand-title small{font-size:8px!important;letter-spacing:1.1px!important}
 }
+
+/* 2.2.1: cropped transparent white EST artwork, normal header height */
+header.top .nav{
+ min-height:105px!important;
+ padding-top:10px!important;
+ padding-bottom:10px!important;
+ align-items:center!important;
+}
+header .nav .bfa-brand-unit{gap:0!important;align-items:center!important}
+header .nav img.bfa-est-logo{
+ width:190px!important;height:97px!important;
+ max-width:none!important;
+ object-fit:contain!important;
+ padding:0!important;margin:0!important;
+ background:none!important;border:0!important;
+ filter:none!important;mix-blend-mode:normal!important;
+}
+header .nav .bfa-brand-title{
+ font-family:"Times New Roman",Times,serif!important;
+ font-size:32px!important;
+ line-height:1.02!important;
+ margin-left:2px!important;
+ color:#fff!important;
+}
+header .nav .bfa-brand-title small{
+ font-size:10px!important;letter-spacing:2px!important;
+ margin-top:4px!important;color:#fff!important;
+}
+@media(max-width:650px){
+ header.top .nav{min-height:0!important;padding:10px 14px!important}
+ header .nav img.bfa-est-logo{width:128px!important;height:66px!important}
+ header .nav .bfa-brand-title{font-size:24px!important;margin-left:0!important}
+ header .nav .bfa-brand-title small{font-size:8px!important}
+}
