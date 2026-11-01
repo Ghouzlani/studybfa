@@ -181,3 +181,43 @@ header .nav .bfa-brand-title small{font-size:11px!important;letter-spacing:2.4px
  header .nav .bfa-brand-title{font-size:clamp(22px,5vw,28px)!important;}
  header .nav .bfa-brand-title small{font-size:9px!important;}
 }
+
+/* 2.2.0 — EST-led compact signature: the name visually emerges from the mark */
+header .nav .bfa-brand-unit{
+ display:inline-flex!important;
+ align-items:center!important;
+ gap:0!important;
+}
+header .nav img.bfa-est-logo{
+ width:235px!important;
+ height:142px!important;
+ max-width:none!important;
+ flex-shrink:0!important;
+ object-fit:contain!important;
+}
+header .nav .bfa-brand-title{
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:center!important;
+ margin-left:-14px!important;
+ font-family:"Times New Roman",Times,serif!important;
+ font-size:clamp(21px,1.9vw,28px)!important;
+ line-height:1.04!important;
+ white-space:nowrap!important;
+ color:#fff!important;
+}
+header .nav .bfa-brand-title small{
+ margin-top:5px!important;
+ font-size:9px!important;
+ letter-spacing:1.7px!important;
+ color:#fff!important;
+}
+@media(max-width:800px){
+ header .nav img.bfa-est-logo{width:150px!important;height:100px!important}
+ header .nav .bfa-brand-title{font-size:22px!important;margin-left:-10px!important}
+}
+@media(max-width:480px){
+ header .nav img.bfa-est-logo{width:115px!important;height:84px!important}
+ header .nav .bfa-brand-title{font-size:19px!important;margin-left:-7px!important}
+ header .nav .bfa-brand-title small{font-size:8px!important;letter-spacing:1.1px!important}
+}
