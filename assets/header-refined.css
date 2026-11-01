@@ -1,0 +1,83 @@
+/* ==========================================================================
+   Study BFA — En-tête affiné (v2.2.5)
+   Remplace visuellement tous les correctifs d'en-tête précédents ci-dessus.
+   Logo EST | Study BFA Académie à gauche — navigation + bouton thème à droite.
+   ========================================================================== */
+html body header:is(.top,*){
+  --hd-bg:#173B65; --hd-line:rgba(255,255,255,.10); --hd-text:#E6F0FA; --hd-accent:#9ACBFF;
+  position:relative!important; background:var(--hd-bg)!important; color:#fff!important;
+  border-bottom:1px solid var(--hd-line)!important; box-shadow:0 1px 0 rgba(10,25,45,.25),0 8px 24px -16px rgba(10,25,45,.55)!important;
+  padding:0!important;
+}
+html[data-theme="dark"] body header:is(.top,*){--hd-bg:#10263F;--hd-line:rgba(154,203,255,.16)}
+html body header:is(.top,*) .nav{
+  max-width:1200px!important; min-height:78px!important; margin:0 auto!important; padding:0 28px!important;
+  display:flex!important; flex-wrap:nowrap!important; align-items:center!important; justify-content:flex-start!important; gap:0!important;
+}
+/* — Marque — */
+html body header:is(.top,*) .nav a.brand{margin:0 auto 0 0!important;padding:0!important;display:inline-flex!important;align-items:center!important;text-decoration:none!important;flex:0 0 auto!important}
+html body header:is(.top,*) .nav .bfa-brand-unit{display:inline-flex!important;align-items:center!important;gap:0!important;padding:0!important;position:static!important}
+html body header:is(.top,*) .nav img.bfa-est-logo{
+  position:static!important; transform:none!important; margin:0!important; padding:0!important;
+  width:auto!important; height:40px!important; max-width:none!important; object-fit:contain!important;
+  background:transparent!important; border:0!important; border-radius:0!important; filter:none!important; mix-blend-mode:normal!important;
+  opacity:.95; flex:none!important;
+}
+html body header:is(.top,*) .nav .bfa-brand-title{
+  position:relative!important; margin:0 0 0 22px!important; padding:2px 0 2px 22px!important;
+  display:flex!important; flex-direction:column!important; justify-content:center!important;
+  font:italic 400 30px/1 Georgia,"Times New Roman",Times,serif!important; letter-spacing:-.005em!important; color:#fff!important; white-space:nowrap!important;
+}
+html body header:is(.top,*) .nav .bfa-brand-title::before{content:"";position:absolute;left:0;top:50%;width:1px;height:38px;transform:translateY(-50%);background:rgba(255,255,255,.28)}
+html body header:is(.top,*) .nav .bfa-brand-title small{
+  display:block!important; margin:7px 0 0 2px!important; font:600 10px/1 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;
+  font-style:normal!important; letter-spacing:.32em!important; text-transform:uppercase; color:var(--hd-accent)!important; opacity:.9!important;
+}
+/* — Navigation — */
+html body header:is(.top,*) .nav nav{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:30px!important;width:auto!important;order:0!important;margin:0 22px 0 0!important;padding:0!important;overflow:visible!important}
+html body header:is(.top,*) .nav nav a{
+  position:relative; padding:10px 1px!important; font:500 15px/1 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif!important;
+  letter-spacing:.01em; color:var(--hd-text)!important; text-decoration:none!important; white-space:nowrap; transition:color .2s ease;
+}
+html body header:is(.top,*) .nav nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;border-radius:2px;background:var(--hd-accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+html body header:is(.top,*) .nav nav a:hover,html body header:is(.top,*) .nav nav a:focus-visible{color:#fff!important}
+html body header:is(.top,*) .nav nav a:hover::after,html body header:is(.top,*) .nav nav a:focus-visible::after,html body header:is(.top,*) .nav nav a[aria-current]::after{transform:scaleX(1)}
+html body header:is(.top,*) .nav nav a[aria-current]{color:#fff!important}
+html body header:is(.top,*) .nav nav a:focus-visible{outline:2px solid var(--hd-accent);outline-offset:4px;border-radius:3px}
+/* — Bouton thème : icône seule — */
+html body header:is(.top,*) .nav .theme-toggle{
+  width:40px!important; height:40px!important; min-width:0!important; padding:0!important; margin:0!important; flex:none!important;
+  display:inline-flex!important; align-items:center!important; justify-content:center!important; gap:0!important;
+  font-size:0!important; line-height:0!important; color:#fff!important; background:rgba(255,255,255,.06)!important;
+  border:1px solid rgba(255,255,255,.26)!important; border-radius:50%!important; cursor:pointer; transition:background .2s ease,border-color .2s ease;
+}
+html body header:is(.top,*) .nav .theme-toggle::before{content:"";width:18px;height:18px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'/%3E%3C/svg%3E") center/contain no-repeat}
+html[data-theme="dark"] body header:is(.top,*) .nav .theme-toggle::before{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4.2'/%3E%3Cpath d='M12 2.5v2.2M12 19.3v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.4 19.6L6 18M18 6l1.6-1.6'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4.2'/%3E%3Cpath d='M12 2.5v2.2M12 19.3v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.4 19.6L6 18M18 6l1.6-1.6'/%3E%3C/svg%3E")}
+html body header:is(.top,*) .nav .theme-toggle:hover{background:rgba(255,255,255,.14)!important;border-color:rgba(255,255,255,.5)!important}
+html body header:is(.top,*) .nav .theme-toggle:focus-visible{outline:2px solid var(--hd-accent)!important;outline-offset:3px!important}
+/* — Tablette — */
+@media (max-width:960px){
+  html body header:is(.top,*) .nav{padding:0 20px!important}
+  html body header:is(.top,*) .nav nav{gap:22px!important;margin-right:16px!important}
+  html body header:is(.top,*) .nav img.bfa-est-logo{height:36px!important}
+  html body header:is(.top,*) .nav .bfa-brand-title{font-size:26px!important;margin-left:18px!important;padding-left:18px!important}
+}
+/* — Mobile : marque + bouton sur la 1re ligne, navigation sur la 2e — */
+@media (max-width:720px){
+  html body header:is(.top,*) .nav{flex-wrap:wrap!important;min-height:0!important;padding:12px 16px 0!important;row-gap:4px!important}
+  html body header:is(.top,*) .nav a.brand{order:1!important;margin:0 auto 0 0!important}
+  html body header:is(.top,*) .nav .theme-toggle{order:2!important;width:38px!important;height:38px!important}
+  html body header:is(.top,*) .nav nav{order:3!important;flex:0 0 100%!important;width:100%!important;justify-content:space-between!important;gap:12px!important;margin:6px 0 0!important;padding:0!important;border-top:1px solid var(--hd-line)}
+  html body header:is(.top,*) .nav nav a{font-size:14px!important;padding:12px 2px 13px!important}
+  html body header:is(.top,*) .nav nav a::after{bottom:0}
+  html body header:is(.top,*) .nav img.bfa-est-logo{height:30px!important}
+  html body header:is(.top,*) .nav .bfa-brand-title{font-size:22px!important;margin-left:13px!important;padding-left:13px!important}
+  html body header:is(.top,*) .nav .bfa-brand-title::before{height:28px}
+  html body header:is(.top,*) .nav .bfa-brand-title small{font-size:8px!important;letter-spacing:.28em!important;margin-top:5px!important}
+}
+@media (max-width:370px){
+  html body header:is(.top,*) .nav img.bfa-est-logo{height:26px!important}
+  html body header:is(.top,*) .nav .bfa-brand-title{font-size:19px!important;margin-left:10px!important;padding-left:10px!important}
+  html body header:is(.top,*) .nav nav a{font-size:13px!important}
+}
+@media (prefers-reduced-motion:reduce){html body header:is(.top,*) .nav nav a::after,html body header:is(.top,*) .nav .theme-toggle{transition:none}}
