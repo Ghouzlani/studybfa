@@ -1,0 +1,126 @@
+/* Study BFA Académie — page d'accueil
+   Feuille de style autonome : remplace les cinq feuilles empilées
+   (academie, academie-home, academie-unified, studybfa-v2, studybfa-21)
+   qui se contredisaient avec des !important. */
+
+:root{
+  color-scheme:light;
+  --bg:#F7F9FC;
+  --band:#EAF2FA;
+  --surface:#FFFFFF;
+  --head:#173B65;
+  --text:#263648;
+  --muted:#53687D;
+  --line:#D5E0EC;
+  --accent:#2B6AA3;
+  --button:#173B65;
+  --button-text:#FFFFFF;
+  --hover:#EEF4FA;
+  --serif:"Times New Roman",Times,"Liberation Serif",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#101D2D;
+  --band:#162A40;
+  --surface:#1B2C41;
+  --head:#F0F6FF;
+  --text:#DCE7F3;
+  --muted:#A8BDD2;
+  --line:#2F4A67;
+  --accent:#9ACBFF;
+  --button:#3478B8;
+  --button-text:#FFFFFF;
+  --hover:#182A3F;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--sans);overflow-x:hidden}
+h1,h2,h3{margin:0;color:var(--head);font-family:var(--serif);font-weight:400}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:24px}
+
+.skip{position:absolute;left:12px;top:-60px;z-index:10;background:var(--button);color:var(--button-text);padding:10px 14px;border-radius:6px;text-decoration:none}
+.skip:focus{top:12px}
+
+/* ---------- En-tête (identique aux pages de matières) ---------- */
+.site-header{background:#173B65;color:#fff}
+.bar{max-width:1120px;margin-inline:auto;padding:12px 24px;display:flex;align-items:center;gap:12px 28px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:12px;color:#fff;text-decoration:none;flex:none}
+.logo{height:48px;width:auto;background:#fff;padding:3px;border-radius:4px;object-fit:contain;display:block}
+.brand-name{display:flex;flex-direction:column;font:400 1.75rem/1 var(--serif);color:#fff}
+.brand-name small{font:500 .75rem/1.4 var(--sans);color:#D5E6F6;margin-top:3px}
+.site-header nav{display:flex;gap:6px 24px;margin-left:auto;flex-wrap:wrap}
+.site-header nav a{color:#fff;text-decoration:none;font-weight:600;font-size:.9375rem;padding:6px 0;border-bottom:2px solid transparent}
+.site-header nav a:hover{border-bottom-color:#9ACBFF}
+.site-header :focus-visible{outline-color:#fff}
+.theme-toggle{font:600 .875rem/1 var(--sans);color:#fff;background:transparent;border:1px solid #8DAED0;border-radius:99px;padding:9px 16px;cursor:pointer;white-space:nowrap}
+.theme-toggle:hover{background:rgba(255,255,255,.1)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--band);border-bottom:1px solid var(--line);padding:64px 0 60px}
+.hero h1{font-size:clamp(2.25rem,5.4vw,3.75rem);line-height:1.1;max-width:17em;text-wrap:balance}
+.lead{font-size:1.1875rem;line-height:1.65;color:var(--muted);max-width:36em;margin-top:22px}
+.button{display:inline-block;margin-top:30px;background:var(--button);color:var(--button-text);text-decoration:none;font-weight:600;font-size:1rem;padding:14px 22px;border-radius:6px;border:1px solid var(--button)}
+.button:hover{filter:brightness(1.12)}
+.button.secondary{background:transparent;color:var(--head);border-color:var(--head);margin-top:0;white-space:nowrap}
+.button.secondary:hover{background:var(--hover);filter:none}
+
+/* ---------- Index des matières ---------- */
+.subjects{padding-top:64px;padding-bottom:72px}
+.subjects h2{font-size:clamp(1.75rem,3.6vw,2.5rem);line-height:1.2}
+.section-note{color:var(--muted);margin-top:10px;max-width:40em}
+.group{font:600 1.0625rem/1.3 var(--sans);color:var(--head);margin:44px -16px 0;padding:0 16px 12px;border-bottom:2px solid var(--head)}
+.toc{list-style:none;margin:0;padding:0}
+.row{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:6px 32px;padding:24px 16px;margin-inline:-16px;border-bottom:1px solid var(--line)}
+.row:hover{background:var(--hover)}
+.row-head a{font:400 clamp(1.375rem,2.4vw,1.75rem)/1.25 var(--serif);color:var(--head);text-decoration:none}
+.row-head a::after{content:"";position:absolute;inset:0}
+.row:hover .row-head a{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.row:has(a:focus-visible){outline:3px solid var(--accent);outline-offset:-3px}
+.row-head a:focus-visible{outline:none}
+.count{display:block;font-size:.875rem;color:var(--muted);margin-top:4px}
+.chapters{margin:0;padding-left:1.5em;color:var(--text)}
+.chapters li{padding:1px 0}
+.chapters li::marker{color:var(--muted);font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.8125rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 9px;margin-left:6px;white-space:nowrap}
+.about{color:var(--muted)}
+.soon .row-head a{color:var(--muted)}
+.soon .row:hover .row-head a{color:var(--head)}
+
+/* ---------- Projet ---------- */
+.project{background:var(--band);border-top:1px solid var(--line);padding:56px 0}
+.project-inner{display:flex;align-items:center;justify-content:space-between;gap:24px 40px}
+.project h2{font-size:clamp(1.625rem,3vw,2rem);line-height:1.2}
+.project p{color:var(--muted);margin-top:12px;max-width:38em}
+
+/* ---------- Pied de page ---------- */
+.site-footer{background:#173B65;color:#E4EEF8;font-size:.875rem;padding:22px 0}
+html[data-theme="dark"] .site-footer{background:#0C1725}
+.foot{display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap}
+
+/* ---------- Mobile ---------- */
+@media(max-width:820px){
+  .row{grid-template-columns:1fr;gap:12px}
+  .project-inner{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:650px){
+  .wrap{padding-inline:18px}
+  .bar{padding:12px 18px;gap:10px 12px}
+  .logo{height:40px}
+  .brand-name{font-size:1.5rem}
+  .theme-toggle{margin-left:auto}
+  .site-header nav{order:3;width:100%;margin-left:0;gap:4px 16px}
+  .site-header nav a{font-size:.875rem}
+  .group{margin-inline:-12px;padding-inline:12px}
+  .hero{padding:44px 0 44px}
+  .lead{font-size:1.0625rem}
+  .subjects{padding-top:48px;padding-bottom:52px}
+  .row{padding:20px 12px;margin-inline:-12px}
+  .button{width:100%;text-align:center}
+  .button.secondary{width:auto}
+}
