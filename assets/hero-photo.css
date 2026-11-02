@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Study BFA — Hero plein écran avec photo de l'école (v2.2.6)
+   Chargé en dernier : remplace uniquement l'arrière-plan et l'alignement
+   du hero de la page d'accueil. Texte aligné à gauche, comme l'en-tête.
+   ========================================================================== */
+html body.academy-home .hero,
+html[data-theme="light"] body.academy-home .hero,
+html[data-theme="dark"] body.academy-home .hero{
+  display:flex!important; align-items:center!important; justify-content:flex-start!important;
+  min-height:600px!important;
+  padding:72px max(28px,calc((100vw - 1200px)/2 + 28px))!important;
+  background:
+    linear-gradient(90deg,rgba(16,29,45,.97) 0%,rgba(16,29,45,.90) 38%,rgba(16,29,45,.45) 70%,rgba(16,29,45,.15) 100%),
+    url("/assets/est-school.jpg") 62% 45%/cover no-repeat,
+    #101D2D!important;
+}
+html body.academy-home .hero .hero-copy{
+  width:100%!important; max-width:640px!important; margin:0!important; padding:0!important;
+  display:flex!important; flex-direction:column!important; align-items:flex-start!important; justify-content:center!important;
+  text-align:left!important;
+}
+html body.academy-home .hero .hero-copy h1,
+html body.academy-home .hero .hero-copy p,
+html body.academy-home .hero .hero-copy .eyebrow{text-align:left!important}
+html body.academy-home .hero .hero-copy p{margin-left:0!important;margin-right:0!important;max-width:520px!important}
+html body.academy-home .hero .hero-copy .cta{align-self:flex-start!important}
+/* Lisibilité sur photo : mêmes couleurs en mode clair et sombre */
+html body.academy-home .hero .hero-copy h1{color:#fff!important}
+html body.academy-home .hero .hero-copy h1 em{color:#B2D3B6!important}
+html body.academy-home .hero .hero-copy .eyebrow{color:#9ACBFF!important}
+html body.academy-home .hero .hero-copy p{color:#E3EEF8!important}
+html body.academy-home .hero .hero-copy .cta{background:#3478B8!important;color:#fff!important}
+html body.academy-home .hero .hero-copy .cta:hover{background:#2B6AA3!important}
+
+@media(max-width:650px){
+  html body.academy-home .hero,
+  html[data-theme="light"] body.academy-home .hero,
+  html[data-theme="dark"] body.academy-home .hero{
+    min-height:660px!important; align-items:flex-end!important;
+    padding:220px 18px 48px!important;
+    background:
+      linear-gradient(180deg,rgba(16,29,45,.25) 0%,rgba(16,29,45,.80) 45%,rgba(16,29,45,.96) 100%),
+      url("/assets/est-school.jpg") 54% 0/cover no-repeat,
+      #101D2D!important;
+  }
+}
