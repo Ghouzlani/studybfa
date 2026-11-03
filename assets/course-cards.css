@@ -2,9 +2,9 @@
    Times New Roman italique, couleur d'accent. Ne touche que .meta des cartes. */
 html body.academy-home .course .meta,
 html[data-theme="dark"] body.academy-home .course .meta{
-  font:italic 400 20px/1.3 "Times New Roman",Times,"Liberation Serif",serif!important;
+  font:italic 400 17px/1.3 "Times New Roman",Times,"Liberation Serif",serif!important;
   letter-spacing:.01em;
-  margin-top:8px!important;
+  margin-top:6px!important;
 }
 html body.academy-home .course .meta{color:#2B6AA3!important}
 html[data-theme="dark"] body.academy-home .course .meta{color:#9ACBFF!important}
