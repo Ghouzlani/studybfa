@@ -1,0 +1,13 @@
+
+/* v2.3: accessible flashcard text contrast; flip/animation preserved. */
+.be-flip-front,.bfa-flip-front{color:#172c49!important}
+.be-flip-back,.bfa-flip-back{color:#ffffff!important}
+.be-flip-front strong,.bfa-flip-front strong{color:#172c49!important;opacity:1!important}
+.be-flip-back strong,.bfa-flip-back strong{color:#ffffff!important;opacity:1!important}
+.be-flip-front .be-card-chip,.be-flip-front .be-card-hint,.be-flip-front .be-card-glyph{color:#314f72!important;opacity:1!important}
+.be-flip-back .be-card-chip,.be-flip-back .be-card-hint,.be-flip-back .be-card-glyph{color:#e2edf9!important;opacity:1!important}
+.bfa-flip-front>span,.bfa-flip-front>small{color:#314f72!important;opacity:1!important}
+.bfa-flip-back>span,.bfa-flip-back>small{color:#e2edf9!important;opacity:1!important}
+html[data-theme="dark"] .be-flip-front,html[data-theme="dark"] .bfa-flip-front{color:#f7faff!important}
+html[data-theme="dark"] .be-flip-front strong,html[data-theme="dark"] .bfa-flip-front strong{color:#f7faff!important}
+html[data-theme="dark"] .be-flip-front .be-card-chip,html[data-theme="dark"] .be-flip-front .be-card-hint,html[data-theme="dark"] .be-flip-front .be-card-glyph,html[data-theme="dark"] .bfa-flip-front>span,html[data-theme="dark"] .bfa-flip-front>small{color:#e4edff!important;opacity:1!important}
