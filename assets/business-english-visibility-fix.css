@@ -1,0 +1,36 @@
+/* v2.6: Business English contrast only; retain layout and flip animation. */
+/* The v2.3 global contrast sheet forces pale text in dark mode. Keep the
+   original colorful card concept but ensure each face has a matching surface. */
+html[data-theme="dark"] .be-flashcard .be-flip-front{background:#233b50!important;border-color:#4b6a82!important;color:#f7fbff!important}
+html[data-theme="dark"] .be-flashcard[data-tone="lavender"] .be-flip-front{background:#302e4c!important;border-color:#615c8a!important}
+html[data-theme="dark"] .be-flashcard[data-tone="amber"] .be-flip-front{background:#453629!important;border-color:#80644b!important}
+html[data-theme="dark"] .be-flashcard[data-tone="coral"] .be-flip-front{background:#472e3d!important;border-color:#855b72!important}
+html[data-theme="dark"] .be-flashcard .be-flip-front strong{color:#ffffff!important;opacity:1!important}
+html[data-theme="dark"] .be-flashcard .be-flip-front .be-card-chip,
+html[data-theme="dark"] .be-flashcard .be-flip-front .be-card-chip span,
+html[data-theme="dark"] .be-flashcard .be-flip-front .be-card-hint,
+html[data-theme="dark"] .be-flashcard .be-flip-front .be-card-glyph{color:#dceaff!important;opacity:1!important}
+html[data-theme="light"] .be-flashcard .be-flip-front strong{color:#172c49!important}
+html[data-theme="light"] .be-flashcard .be-flip-front .be-card-chip,
+html[data-theme="light"] .be-flashcard .be-flip-front .be-card-hint,
+html[data-theme="light"] .be-flashcard .be-flip-front .be-card-glyph{color:#314f72!important}
+/* Correct and incorrect answers must remain legible even when selected. */
+html[data-theme="light"] .be-quiz-stage .be-option.is-correct,
+html[data-theme="light"] .be-quiz-stage .be-option.is-correct:has(input:checked){background:#e1f3e6!important;border:2px solid #27824a!important;color:#16452a!important;box-shadow:none!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-incorrect,
+html[data-theme="light"] .be-quiz-stage .be-option.is-incorrect:has(input:checked){background:#fce6e6!important;border:2px solid #bc3942!important;color:#79222a!important;box-shadow:none!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-correct .be-option-text{color:#16452a!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-incorrect .be-option-text{color:#79222a!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-correct .be-option-letter{background:#27824a!important;border-color:#27824a!important;color:#fff!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-incorrect .be-option-letter{background:#bc3942!important;border-color:#bc3942!important;color:#fff!important}
+html[data-theme="light"] .be-quiz-stage .be-option.is-correct .be-option-status{color:#20723e!important}
+html[data-theme="light"] .be-quiz-stage .be-feedback-good{background:#e1f3e6!important;border-color:#27824a!important;color:#16452a!important}
+html[data-theme="light"] .be-quiz-stage .be-feedback-try{background:#fff0dc!important;border-color:#ba7620!important;color:#67410d!important}
+html[data-theme="light"] .be-quiz-stage .be-feedback-good p,
+html[data-theme="light"] .be-quiz-stage .be-feedback-try p{color:inherit!important}
+/* Maintain green/red feedback on dark surfaces too. */
+html[data-theme="dark"] .be-quiz-stage .be-option.is-correct{background:#1c4736!important;border:2px solid #65bc87!important;color:#e8ffef!important}
+html[data-theme="dark"] .be-quiz-stage .be-option.is-incorrect{background:#502b35!important;border:2px solid #ed8c96!important;color:#fff0f1!important}
+html[data-theme="dark"] .be-quiz-stage .be-option.is-correct .be-option-text{color:#e8ffef!important}
+html[data-theme="dark"] .be-quiz-stage .be-option.is-incorrect .be-option-text{color:#fff0f1!important}
+html[data-theme="dark"] .be-quiz-stage .be-option.is-correct .be-option-status{color:#9ce6b5!important}
