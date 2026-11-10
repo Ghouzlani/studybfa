@@ -27,3 +27,5 @@ Les synthèses fonctionnent de la même manière avec examens: [...].
 IMPORTANT : ne remplacez pas les dossiers matieres/ et assets/ par un fichier unique.
 
 FISCALITÉ : 3 chapitres, 30 flashcards, 24 questions et 3 cartes mentales interactives. Les vidéos sont à ajouter après publication.
+
+Version 2.13 : Fiscalité — nouveau chapitre 3 Prorata et régularisations ; ancien chapitre 3 conservé en chapitre 4 ; PDF, 18 flashcards, 15 questions et carte mentale.
