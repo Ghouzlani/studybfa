@@ -6,7 +6,7 @@ function node(tag,cls,txt){const e=document.createElement(tag);if(cls)e.classNam
 function chooseChapter(i){ch=i;card=0;flipped=false;qi=0;selected=-1;checked=false;score=0;done=false;missed=[];
 document.querySelectorAll('[data-ai-chapter]').forEach(b=>{const active=+b.dataset.aiChapter===ch;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
 $('ai-chapter-number').textContent='CHAPITRE '+(chapters[ch].number||ch+1);$('ai-chapter-title').textContent=chapters[ch].title;
-const rev=$('ai-revision');rev.replaceChildren();chapters[ch].notes.forEach(([title,body])=>{{const section=node('section','sb-revision-section');section.append(node('h4','',title));const bits=body.split(/;\s+/).filter(Boolean);if(bits.length>=3){const list=node('ul','sb-revision-list');bits.forEach(t=>list.append(node('li','',t)));section.append(list)}else section.append(node('p','',body));rev.append(section)}});
+const rev=$('ai-revision');rev.replaceChildren();chapters[ch].notes.forEach(([title,body])=>{{const section=node('section','sb-revision-section');section.append(node('h4','',title));const bits=body.split(/;\s+/).filter(Boolean);if(bits.length>=3){const numbered=bits.every(v=>/^\d+[.]\s+/.test(v));const list=node(numbered?'ol':'ul','sb-revision-list');bits.forEach(t=>list.append(node('li','',numbered?t.replace(/^\d+[.]\s+/, ''):t))); section.append(list)}else section.append(node('p','',body));rev.append(section)}});
 chooseTab('video')}
 function chooseTab(t){tab=t;document.querySelectorAll('[data-ai-tab]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.aiTab===t)));
 ['video','cards','quiz','map'].forEach(x=>{$('ai-'+x).hidden=x!==t});if(t==='cards')renderCard();if(t==='quiz')renderQuiz();if(t==='map')renderMap()}

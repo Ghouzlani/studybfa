@@ -1,0 +1,71 @@
+/* Study BFA v2.9 — readable text and complete responsive mind maps */
+.sb-map-accessible{width:100%;max-width:100%;overflow:visible;padding:12px 0 20px;box-sizing:border-box}
+.sb-map-core{margin:0 auto 20px;max-width:520px;padding:18px 24px;background:#173b65;color:#fff!important;border-radius:18px;text-align:center;font-size:1.15rem;font-weight:800;line-height:1.45;overflow-wrap:break-word}
+.sb-map-tree{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;position:relative}
+.sb-map-node{min-width:0;max-width:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:9px;align-items:flex-start;text-align:left;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:auto;border:2px solid #397bd7;border-left:6px solid #397bd7;border-radius:15px;padding:16px 18px;background:#f4f8ff;color:#182d48;cursor:pointer;font:inherit;line-height:1.45}
+.sb-map-node:nth-child(4n+2){border-color:#8061c8}.sb-map-node:nth-child(4n+3){border-color:#078578}.sb-map-node:nth-child(4n+4){border-color:#b36a15}
+.sb-map-node strong{font-size:1rem;color:inherit!important;white-space:normal}.sb-map-node span{font-size:.88rem;color:#324960!important;display:block;white-space:normal;overflow:visible;line-height:1.5}
+.sb-map-node.is-selected{outline:3px solid #2464ac;outline-offset:2px;background:#e4f0ff}.sb-map-node:focus-visible{outline:3px solid #1759a9;outline-offset:3px}
+html[data-theme=dark] .sb-map-node,body.dark .sb-map-node{background:#172c42;color:#f6faff;border-color:#8db8ff}
+html[data-theme=dark] .sb-map-node span,body.dark .sb-map-node span{color:#d7e7f8!important}
+html[data-theme=dark] .sb-map-node.is-selected,body.dark .sb-map-node.is-selected{background:#264b70}
+@media(max-width:680px){.sb-map-tree{grid-template-columns:minmax(0,1fr)}.sb-map-node{padding:14px 16px}.sb-map-core{font-size:1rem}}
+/* Text-sized contrast fix; accent remains for decorative elements */
+html[data-theme=dark] .ai-kicker,html[data-theme=dark] .hero-kicker,html[data-theme=dark] .eyebrow{color:#a9d2ff!important}
+html:not([data-theme=dark]) .ai-kicker,html:not([data-theme=dark]) .hero-kicker,html:not([data-theme=dark]) .eyebrow{color:#17538b!important}
+
+.sb-revision-section{border:1px solid var(--academy-line,#cbd5e1);border-radius:14px;padding:16px 18px;margin:14px 0;background:var(--academy-card,transparent)}.sb-revision-section h4{margin:0 0 10px}.sb-revision-list{padding-left:22px;margin:8px 0;line-height:1.65}.sb-revision-list li{margin:5px 0}
+html[data-theme="dark"] .academy-home .eyebrow,html[data-theme="dark"] .academy-home .num,html[data-theme="dark"] .academy-home .open,html[data-theme="dark"] .academy-home .seal{color:#a9d2ff!important}
+html:not([data-theme="dark"]) .academy-home .eyebrow,html:not([data-theme="dark"]) .academy-home .num,html:not([data-theme="dark"]) .academy-home .open,html:not([data-theme="dark"]) .academy-home .seal{color:#16517c!important}
+/* The connector terminates above the branch grid, never behind node text. */
+.sb-map-core{position:relative}
+.sb-map-core::after{content:"";position:absolute;left:50%;bottom:-20px;height:20px;border-left:2px solid #7299c4}
+.sb-map-tree{padding-top:7px}
+@media(max-width:680px){.sb-map-core::after{bottom:-20px}}
+
+/* Additional accessibility refinements verified with actual browser contrast tests. */
+
+/* Readability audit: normal text >= 4.5:1, including lesson shells and placeholders. */
+html:not([data-theme="dark"]) .ai-main .back,
+html:not([data-theme="dark"]) .ai-chapter-head span,
+html:not([data-theme="dark"]) .ai-top,
+html:not([data-theme="dark"]) .ai-sheet h4,
+html:not([data-theme="dark"]) .chapter-choice b,
+html:not([data-theme="dark"]) .subject-kicker,
+html:not([data-theme="dark"]) .subject-hero .kicker,
+html:not([data-theme="dark"]) .ai-main .kicker,
+html:not([data-theme="dark"]) .business-kicker {color:#145685!important}
+html:not([data-theme="dark"]) .subject-shell .back,
+html:not([data-theme="dark"]) .subject-back {color:#145685!important}
+html:not([data-theme="dark"]) .subject-shell .subject-subtitle,
+html:not([data-theme="dark"]) .subject-hero p,
+html:not([data-theme="dark"]) .subject-shell .text-muted,
+html:not([data-theme="dark"]) .subject-shell .muted {color:#42566c!important}
+html:not([data-theme="dark"]) .empty {color:#4f6072!important}
+html[data-theme="dark"] .empty {color:#b7c7d9!important}
+html:not([data-theme="dark"]) .profile .arrow,
+html:not([data-theme="dark"]) .arrow {color:#4d6276!important}
+html[data-theme="dark"] .profile .arrow,
+html[data-theme="dark"] .arrow {color:#d0e1f0!important}
+html[data-theme="dark"] .ico {color:#c3e0fa!important}
+html:not([data-theme="dark"]) .photo-note {color:#506275!important}
+/* Light-theme subtitle paragraphs against pale blue lesson heroes. */
+html:not([data-theme="dark"]) .ai-hero ~ .chapter-selector small {color:#3e5066}
+/* Extra keyboard focus visibility across themes */
+:where(a,button,[tabindex]):focus-visible {outline:3px solid #df8b23!important;outline-offset:3px}
+html:not([data-theme="dark"]) .ai-hero p,
+html:not([data-theme="dark"]) .chapter-choice small,
+html:not([data-theme="dark"]) .be-chapter-choice small {color:#42566c!important;opacity:1!important}
+html:not([data-theme="dark"]) body:not(.academy-home) .back {color:#145685!important}
+html:not([data-theme="dark"]) body:not(.academy-home) .kicker {color:#145685!important}
+html:not([data-theme="dark"]) body:not(.academy-home) main :is(.intro,.ai-hero,.subject-intro,.be-intro,.tec-hero) p{color:#42566c!important}
+html:not([data-theme="dark"]) .ai-detail p {color:#42566c!important}
+/* Business English: real light-mode card chips and small quiz labels */
+html:not([data-theme="dark"]) .be-flip-front #card-category,
+html:not([data-theme="dark"]) .be-flip-front #card-number {color:#185785!important}
+html:not([data-theme="dark"]) .be-eyebrow {color:#145685!important}
+html:not([data-theme="dark"]) .be-question-type,
+html:not([data-theme="dark"]) .be-option:not(:has(input:checked)):not(.is-correct):not(.is-incorrect) .be-option-letter {color:#42566c!important}
+/* Feedback badge contrast after checking answers in dark Business English quiz. */
+html[data-theme="dark"] .be-option.is-correct .be-option-letter {background:#b4efce!important;color:#113923!important;border-color:#b4efce!important}
+html[data-theme="dark"] .be-option.is-incorrect .be-option-letter {background:#ffd5dd!important;color:#591d2b!important;border-color:#ffd5dd!important}

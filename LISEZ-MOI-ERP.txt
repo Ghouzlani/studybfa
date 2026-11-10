@@ -1,7 +1,12 @@
-STUDY BFA — VERSION AVEC SYSTÈME D’INFORMATION & ERP
+STUDY BFA ACADÉMIE — VERSION 2.9
 
-Décompressez cette archive et publiez tous les fichiers à la racine de votre dépôt GitHub Pages.
-La matière est accessible à /matieres/systeme-information-erp/
-3 chapitres, 3 fiches, 30 flashcards, 24 questions et 3 cartes mentales.
-Les vidéos sont des emplacements réservés, à remplacer après leur enregistrement.
-Les autres matières et le design du site ont été conservés.
+Système d’information & ERP : six chapitres numérotés sans interruption (1 à 6).
+Chapitre 5 : Processus métier et Workflow (notions précédentes du cours).
+Chapitre 6 : Workflow : avantages et fonctionnalités (cours du 10 novembre 2026).
+
+Chapitre 6 : avantages, règle de Pareto (80/20), LLM et agents IA (n8n, Zapier, Dify, CrewAI, Lindy cités sans descriptions individuelles), fonctionnalités nécessaires d’un logiciel d’automatisation de Workflow.
+
+Chaque chapitre comporte une fiche de révision, des flashcards, un quiz et une carte mentale. Les PDF sont dans /fiches. Le site conserve son identité graphique et son mode clair/sombre.
+
+DÉPLOIEMENT : extraire le ZIP et déposer son contenu directement à la racine du dépôt GitHub. Conserver les dossiers assets/, matieres/, fiches/ et porteur-du-projet/.
+Les vidéos non encore publiées sont des espaces réservés.

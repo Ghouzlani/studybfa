@@ -1,11 +1,11 @@
 STUDY BFA — INSTALLATION
 
-Le dossier « studybfa » contient tous les fichiers du site.
-Pour GitHub : ouvrez ce dossier et transférez SON CONTENU à la racine du dépôt (pas le dossier « studybfa » lui-même).
+Cette archive contient tous les fichiers du site à sa racine.
+Pour GitHub : transférez le CONTENU de cette archive directement à la racine du dépôt.
 Conservez les chemins des fichiers :
 - index.html
 - porteur-du-projet/index.html
-- matieres/<nom-de-la-matiere>/index.html (9 dossiers)
+- matieres/<nom-de-la-matiere>/index.html (10 dossiers)
 - assets/matieres.css
 - assets/matieres.js
 - assets/ressources.js
