@@ -29,3 +29,9 @@ IMPORTANT : ne remplacez pas les dossiers matieres/ et assets/ par un fichier un
 FISCALITÉ : 3 chapitres, 30 flashcards, 24 questions et 3 cartes mentales interactives. Les vidéos sont à ajouter après publication.
 
 Version 2.13 : Fiscalité — nouveau chapitre 3 Prorata et régularisations ; ancien chapitre 3 conservé en chapitre 4 ; PDF, 18 flashcards, 15 questions et carte mentale.
+
+Version 2.14 : fiches de révision refaites (web + PDF) à partir d'une seule source.
+Après toute modification d'un fichier assets/*-content.js, exécutez depuis la racine du site :
+    pip install reportlab && python3 tools/build_fiches.py
+Cela régénère assets/studybfa-revision-v210.js (fiches web) et tous les PDF de fiches/.
+Correction : la page Entrepreneuriat utilise maintenant ses propres PDF (data-matiere corrigé).
