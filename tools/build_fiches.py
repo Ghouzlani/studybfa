@@ -12,6 +12,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, Table, TableStyle, KeepTogether
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from fiche_summaries import blocks as curate_blocks
 
 SUBJECTS = {  # fichier de contenu -> (slug = data-matiere, nom affiché)
  'ai-content.js': ('intelligence-artificielle', 'Intelligence artificielle'),
@@ -70,25 +71,25 @@ NAVY, BLUE, LIGHT, LINE = [colors.HexColor(x) for x in ('#173354', '#3478B8', '#
 INK, MUTED = colors.HexColor('#1F2D3D'), colors.HexColor('#5F7087')
 AMB, AMBL, GRN, GRNL = [colors.HexColor(x) for x in ('#E0A526', '#FFF4DC', '#3E8E5A', '#EEF7F0')]
 W = A4[0] - 36 * mm
-def PS(n, **k): return ParagraphStyle(n, **{'fontName': 'S', 'fontSize': 9.3, 'leading': 13.2, 'textColor': INK, **k})
-P_B, P_CELL = PS('b'), PS('c', fontSize=8.8, leading=12.2)
-P_H = PS('h', fontName='SB', fontSize=10.5, textColor=NAVY, spaceBefore=9, spaceAfter=4)
-P_SM = PS('sm', fontSize=8.5, textColor=MUTED, leading=12)
-P_F = PS('f', fontName='F', fontSize=13, leading=18, textColor=NAVY, alignment=TA_CENTER)
+def PS(n, **k): return ParagraphStyle(n, **{'fontName': 'S', 'fontSize': 10.1, 'leading': 14.5, 'textColor': INK, **k})
+P_B, P_CELL = PS('b'), PS('c', fontSize=9.6, leading=13.6)
+P_H = PS('h', fontName='SB', fontSize=11.5, textColor=NAVY, spaceBefore=11, spaceAfter=5)
+P_SM = PS('sm', fontSize=9.2, textColor=MUTED, leading=13.5)
+P_F = PS('f', fontName='F', fontSize=14.0, leading=19, textColor=NAVY, alignment=TA_CENTER)
 P_CHIP = PS('chip', fontName='SB', fontSize=8.5, leading=11, alignment=TA_CENTER)
 P_ARR = PS('arr', fontName='SB', fontSize=11, textColor=BLUE, alignment=TA_CENTER)
-P_W, P_D = PS('w', fontName='SB', fontSize=8.8, textColor=colors.white), PS('d', fontName='SB', fontSize=8.8, textColor=NAVY)
-P_G = PS('g', fontSize=8.5, textColor=MUTED, leading=12)
-P_LG = PS('lg', fontName='SB', fontSize=7.5, textColor=GRN)
+P_W, P_D = PS('w', fontName='SB', fontSize=9.5, textColor=colors.white), PS('d', fontName='SB', fontSize=9.5, textColor=NAVY)
+P_G = PS('g', fontSize=9.2, textColor=MUTED, leading=13.5)
+P_LG = PS('lg', fontName='SB', fontSize=8.3, textColor=GRN)
 P_LI = PS('li', leftIndent=13, bulletIndent=1, spaceAfter=2)
 
 def box(flow, bg, bar, w=W):
-    t = Table([[flow]], colWidths=[w]); t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), bg), ('LINEBEFORE', (0, 0), (0, -1), 3, bar), ('PADDING', (0, 0), (-1, -1), 8), ('LEFTPADDING', (0, 0), (-1, -1), 11)])); return t
+    t = Table([[flow]], colWidths=[w]); t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), bg), ('LINEBEFORE', (0, 0), (0, -1), 3, bar), ('PADDING', (0, 0), (-1, -1), 9), ('LEFTPADDING', (0, 0), (-1, -1), 11)])); return t
 def grid(items, cols=2):
     cells = [Paragraph('<b>%s</b><br/>%s' % (esc(a), esc(b)), P_CELL) for a, b in items]
     if len(cells) % cols: cells += [''] * (cols - len(cells) % cols)
     t = Table([cells[i:i + cols] for i in range(0, len(cells), cols)], colWidths=[W / cols] * cols)
-    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), LIGHT), ('INNERGRID', (0, 0), (-1, -1), 2.5, colors.white), ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('PADDING', (0, 0), (-1, -1), 7)])); return t
+    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), LIGHT), ('INNERGRID', (0, 0), (-1, -1), 2.5, colors.white), ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('PADDING', (0, 0), (-1, -1), 9)])); return t
 def flow(parts):
     out = []
     for k in range(0, len(parts), 4):
@@ -103,12 +104,12 @@ def flow(parts):
 def stack(items):
     sh = [NAVY, BLUE, colors.HexColor('#8FB6DD')]
     t = Table([[Paragraph('<b>%s</b>' % esc(a), P_W if i < 2 else P_D), Paragraph(esc(b), P_CELL)] for i, (a, b) in enumerate(items)], colWidths=[W * .3, W * .7])
-    ts = [('VALIGN', (0, 0), (-1, -1), 'MIDDLE'), ('PADDING', (0, 0), (-1, -1), 8), ('LINEBELOW', (0, 0), (-1, -2), 2, colors.white)]
+    ts = [('VALIGN', (0, 0), (-1, -1), 'MIDDLE'), ('PADDING', (0, 0), (-1, -1), 9), ('LINEBELOW', (0, 0), (-1, -2), 2, colors.white)]
     for i in range(len(items)): ts += [('BACKGROUND', (0, i), (0, i), sh[i]), ('BACKGROUND', (1, i), (1, i), LIGHT)]
     t.setStyle(TableStyle(ts)); return t
 def compare(items):
     t = Table([[Paragraph('<b>%s</b>' % esc(a), P_W) for a, _ in items], [Paragraph(esc(b), P_CELL) for _, b in items]], colWidths=[W / len(items)] * len(items))
-    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), NAVY), ('BACKGROUND', (0, 1), (-1, 1), LIGHT), ('INNERGRID', (0, 0), (-1, -1), 2, colors.white), ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('PADDING', (0, 0), (-1, -1), 8)])); return t
+    t.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), NAVY), ('BACKGROUND', (0, 1), (-1, 1), LIGHT), ('INNERGRID', (0, 0), (-1, -1), 2, colors.white), ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('PADDING', (0, 0), (-1, -1), 9)])); return t
 
 def block(b):
     t = b['type']; h = Paragraph(esc(b.get('title', '')), P_H)
@@ -134,8 +135,8 @@ def make_pdf(path, subject, num, title, blocks):
         c.setFillColor(MUTED); c.setFont('S', 7); c.drawString(18 * mm, 9 * mm, 'Study BFA Académie · Projet pédagogique étudiant indépendant · Non officiel'); c.drawRightString(A4[0] - 18 * mm, 9 * mm, 'Chapitre %s · page %d' % (num, doc.page)); c.restoreState()
     doc = BaseDocTemplate(path, pagesize=A4, title='%s - Chapitre %s : %s' % (subject, num, title), author='Study BFA', subject='Fiche de révision')
     doc.addPageTemplates([PageTemplate(frames=[Frame(18 * mm, 15 * mm, W, A4[1] - 38 * mm, leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)], onPage=deco)])
-    story = [Paragraph('CHAPITRE %s' % num, PS('k', fontName='SB', fontSize=8, textColor=BLUE)), Spacer(1, 3), Paragraph(esc(title), PS('t', fontName='F', fontSize=19, leading=23, textColor=NAVY)),
-             Spacer(1, 4), Paragraph('Aide-mémoire : les explications détaillées sont dans la vidéo du chapitre.', P_SM), Spacer(1, 4)]
+    story = [Paragraph('CHAPITRE %s' % num, PS('k', fontName='SB', fontSize=8, textColor=BLUE)), Spacer(1, 3), Paragraph(esc(title), PS('t', fontName='F', fontSize=19.5, leading=24, textColor=NAVY)),
+             Spacer(1, 4), Paragraph('Synthèse des notions essentielles du chapitre : définitions, méthodes et exemples.', P_SM), Spacer(1, 4)]
     for b in blocks: story += block(b)
     doc.build(story)
 
@@ -173,6 +174,7 @@ if __name__ == '__main__':
                 text = n[1]
                 for pat in DROP: text = re.sub(pat, '', text)
                 blocks.append(classify(n[0], text.strip()))
+            blocks = curate_blocks(slug, i+1, c)
             sheets[slug].append(blocks); stats.update(b['type'] for b in blocks)
             make_pdf('fiches/%s-chapitre-%s.pdf' % (slug, num), name, num, c['title'], blocks); n_pdf += 1
     js = 'window.STUDY_BFA_SHEETS=' + json.dumps(sheets, ensure_ascii=False, separators=(',', ':')) + ';' + RENDER

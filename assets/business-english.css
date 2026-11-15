@@ -94,3 +94,9 @@ html[data-theme="dark"] .be-quiz-stage .be-question-banner{background:var(--surf
 .chapter-choice.active{border:2px solid #3478B8;box-shadow:0 3px 14px #387f8222}
 .chapter-video-only{margin:20px 0}.chapter-video-only[hidden],#business-chapter-1[hidden]{display:none!important}
 @media(max-width:560px){.chapter-selector{grid-template-columns:1fr}.chapter-choice{padding:13px}}
+
+/* Study BFA revision cards share content with the Business English PDF. */
+.be-rev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 19px}.be-rev-item{background:var(--soft-blue);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.be-rev-item strong{display:block;color:var(--navy);font-size:0.95em;margin-bottom:5px}.be-rev-item p{line-height:1.45}.be-sheet .be-process p+p{margin-top:7px}@media(max-width:620px){.be-rev-grid{grid-template-columns:1fr}}
+
+/* Study BFA revision cards share content with the Business English PDF. */
+.be-rev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 19px}.be-rev-item{background:var(--soft-blue);border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.be-rev-item strong{display:block;color:var(--navy);font-size:0.95em;margin-bottom:5px}.be-rev-item p{line-height:1.45}.be-sheet .be-process p+p{margin-top:7px}@media(max-width:620px){.be-rev-grid{grid-template-columns:1fr}}
