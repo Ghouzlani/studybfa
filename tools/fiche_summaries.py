@@ -92,7 +92,7 @@ def blocks(slug,idx,c):
   G('Retraitements à comprendre',('Charge non déductible comptabilisée','Réintégration : augmente le RF.'),('Produit non imposable comptabilisé','Déduction extracomptable : diminue le RF.'),('Produit imposable non comptabilisé','Ajout au RF s’il est fiscalement exigible.')),
   E('Calcul complet','RC = 150 000 DH ; CND = 12 000 DH ; PNI = 5 000 DH ; PI non comptabilisé = 3 000 DH.', 'RF = 150 000 + 12 000 − 5 000 + 3 000 = 160 000 DH.'),
   G('Conditions générales des charges dans les notes',('Justification','Charge comptabilisée, justifiée et liée à l’exploitation.'),('Rattachement','Exercice concerné et charge supportée définitivement.'),('Modération','Montant non exagéré, selon les dispositions applicables.')),
-  G('Cas à retenir',('Services / travaux','Service rendu ; travaux exécutés, sous conditions.'),('Cadeaux publicitaires (cours)','Livrés, marqués au nom/signe de l’entreprise, valeur unitaire < 100 DH TTC.')),
+  G('Cas à retenir',('Services / travaux','Service rendu ; travaux exécutés, sous conditions.'),('Cadeaux publicitaires (cours)','Livrés, marqués au nom, au sigle ou à la marque de l’entreprise, valeur unitaire de 100 DH au plus.')),
   TIP('Réflexe d’examen','Une charge déjà admise a réduit le RC : ne jamais la déduire une seconde fois lors du passage au RF.')]
  if s==('tec',1):return [
   G('Information et communication',('Information','Contenu : fait, donnée, connaissance.'),('Communication','Transmission et interprétation du message dans un contexte donné.')),
