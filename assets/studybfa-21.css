@@ -292,3 +292,10 @@ header .nav img.bfa-est-logo{position:absolute!important;left:12px!important;top
  header .nav .bfa-brand-unit{padding-left:104px!important;gap:2px!important;}
  header .nav img.bfa-est-logo{left:7px!important;}
 }
+
+/* Concise editorial attribution and voluntary correction contact. */
+.sb-quality-footer{max-width:1080px;margin:30px auto 12px;padding:14px 18px;border-top:1px solid var(--border,rgba(116,139,158,.35));display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.86rem;line-height:1.5}
+.sb-quality-footer p{margin:0;color:var(--muted,var(--text,#53657b));opacity:.82}
+.sb-quality-footer a{color:var(--accent,#3478b8);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.sb-quality-footer a:focus-visible{outline:3px solid #73b9ef;outline-offset:4px;border-radius:2px}
+@media(max-width:640px){.sb-quality-footer{align-items:flex-start;flex-direction:column;margin-top:24px;padding:16px 10px}}
