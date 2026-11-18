@@ -6,6 +6,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 
 const subjects = {
+ 'analyse-financiere':'analyse-financiere-content.js',
  'fiscalite':'fiscalite-content.js',
  'systeme-information-erp':'erp-content.js',
  'tec':'tec-content.js',
@@ -64,10 +65,10 @@ for(const [slug,filename] of Object.entries(subjects)){
     chapterCount++;cardCount+=chapter.cards.length;questionCount+=chapter.quiz.length;
   });
 }
-assert.equal(chapterCount,29,'Unexpected structured chapter count');
-assert.equal(cardCount,333,'Unexpected number of retained flashcards');
-assert.equal(questionCount,273,'Unexpected number of retained quiz questions');
-for(const slug of ['analyse-financiere','marche-financier','comptabilite-approfondie']){
+assert.equal(chapterCount,33,'Unexpected structured chapter count');
+assert.equal(cardCount,375,'Unexpected number of retained flashcards');
+assert.equal(questionCount,297,'Unexpected number of retained quiz questions');
+for(const slug of ['marche-financier','comptabilite-approfondie']){
   assert(fs.existsSync(path.join('matieres',slug,'index.html')),'Missing upcoming subject');
 }
 const visual=fs.readFileSync('assets/studybfa-revision-v210.js','utf8');
@@ -76,7 +77,7 @@ assert(!visual.includes('STUDY_BFA_SHEETS='),'Duplicate revision dataset must no
 console.log('Validated '+chapterCount+' chapters, '+cardCount+' flashcards, '+questionCount+' quiz questions.');
 
 // Every multi-chapter subject must expose the compact, accessible chapter picker.
-for(const slug of ['business-english','comptabilite-gestion','entrepreneuriat-business-plan','fiscalite','intelligence-artificielle','systeme-information-erp','tec']){
+for(const slug of ['analyse-financiere','business-english','comptabilite-gestion','entrepreneuriat-business-plan','fiscalite','intelligence-artificielle','systeme-information-erp','tec']){
   const html=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
   assert(html.includes('studybfa-chapter-picker.js'), 'Missing chapter picker script: '+slug);
   assert(html.includes('studybfa-chapter-picker.css'), 'Missing chapter picker styles: '+slug);
