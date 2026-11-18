@@ -71,3 +71,11 @@ const visual=fs.readFileSync('assets/studybfa-revision-v210.js','utf8');
 assert(!visual.includes('MutationObserver'), 'Revision overlay must not replace real notes');
 assert(!visual.includes('STUDY_BFA_SHEETS='),'Duplicate revision dataset must not be published');
 console.log('Validated '+chapterCount+' chapters, '+cardCount+' flashcards, '+questionCount+' quiz questions.');
+
+// Every multi-chapter subject must expose the compact, accessible chapter picker.
+for(const slug of ['business-english','comptabilite-gestion','entrepreneuriat-business-plan','fiscalite','intelligence-artificielle','systeme-information-erp','tec']){
+  const html=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
+  assert(html.includes('studybfa-chapter-picker.js'), 'Missing chapter picker script: '+slug);
+  assert(html.includes('studybfa-chapter-picker.css'), 'Missing chapter picker styles: '+slug);
+  assert(html.includes('chapter-selector'), 'Missing original chapter controls: '+slug);
+}
