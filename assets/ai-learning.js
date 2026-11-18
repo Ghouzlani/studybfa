@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     quiz = shuffledQuiz(chapters[chapter].quiz);
   }
   function activateTab(name, focus = false) {
+    if (name === 'exercises' && !(chapters[chapter].exercises || []).length) return;
     document.querySelectorAll('[data-ai-tab]').forEach(button => {
       const active = button.dataset.aiTab === name;
       button.setAttribute('aria-selected', String(active));
@@ -151,16 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-ai-chapter]').forEach(button =>
     button.addEventListener('click',()=>activateChapter(Number(button.dataset.aiChapter))));
   const tabs=[...document.querySelectorAll('[data-ai-tab]')];
-  tabs.forEach((button,i)=>{
+  tabs.forEach(button=>{
     button.addEventListener('click',()=>activateTab(button.dataset.aiTab));
     button.addEventListener('keydown',event=>{
+      const visible=tabs.filter(tab=>!tab.hidden);
+      const i=visible.indexOf(button);
+      if(i<0) return;
       let next;
-      if(event.key==='ArrowRight') next=(i+1)%tabs.length;
-      else if(event.key==='ArrowLeft') next=(i+tabs.length-1)%tabs.length;
+      if(event.key==='ArrowRight') next=(i+1)%visible.length;
+      else if(event.key==='ArrowLeft') next=(i+visible.length-1)%visible.length;
       else if(event.key==='Home') next=0;
-      else if(event.key==='End') next=tabs.length-1;
+      else if(event.key==='End') next=visible.length-1;
       else return;
-      event.preventDefault();activateTab(tabs[next].dataset.aiTab,true);
+      event.preventDefault();activateTab(visible[next].dataset.aiTab,true);
     });
   });
   $('ai-card').addEventListener('click',()=>{flipped=!flipped;renderCard();});
