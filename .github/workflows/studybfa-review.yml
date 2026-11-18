@@ -1,0 +1,63 @@
+name: StudyBFA revision build and quality checks
+
+on:
+  push:
+    branches:
+      - fix/consistent-learning-revision-20261118
+    paths:
+      - 'assets/**'
+      - 'tools/**'
+      - 'matieres/**'
+      - '.github/workflows/studybfa-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout proposed changes (not main)
+        uses: actions/checkout@v4
+        with:
+          ref: fix/consistent-learning-revision-20261118
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF dependencies
+        run: python -m pip install reportlab pypdf
+      - name: Validate JavaScript syntax
+        run: |
+          for file in assets/*.js; do node --check "$file"; done
+          node --check tools/check_site.mjs
+      - name: Generate canonical prose-only PDFs
+        run: python tools/build_fiches.py
+      - name: Check published lessons and quizzes
+        run: node tools/check_site.mjs
+      - name: Verify PDF pages and extractable text
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pypdf import PdfReader
+          paths=list(Path('fiches').glob('*.pdf'))
+          assert len(paths)>=27, f'Expected >=27 PDF files, found {len(paths)}'
+          for item in paths:
+              pdf=PdfReader(str(item))
+              assert pdf.pages, f'Missing pages: {item}'
+              assert all(len(page.extract_text().strip())>90 for page in pdf.pages), f'Blank or almost blank PDF page: {item}'
+          print('Checked',len(paths),'PDFs and their text layers')
+          PY
+      - name: Commit generated PDFs only on the review branch
+        run: |
+          git config user.name "studybfa-review-bot"
+          git config user.email "studybfa-review-bot@users.noreply.github.com"
+          git add fiches/*.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Build readable revision PDFs from approved chapter notes"
+            git push origin HEAD:fix/consistent-learning-revision-20261118
+          else
+            echo "PDFs already in sync."
+          fi
