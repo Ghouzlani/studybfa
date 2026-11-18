@@ -55,8 +55,8 @@ for(const [slug,filename] of Object.entries(subjects)){
     assert(Array.isArray(chapter.quiz)&&chapter.quiz.length>0,'Missing quiz: '+slug+'/'+number);
     assert(Array.isArray(chapter.map)&&chapter.map.length>0,'Missing map: '+slug+'/'+number);
     assert(!Object.hasOwn(chapter,'exercises'),'Exercise data must remain unpublished until requested: '+slug+'/'+number);
-    const allLearningText=JSON.stringify([chapter.notes,chapter.cards,chapter.quiz]);
-    assert(!/\\bFLK\\b/.test(allLearningText),'Named FLK exercise leaked into lesson content: '+slug+'/'+number);
+    const allLearningText=JSON.stringify([chapter.notes,chapter.cards,chapter.quiz,chapter.map]);
+    assert(!/\bFLK\b/i.test(allLearningText),'Named FLK exercise leaked into lesson content: '+slug+'/'+number);
     for(const [title,text] of chapter.notes){
       assert(typeof title==='string'&&title.trim(),'Empty lesson heading');
       assert(typeof text==='string'&&text.trim(),'Empty paragraph');
@@ -77,8 +77,8 @@ for(const [slug,filename] of Object.entries(subjects)){
   });
 }
 assert.equal(chapterCount,44,'Unexpected structured chapter count');
-assert.equal(cardCount,507,'Unexpected number of retained flashcards');
-assert.equal(questionCount,394,'Unexpected number of retained quiz questions');
+assert.equal(cardCount,491,'Unexpected number of retained flashcards');
+assert.equal(questionCount,390,'Unexpected number of retained quiz questions');
 for(const slug of ['comptabilite-approfondie']){
   assert(fs.existsSync(path.join('matieres',slug,'index.html')),'Missing upcoming subject');
 }
@@ -125,14 +125,25 @@ for(const [slug,filename] of Object.entries(subjects)){
   const context={window:{}};
   vm.runInNewContext(source,context,{timeout:3000});
   const chapters=context.window.STUDY_BFA_AI;
+  const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const seenAnswers=new Map();
+  const seenPrompts=new Map();
   chapters.forEach((c,i)=>{
+    for(const [q,a] of c.cards){
+      const normalizedAnswer=norm(a),normalizedPrompt=norm(q);
+      if(seenAnswers.has(normalizedAnswer))throw new Error('Duplicate flashcard learning answer: '+slug+' #'+(i+1)+' (already '+seenAnswers.get(normalizedAnswer)+')');
+      if(seenPrompts.has(normalizedPrompt))throw new Error('Duplicate flashcard learning question: '+slug+' #'+(i+1)+' (already '+seenPrompts.get(normalizedPrompt)+')');
+      seenAnswers.set(normalizedAnswer,i+1);
+      seenPrompts.set(normalizedPrompt,i+1);
+    }
     const cardQuestions=c.cards.map(x=>x[0]);
     const quizQuestions=c.quiz.map(x=>x[0]);
     assert.equal(new Set(cardQuestions).size,cardQuestions.length, 'Repeated flashcard prompt: '+slug+'/'+(i+1));
     assert.equal(new Set(quizQuestions).size,quizQuestions.length, 'Repeated quiz prompt: '+slug+'/'+(i+1));
     const html=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
     assert(!html.includes('data-ai-tab="exercises"') && !html.includes('id="ai-exercises-body"'),'Exercise section must not appear before requested: '+slug);
-    const isCaseAmount=(prompt)=>/\\d[\\d\\s]*\\s*DH\\b/i.test(prompt) && !/seuil|plafond|valeur unitaire|100 DH|5 000 DH|50 000 DH/i.test(prompt);
+    assert(!/exercices corrigés/i.test(JSON.stringify(c)),'Obsolete exercises text: '+slug+'/'+(i+1));
+    const isCaseAmount=(prompt)=>/\d[\d\s]*\s*DH\b/i.test(prompt) && !/seuil|plafond|valeur unitaire|100 DH|5 000 DH|50 000 DH/i.test(prompt);
     assert(!cardQuestions.some(isCaseAmount),'Numerical case in a flashcard: '+slug+'/'+(i+1));
     assert(!quizQuestions.some(isCaseAmount),'Numerical case in a quiz: '+slug+'/'+(i+1));
     for(const [prompt,answer] of c.cards){
@@ -146,6 +157,10 @@ for(const [slug,filename] of Object.entries(subjects)){
     }
   });
 }
+// Regression tests: these checks were accidentally double-escaped in older versions.
+const sampleCase='Pourquoi la trésorerie nette est-elle de 7 000 DH ?';
+assert(/\d[\d\s]*\s*DH\b/i.test(sampleCase),'Numerical-exercise detector is broken');
+assert(/\bFLK\b/i.test('Application FLK'),'Named-case detector is broken');
 const englishJs=fs.readFileSync('assets/business-english.js','utf8');
 const englishMatch=englishJs.match(/const cards=(\[[\s\S]*?\]);const questions=(\[[\s\S]*?\]);let index=/);
 assert(englishMatch,'Business English dataset not found');
@@ -159,6 +174,33 @@ englishQuiz.forEach((q,i)=>{
   assert(q[3]?.trim(),'Missing Business English explanation: '+i);
 });
 const englishSheet=fs.readFileSync('matieres/business-english/index.html','utf8');
+assert(englishSheet.includes('lang="en"'),'English lesson must declare English page language');
 assert(englishSheet.includes('be-sheet be-sheet-prose'),'Business English fiche must use readable prose');
 assert(!englishSheet.includes('be-rev-grid'),'Business English fiche still contains visual grids');
 console.log('Clear-question regression checks passed: '+(cardCount+englishCards.length)+' cards, '+(questionCount+englishQuiz.length)+' quizzes.');
+
+const teachingPages=[
+  'index.html','porteur-du-projet/index.html',
+  ...Object.keys(subjects).map(slug=>'matieres/'+slug+'/index.html'),
+  'matieres/business-english/index.html','matieres/comptabilite-approfondie/index.html',
+  ...subjectsWithVideoRecap.map(slug=>'matieres/'+slug+'/synthese/index.html')
+];
+for(const page of new Set(teachingPages)){
+ const html=fs.readFileSync(page,'utf8');
+ assert(html.includes('<title>')||html.includes('<title '),'Missing page title: '+page);
+ assert(html.includes('viewport'),'Missing viewport meta: '+page);
+ for(const [,raw] of html.matchAll(/\b(?:href|src)\s*=\s*["']([^"']+)["']/g)){
+  if(/^(?:https?:|mailto:|tel:|data:|#|javascript:)/i.test(raw))continue;
+  const clean=raw.split(/[?#]/)[0];
+  if(!clean)continue;
+  const parts=clean.startsWith('/')?[]:page.split('/').slice(0,-1);
+  for(const part of clean.split('/')){
+   if(part==='..')parts.pop();
+   else if(part&&part!=='.')parts.push(part);
+  }
+  let target=parts.join('/');
+  if(clean==='/'||clean.endsWith('/'))target+=(target?'/':'')+'index.html';
+  assert(fs.existsSync(target),'Broken internal link from '+page+' to '+raw+' ('+target+')');
+ }
+}
+console.log('Validated all '+new Set(teachingPages).size+' page navigation and asset references.');
