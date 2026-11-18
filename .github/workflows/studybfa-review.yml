@@ -3,7 +3,8 @@ name: StudyBFA revision build and quality checks
 on:
   push:
     branches:
-      - fix/academic-cards-cpc-integration-20261118
+      - feature/marche-financier-sans-exercices-20261118
+      - main
     paths:
       - 'assets/**'
       - 'tools/**'
@@ -18,10 +19,10 @@ jobs:
   generate-and-verify:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout proposed changes (not main)
+      - name: Checkout current branch
         uses: actions/checkout@v4
         with:
-          ref: fix/academic-cards-cpc-integration-20261118
+          ref: ${{ github.ref_name }}
           persist-credentials: true
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -50,14 +51,14 @@ jobs:
               assert all(len(page.extract_text().strip())>90 for page in pdf.pages), f'Blank or almost blank PDF page: {item}'
           print('Checked',len(paths),'PDFs and their text layers')
           PY
-      - name: Commit generated PDFs only on the review branch
+      - name: Commit generated PDFs on the checked branch
         run: |
           git config user.name "studybfa-review-bot"
           git config user.email "studybfa-review-bot@users.noreply.github.com"
           git add fiches/*.pdf
           if ! git diff --cached --quiet; then
             git commit -m "Build readable revision PDFs from approved chapter notes"
-            git push origin HEAD:fix/academic-cards-cpc-integration-20261118
+            git push origin HEAD:"$GITHUB_REF_NAME"
           else
             echo "PDFs already in sync."
           fi
