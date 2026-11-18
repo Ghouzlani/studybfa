@@ -23,6 +23,14 @@ for(const [slug,filename] of Object.entries(subjects)){
   const html=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
   const declared=[...html.matchAll(/data-ai-chapter=["']\d+["']/g)].length;
   assert.equal(declared,window.STUDY_BFA_AI.length,'Chapter buttons not aligned: '+slug);
+  if(slug==='systeme-information-erp') {
+    assert.equal(declared,10,'Professor SI support requires 10 accessible chapters');
+    assert(window.STUDY_BFA_AI[0].notes.some(x=>x[1].includes('ACSI')),'Use professor acronym ACSI');
+    assert(window.STUDY_BFA_AI[7].notes.some(x=>x[0].includes('XOR')),'Advanced BPMN gateway content is missing');
+    assert(window.STUDY_BFA_AI[8].notes.some(x=>x[1].includes('B2A')),'Partner relationships missing');
+    assert(window.STUDY_BFA_AI[9].notes.some(x=>x[1].includes('IoT')),'IoT chapter missing');
+    assert(!window.STUDY_BFA_AI.some(c=>c.notes.some(n=>/\bPareto\b|CrewAI|Dify/.test(n[1]))),'Unattributed outside-topic content present');
+  }
   assert(html.includes('/assets/ai-learning.js?v=221'), 'Outdated learning controller: '+slug);
   const seen=new Set();
   window.STUDY_BFA_AI.forEach((chapter,i)=>{
@@ -53,9 +61,9 @@ for(const [slug,filename] of Object.entries(subjects)){
     chapterCount++;cardCount+=chapter.cards.length;questionCount+=chapter.quiz.length;
   });
 }
-assert.equal(chapterCount,26,'Unexpected structured chapter count');
-assert.equal(cardCount,284,'Unexpected number of retained flashcards');
-assert.equal(questionCount,234,'Unexpected number of retained quiz questions');
+assert.equal(chapterCount,29,'Unexpected structured chapter count');
+assert.equal(cardCount,333,'Unexpected number of retained flashcards');
+assert.equal(questionCount,273,'Unexpected number of retained quiz questions');
 for(const slug of ['analyse-financiere','marche-financier','comptabilite-approfondie']){
   assert(fs.existsSync(path.join('matieres',slug,'index.html')),'Missing upcoming subject');
 }

@@ -3,7 +3,7 @@ name: StudyBFA revision build and quality checks
 on:
   push:
     branches:
-      - fix/consistent-learning-revision-20261118
+      - content/si-el-haddioui-complete-20261118
     paths:
       - 'assets/**'
       - 'tools/**'
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout proposed changes (not main)
         uses: actions/checkout@v4
         with:
-          ref: fix/consistent-learning-revision-20261118
+          ref: content/si-el-haddioui-complete-20261118
           persist-credentials: true
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -43,7 +43,7 @@ jobs:
           from pathlib import Path
           from pypdf import PdfReader
           paths=list(Path('fiches').glob('*.pdf'))
-          assert len(paths)>=27, f'Expected >=27 PDF files, found {len(paths)}'
+          assert len(paths)>=30, f'Expected >=30 PDF files, found {len(paths)}'
           for item in paths:
               pdf=PdfReader(str(item))
               assert pdf.pages, f'Missing pages: {item}'
@@ -57,7 +57,7 @@ jobs:
           git add fiches/*.pdf
           if ! git diff --cached --quiet; then
             git commit -m "Build readable revision PDFs from approved chapter notes"
-            git push origin HEAD:fix/consistent-learning-revision-20261118
+            git push origin HEAD:content/si-el-haddioui-complete-20261118
           else
             echo "PDFs already in sync."
           fi
