@@ -11,3 +11,14 @@ html[data-theme="dark"] .bfa-flip-front{background:#294560;color:#F0F6FF;border-
 html[data-theme="dark"] .bfa-flip-back{background:#173B65;color:#fff;border-color:#52769C}
 @media(max-width:650px){.bfa-flashcard,.bfa-flip-inner{min-height:330px;height:330px}.bfa-flip-face{padding:20px 16px}.bfa-flip-face strong{font-size:clamp(19px,5vw,24px)}}
 @media(prefers-reduced-motion:reduce){.bfa-flip-inner{transition:none}}
+
+
+/* Same gentle color language as the approved Business English flashcards. */
+.bfa-flashcard[data-tone="teal"] .bfa-flip-front { background:#e2f2f1; border-color:#9ac8c5; }
+.bfa-flashcard[data-tone="lavender"] .bfa-flip-front { background:#eeeafb; border-color:#c0b4e9; }
+.bfa-flashcard[data-tone="amber"] .bfa-flip-front { background:#fbefdc; border-color:#e7c697; }
+.bfa-flashcard[data-tone="coral"] .bfa-flip-front { background:#fae9ed; border-color:#e8b5c2; }
+html[data-theme="dark"] .bfa-flashcard[data-tone="teal"] .bfa-flip-front { background:#24464b; border-color:#4b8c8f; color:#f2fffe; }
+html[data-theme="dark"] .bfa-flashcard[data-tone="lavender"] .bfa-flip-front { background:#352f50; border-color:#6d6498; color:#fbf9ff; }
+html[data-theme="dark"] .bfa-flashcard[data-tone="amber"] .bfa-flip-front { background:#493b2a; border-color:#9c7951; color:#fff9ed; }
+html[data-theme="dark"] .bfa-flashcard[data-tone="coral"] .bfa-flip-front { background:#492f3c; border-color:#936074; color:#fff8fc; }
