@@ -69,3 +69,21 @@ html:not([data-theme="dark"]) .be-option:not(:has(input:checked)):not(.is-correc
 /* Feedback badge contrast after checking answers in dark Business English quiz. */
 html[data-theme="dark"] .be-option.is-correct .be-option-letter {background:#b4efce!important;color:#113923!important;border-color:#b4efce!important}
 html[data-theme="dark"] .be-option.is-incorrect .be-option-letter {background:#ffd5dd!important;color:#591d2b!important;border-color:#ffd5dd!important}
+
+/* Connected mind-map branches: full explanations appear below on selection. */
+.sb-map-accessible { position: relative; isolation: isolate; overflow: visible; }
+.sb-map-connections { position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; overflow:visible; }
+.sb-map-link { fill:none; stroke:#3876b2; stroke-width:2.8; stroke-linecap:round; opacity:.7; }
+.sb-map-link-1 { stroke:#8b5cf6; }
+.sb-map-link-2 { stroke:#0d9488; }
+.sb-map-link-3 { stroke:#db8a20; }
+.sb-map-core { position:relative; z-index:1; margin-bottom:42px; }
+.sb-map-tree { position:relative; z-index:1; row-gap:22px; }
+.sb-map-node { position:relative; z-index:1; min-height:75px; justify-content:center; align-items:center;
+  text-align:center; font-weight:700; font-size:1rem; }
+.sb-map-core::after { content:none; }
+@media(max-width:680px) {
+  .sb-map-core { margin-bottom:36px; }
+  .sb-map-tree { row-gap:16px; }
+  .sb-map-node { min-height:66px; }
+}
