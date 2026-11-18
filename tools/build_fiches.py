@@ -111,7 +111,7 @@ def main():
             out = target / f"{slug}-chapitre-{number}.pdf"
             make_pdf(out,subject,number,chapter["title"],notes,normal,bold)
             count += 1
-    assert count == 26, f"Expected 26 published subject PDFs, got {count}"
+    assert count == 29, f"Expected 29 published subject PDFs, got {count}"
     print(f"Generated {count} prose-only PDFs from the same notes the website displays.")
 
 if __name__ == "__main__":
