@@ -24,6 +24,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, KeepTogether
 
 SUBJECTS = {
+    "analyse-financiere-content.js": ("analyse-financiere", "Analyse financière"),
     "ai-content.js": ("intelligence-artificielle", "Intelligence artificielle"),
     "comptabilite-gestion-content.js": ("comptabilite-gestion", "Comptabilité de gestion"),
     "entrepreneuriat-content.js": ("entrepreneuriat-business-plan", "Entrepreneuriat & Business Plan"),
@@ -136,7 +137,7 @@ def main():
     make_pdf(target / "business-english-chapitre-1.pdf", "Business English", 1,
              "Workplace Communication", english_notes, normal, bold)
     count += 1
-    assert count == 30, f"Expected 30 published subject PDFs, got {count}"
+    assert count == 34, f"Expected 34 published subject PDFs, got {count}"
     print(f"Generated {count} prose-only PDFs from the same notes the website displays.")
 
 if __name__ == "__main__":
