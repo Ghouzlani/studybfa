@@ -104,3 +104,43 @@ assert(!/<iframe\b/i.test(english),'Business English revision must be text only'
 const sharedController=fs.readFileSync('assets/ai-learning.js','utf8');
 assert(sharedController.includes("activateTab('revision')"),'The revision panel must be the initial tab');
 console.log('Validated 10 dedicated full-course video pages and clean chapter revision tabs.');
+
+
+// Content-quality regression checks for all published structured subjects.
+for(const [slug,filename] of Object.entries(subjects)){
+  const source=fs.readFileSync(path.join('assets',filename),'utf8');
+  const context={window:{}};
+  vm.runInNewContext(source,context,{timeout:3000});
+  const chapters=context.window.STUDY_BFA_AI;
+  chapters.forEach((c,i)=>{
+    const cardQuestions=c.cards.map(x=>x[0]);
+    const quizQuestions=c.quiz.map(x=>x[0]);
+    assert.equal(new Set(cardQuestions).size,cardQuestions.length, 'Repeated flashcard prompt: '+slug+'/'+(i+1));
+    assert.equal(new Set(quizQuestions).size,quizQuestions.length, 'Repeated quiz prompt: '+slug+'/'+(i+1));
+    for(const [prompt,answer] of c.cards){
+      assert(prompt.length<=145,'Overlong flashcard prompt: '+slug+'/'+(i+1));
+      assert(answer.trim().length>=15,'Too-short flashcard explanation: '+slug+'/'+(i+1));
+    }
+    for(const [prompt,choices,correct,explanation] of c.quiz){
+      assert(prompt.length<=160,'Overlong quiz prompt: '+slug+'/'+(i+1));
+      assert(choices[correct].trim().length>=2,'Missing correct answer: '+slug+'/'+(i+1));
+      assert(explanation.trim().length>=18,'Too-short quiz explanation: '+slug+'/'+(i+1));
+    }
+  });
+}
+const englishJs=fs.readFileSync('assets/business-english.js','utf8');
+const englishMatch=englishJs.match(/const cards=(\[[\s\S]*?\]);const questions=(\[[\s\S]*?\]);let index=/);
+assert(englishMatch,'Business English dataset not found');
+const englishCards=JSON.parse(englishMatch[1]);
+const englishQuiz=JSON.parse(englishMatch[2]);
+assert.equal(englishCards.length,18,'Business English flashcards missing');
+assert.equal(englishQuiz.length,13,'Business English quiz missing');
+englishQuiz.forEach((q,i)=>{
+  assert(Array.isArray(q[2]) && q[2].length>0,'Missing Business English correct-answer list: '+i);
+  assert(q[2].every(x=>Number.isInteger(x)&&x>=0&&x<q[1].length),'Invalid Business English correct-answer index: '+i);
+  assert(q[3]?.trim(),'Missing Business English explanation: '+i);
+});
+const englishSheet=fs.readFileSync('matieres/business-english/index.html','utf8');
+assert(englishSheet.includes('be-sheet be-sheet-prose'),'Business English fiche must use readable prose');
+assert(!englishSheet.includes('be-rev-grid'),'Business English fiche still contains visual grids');
+console.log('Clear-question regression checks passed: '+(cardCount+englishCards.length)+' cards, '+(questionCount+englishQuiz.length)+' quizzes.');
