@@ -6,9 +6,11 @@ Run from repository root:
     python tools/build_fiches.py
 
 No tables, presentation cards, auto-classified diagrams or second content source.
-Business English remains a separate, previously approved hand-authored lesson.
+Business English is extracted from its approved on-page revision prose.
 """
 import json
+import re
+from html import unescape
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -111,7 +113,30 @@ def main():
             out = target / f"{slug}-chapitre-{number}.pdf"
             make_pdf(out,subject,number,chapter["title"],notes,normal,bold)
             count += 1
-    assert count == 29, f"Expected 29 published subject PDFs, got {count}"
+    # Business English uses an HTML-authored revision sheet rather than JSON chapters.
+    # Extract exactly the text visible on its chapter page to keep the PDF in sync.
+    english = Path("matieres/business-english/index.html").read_text(encoding="utf-8")
+    start = '<div class="be-sheet be-sheet-prose">'
+    if start not in english:
+        raise ValueError("Business English revision sheet marker missing")
+    segment = english.split(start, 1)[1].split("</div>", 1)[0]
+    items = re.findall(r"<(h3|p)(?:\\s+[^>]*)?>(.*?)</\\1>", segment, flags=re.S)
+    def plain(text):
+        return unescape(re.sub(r"<[^>]+>", "", text)).strip()
+    english_notes = []
+    heading = None
+    for kind, value in items:
+        if kind == "h3":
+            heading = plain(value)
+        elif heading:
+            english_notes.append((heading, plain(value)))
+            heading = None
+    if len(english_notes) < 6:
+        raise ValueError("Business English revision prose not found or incomplete")
+    make_pdf(target / "business-english-chapitre-1.pdf", "Business English", 1,
+             "Workplace Communication", english_notes, normal, bold)
+    count += 1
+    assert count == 30, f"Expected 30 published subject PDFs, got {count}"
     print(f"Generated {count} prose-only PDFs from the same notes the website displays.")
 
 if __name__ == "__main__":
