@@ -32,6 +32,20 @@ for(const [slug,filename] of Object.entries(subjects)){
     const courseText=JSON.stringify(window.STUDY_BFA_AI);
     for(const term of ['OPCVM','AMMC','coupon couru','annuités constantes','duration','sensibilité']) assert(courseText.toLowerCase().includes(term.toLowerCase()),'Missing professor topic: '+term);
   }
+  if(slug==='comptabilite-gestion') {
+    assert.equal(declared,3,'The approved stock-valuation chapter must be accessible');
+    const stocks=window.STUDY_BFA_AI[2];
+    assert.equal(stocks.title,'L’évaluation des stocks','Incorrect chapter 3 title');
+    assert.equal(stocks.cards.length,15,'Approved chapter needs exactly 15 flashcards');
+    assert.equal(stocks.quiz.length,8,'Approved chapter needs exactly 8 quiz questions');
+    assert.equal(stocks.map.length,6,'Approved stocks mind map branches missing');
+    const notes=JSON.stringify(stocks.notes);
+    for(const term of ['CMUP après chaque entrée','CMUP de fin de période','FIFO','bon de réintégration','quantité']) {
+      assert(notes.toLowerCase().includes(term.toLowerCase()),'Missing approved stock concept: '+term);
+    }
+    assert(!notes.toLowerCase().includes('exercice corrigé'),'No exercises are requested');
+    assert(html.includes('/assets/comptabilite-gestion-content.js?v=252'),'Outdated stocks course cache');
+  }
   if(slug==='systeme-information-erp') {
     assert.equal(declared,10,'Professor SI support requires 10 accessible chapters');
     assert(window.STUDY_BFA_AI[0].notes.some(x=>x[1].includes('ACSI')),'Use professor acronym ACSI');
@@ -76,9 +90,9 @@ for(const [slug,filename] of Object.entries(subjects)){
     chapterCount++;cardCount+=chapter.cards.length;questionCount+=chapter.quiz.length;
   });
 }
-assert.equal(chapterCount,44,'Unexpected structured chapter count');
-assert.equal(cardCount,491,'Unexpected number of retained flashcards');
-assert.equal(questionCount,390,'Unexpected number of retained quiz questions');
+assert.equal(chapterCount,45,'Unexpected structured chapter count');
+assert.equal(cardCount,506,'Unexpected number of retained flashcards');
+assert.equal(questionCount,398,'Unexpected number of retained quiz questions');
 for(const slug of ['comptabilite-approfondie']){
   assert(fs.existsSync(path.join('matieres',slug,'index.html')),'Missing upcoming subject');
 }
