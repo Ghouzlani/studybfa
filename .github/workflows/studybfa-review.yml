@@ -3,7 +3,7 @@ name: StudyBFA revision build and quality checks
 on:
   push:
     branches:
-      - improve/dropdown-and-revision-20261118
+      - improve/si-clear-questions-and-video-summary-20261118
     paths:
       - 'assets/**'
       - 'tools/**'
@@ -21,7 +21,7 @@ jobs:
       - name: Checkout proposed changes (not main)
         uses: actions/checkout@v4
         with:
-          ref: improve/dropdown-and-revision-20261118
+          ref: improve/si-clear-questions-and-video-summary-20261118
           persist-credentials: true
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -57,7 +57,7 @@ jobs:
           git add fiches/*.pdf
           if ! git diff --cached --quiet; then
             git commit -m "Build readable revision PDFs from approved chapter notes"
-            git push origin HEAD:improve/dropdown-and-revision-20261118
+            git push origin HEAD:improve/si-clear-questions-and-video-summary-20261118
           else
             echo "PDFs already in sync."
           fi
