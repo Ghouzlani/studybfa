@@ -299,3 +299,21 @@ header .nav img.bfa-est-logo{position:absolute!important;left:12px!important;top
 .sb-quality-footer a{color:var(--accent,#3478b8);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .sb-quality-footer a:focus-visible{outline:3px solid #73b9ef;outline-offset:4px;border-radius:2px}
 @media(max-width:640px){.sb-quality-footer{align-items:flex-start;flex-direction:column;margin-top:24px;padding:16px 10px}}
+
+/* Compact subject headers: remove oversized introduction card spacing on mobile. */
+body:not(.academy-home) main :is(.ai-hero,.be-intro,.subject-intro){
+  padding:22px 26px!important;
+}
+body:not(.academy-home) main :is(.ai-hero,.be-intro,.subject-intro) h1{
+  font-size:clamp(1.9rem,4.5vw,2.8rem)!important;
+  line-height:1.15!important;
+  margin:10px 0 0!important;
+  letter-spacing:-.02em;
+}
+body:not(.academy-home) main :is(.ai-hero,.be-intro,.subject-intro) :is(.ai-kicker,.kicker,.subject-kicker){
+  letter-spacing:.07em;
+  line-height:1.5;
+}
+@media(max-width:680px){
+  body:not(.academy-home) main :is(.ai-hero,.be-intro,.subject-intro){padding:18px 20px!important}
+}
