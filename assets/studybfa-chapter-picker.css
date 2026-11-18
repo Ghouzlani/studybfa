@@ -1,0 +1,9 @@
+/* Compact chapter navigation, both themes and mobile layouts. */
+.sb-chapter-picker{display:flex;flex-direction:column;gap:9px;max-width:100%;margin:18px 0 24px;padding:16px 18px;border:1px solid var(--border,#b6c5d3);border-radius:14px;background:var(--card,#fff);color:var(--text,#172c49)}
+.sb-chapter-picker label{font-size:.83rem;font-weight:700;letter-spacing:.02em;color:inherit}
+.sb-chapter-picker select{width:100%;min-height:48px;max-width:100%;padding:10px 38px 10px 12px;border:1px solid #9db4c8;border-radius:9px;background:var(--card,#fff);color:var(--text,#172c49);font:inherit;font-size:.95rem;cursor:pointer;text-overflow:ellipsis}
+.sb-chapter-picker select:focus-visible{outline:3px solid #73b9ef;outline-offset:2px}
+.chapter-selector.sb-chapter-buttons-hidden{display:none!important}
+body.dark .sb-chapter-picker,html.dark .sb-chapter-picker,[data-theme="dark"] .sb-chapter-picker{background:#1c3046;color:#eef5fb;border-color:#43617c}
+body.dark .sb-chapter-picker select,html.dark .sb-chapter-picker select,[data-theme="dark"] .sb-chapter-picker select{background:#102337;color:#f1f6fb;border-color:#6384a1}
+@media(max-width:640px){.sb-chapter-picker{padding:13px;margin:12px 0 18px}.sb-chapter-picker select{font-size:16px}}
