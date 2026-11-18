@@ -120,7 +120,7 @@ def main():
     if start not in english:
         raise ValueError("Business English revision sheet marker missing")
     segment = english.split(start, 1)[1].split("</div>", 1)[0]
-    items = re.findall(r"<(h3|p)(?:\\s+[^>]*)?>(.*?)</\\1>", segment, flags=re.S)
+    items = re.findall(r"<(h3|p)(?:\s+[^>]*)?>(.*?)</\1>", segment, flags=re.S)
     def plain(text):
         return unescape(re.sub(r"<[^>]+>", "", text)).strip()
     english_notes = []
