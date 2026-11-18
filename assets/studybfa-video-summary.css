@@ -1,0 +1,22 @@
+/* StudyBFA · one end-of-course recap video per subject. No chapter media or practice elements. */
+.sb-summary-link{display:inline-flex;align-items:center;gap:.6rem;margin:14px 0 22px;padding:12px 17px;min-height:44px;border-radius:11px;background:#dcecf8;border:1px solid #aacde7;color:#154c72!important;text-decoration:none!important;font-family:inherit;font-weight:700;line-height:1.4;box-shadow:0 4px 16px rgba(23,61,94,.06)}
+.sb-summary-link:hover,.sb-summary-link:focus-visible{background:#cde4f5;border-color:#6ba6d4;outline-offset:3px}
+.sb-video-main{max-width:940px;margin:0 auto;padding:34px 22px 90px}
+.sb-video-back{display:inline-flex;align-items:center;gap:.45rem;color:#2976a5;font-weight:600;text-decoration:none;margin-bottom:23px}
+.sb-video-hero{background:linear-gradient(125deg,#173354,#274a68);border-radius:20px;padding:34px;color:#fff}
+.sb-video-eyebrow{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#add9f3;font-weight:800}
+.sb-video-hero h1{color:#fff;font-size:clamp(1.65rem,3.3vw,2.5rem);line-height:1.15;margin:13px 0}
+.sb-video-hero p{color:#d5e6f2;font-size:1rem;line-height:1.65;max-width:620px;margin:0}
+.sb-video-stage{background:var(--card,#fff);border:1px solid var(--line,#d3dfeb);margin-top:26px;border-radius:17px;padding:clamp(20px,4vw,34px);box-shadow:0 8px 30px rgba(15,32,54,.05)}
+.sb-video-stage h2{color:var(--text,#173354);font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:0 0 12px}
+.sb-video-stage p{color:var(--text,#3b526a);line-height:1.7;margin:0 0 14px}
+.sb-video-frame{aspect-ratio:16/9;display:flex;flex-direction:column;gap:15px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#142b45,#254d70);border:1px solid #486f90;color:#f4f9fd;border-radius:14px;margin:20px 0;overflow:hidden;padding:24px}
+.sb-video-frame svg{width:44px;height:44px}
+.sb-video-frame strong{font-size:1.15rem}
+.sb-video-frame p{color:#c5daec;margin:0;max-width:370px}
+.sb-video-frame iframe{width:100%;height:100%;border:0;display:block}
+.sb-video-footnote{font-size:.9rem;color:var(--muted,#60758a);line-height:1.7}
+html[data-theme=dark] .sb-summary-link,html.dark .sb-summary-link,body.dark .sb-summary-link{background:#24445c;color:#f4f9ff!important;border-color:#567a96}
+html[data-theme=dark] .sb-video-stage,html.dark .sb-video-stage,body.dark .sb-video-stage{background:#1b2d43;border-color:#435972}
+html[data-theme=dark] .sb-video-stage h2,html[data-theme=dark] .sb-video-stage p,html.dark .sb-video-stage h2,html.dark .sb-video-stage p,body.dark .sb-video-stage h2,body.dark .sb-video-stage p{color:#e8f1f8}
+@media(max-width:600px){.sb-video-main{padding:24px 15px 60px}.sb-video-hero{padding:24px}.sb-summary-link{display:flex;justify-content:center;text-align:center}}

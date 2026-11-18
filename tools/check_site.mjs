@@ -31,7 +31,10 @@ for(const [slug,filename] of Object.entries(subjects)){
     assert(window.STUDY_BFA_AI[9].notes.some(x=>x[1].includes('IoT')),'IoT chapter missing');
     assert(!window.STUDY_BFA_AI.some(c=>c.notes.some(n=>/\bPareto\b|CrewAI|Dify/.test(n[1]))),'Unattributed outside-topic content present');
   }
-  assert(html.includes('/assets/ai-learning.js?v=221'), 'Outdated learning controller: '+slug);
+  assert(html.includes('/assets/ai-learning.js?v=231'), 'Outdated learning controller: '+slug);
+  assert(html.includes('data-ai-tab="revision"'), 'Revision tab missing: '+slug);
+  assert(html.includes('ai-revision-panel'), 'Revision panel missing: '+slug);
+  assert(!html.includes('ai-video') && !html.includes('Vidéo bientôt disponible'), 'Obsolete chapter video element: '+slug);
   const seen=new Set();
   window.STUDY_BFA_AI.forEach((chapter,i)=>{
     const number=chapter.number||i+1;
@@ -79,3 +82,25 @@ for(const slug of ['business-english','comptabilite-gestion','entrepreneuriat-bu
   assert(html.includes('studybfa-chapter-picker.css'), 'Missing chapter picker styles: '+slug);
   assert(html.includes('chapter-selector'), 'Missing original chapter controls: '+slug);
 }
+
+const subjectsWithVideoRecap=[
+  'analyse-financiere','business-english','comptabilite-approfondie',
+  'comptabilite-gestion','entrepreneuriat-business-plan','fiscalite',
+  'intelligence-artificielle','marche-financier','systeme-information-erp','tec'
+];
+for(const slug of subjectsWithVideoRecap){
+  const subject=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
+  const page=path.join('matieres',slug,'synthese','index.html');
+  assert(fs.existsSync(page),'Missing subject-level recap video page: '+slug);
+  const summary=fs.readFileSync(page,'utf8');
+  assert(subject.includes('/matieres/'+slug+'/synthese/'),'Missing link to subject recap: '+slug);
+  assert(summary.includes('sb-video-frame'),'Missing future video area: '+slug);
+  assert(summary.includes('href="/matieres/'+slug+'/"'),'Missing back link: '+slug);
+  assert(!/flashcards?|quiz|mind ?map|carte mentale/i.test(summary),'Video page must contain no learning exercises: '+slug);
+  assert(!/<iframe\b/i.test(summary),'Do not present an unrelated chapter video as a full-course recap: '+slug);
+}
+const english=fs.readFileSync('matieres/business-english/index.html','utf8');
+assert(!/<iframe\b/i.test(english),'Business English revision must be text only');
+const sharedController=fs.readFileSync('assets/ai-learning.js','utf8');
+assert(sharedController.includes("activateTab('revision')"),'The revision panel must be the initial tab');
+console.log('Validated 10 dedicated full-course video pages and clean chapter revision tabs.');
