@@ -50,7 +50,7 @@ jobs:
           from pathlib import Path
           from pypdf import PdfReader
           paths=list(Path('fiches').glob('*.pdf'))
-          assert len(paths)>=45, f'Expected at least 45 PDF files, found {len(paths)}'
+          assert len(paths)>=46, f'Expected at least 46 PDF files, found {len(paths)}'
           for item in paths:
               pdf=PdfReader(str(item))
               assert pdf.pages, f'Missing pages: {item}'
