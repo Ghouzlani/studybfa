@@ -177,6 +177,6 @@ if __name__ == '__main__':
             blocks = curate_blocks(slug, i+1, c)
             sheets[slug].append(blocks); stats.update(b['type'] for b in blocks)
             make_pdf('fiches/%s-chapitre-%s.pdf' % (slug, num), name, num, c['title'], blocks); n_pdf += 1
-    js = 'window.STUDY_BFA_SHEETS=' + json.dumps(sheets, ensure_ascii=False, separators=(',', ':')) + ';' + RENDER
-    open('assets/studybfa-revision-v210.js', 'w', encoding='utf-8').write(js)
+    # Web revision sections already render the same chapter notes.
+    # Do not regenerate a second copy that could overwrite #ai-revision.
     print('PDF générés :', n_pdf); print('Blocs par type :', dict(stats))
