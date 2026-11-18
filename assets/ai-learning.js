@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       button.tabIndex = active ? 0 : -1;
       if (active && focus) button.focus();
     });
-    ['video','cards','quiz','map'].forEach(id => { $('ai-'+id).hidden = id !== name; });
+    ['revision','cards','quiz','map'].forEach(id => { $(id === 'revision' ? 'ai-revision-panel' : 'ai-'+id).hidden = id !== name; });
     if (name === 'cards') renderCard();
     if (name === 'quiz') renderQuiz();
     if (name === 'map') renderMap();
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       section.append(el('h4', '', heading), el('p', '', body));
       root.append(section);
     });
-    activateTab('video');
+    activateTab('revision');
   }
   function renderCard() {
     const cards = chapters[chapter].cards;
