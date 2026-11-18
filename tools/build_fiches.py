@@ -137,7 +137,7 @@ def main():
     make_pdf(target / "business-english-chapitre-1.pdf", "Business English", 1,
              "Workplace Communication", english_notes, normal, bold)
     count += 1
-    assert count == 34, f"Expected 34 published subject PDFs, got {count}"
+    assert count == 37, f"Expected 37 published subject PDFs, got {count}"
     print(f"Generated {count} prose-only PDFs from the same notes the website displays.")
 
 if __name__ == "__main__":

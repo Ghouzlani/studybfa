@@ -28,16 +28,35 @@ document.addEventListener('DOMContentLoaded', () => {
     quiz = shuffledQuiz(chapters[chapter].quiz);
   }
   function activateTab(name, focus = false) {
+    if (name === 'exercises' && !(chapters[chapter].exercises || []).length) return;
     document.querySelectorAll('[data-ai-tab]').forEach(button => {
       const active = button.dataset.aiTab === name;
       button.setAttribute('aria-selected', String(active));
       button.tabIndex = active ? 0 : -1;
       if (active && focus) button.focus();
     });
-    ['revision','cards','quiz','map'].forEach(id => { $(id === 'revision' ? 'ai-revision-panel' : 'ai-'+id).hidden = id !== name; });
+    ['revision','cards','quiz','map','exercises'].forEach(id => { const panel=$(id === 'revision' ? 'ai-revision-panel' : 'ai-'+id); if(panel) panel.hidden = id !== name; });
     if (name === 'cards') renderCard();
     if (name === 'quiz') renderQuiz();
     if (name === 'map') renderMap();
+    if (name === 'exercises') renderExercises();
+  }
+  function renderExercises() {
+    const root = $('ai-exercises-body');
+    if (!root) return;
+    root.replaceChildren();
+    const exercises = chapters[chapter].exercises || [];
+    exercises.forEach((exercise, i) => {
+      const article=el('article','sb-revision-prose');
+      article.append(el('h4','',exercise.title || 'Exercice '+(i+1)));
+      if (exercise.source) article.append(el('p','',exercise.source));
+      article.append(el('h4','','Énoncé'),el('p','',exercise.statement));
+      const details=el('details','sb-exercise-solution');
+      const summary=el('summary','','Afficher le corrigé');
+      details.append(summary,el('p','',exercise.solution));
+      article.append(details);
+      root.append(article);
+    });
   }
   function activateChapter(index) {
     if (!chapters[index]) return;
@@ -47,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    $('ai-chapter-number').textContent = 'CHAPITRE ' + (chapters[index].number || index+1);
+    $('ai-chapter-number').textContent = chapters[index].label || ('CHAPITRE ' + (chapters[index].number || index+1));
+    const exerciseTab = document.querySelector('[data-ai-tab="exercises"]');
+    if (exerciseTab) exerciseTab.hidden = !(chapters[index].exercises && chapters[index].exercises.length);
     $('ai-chapter-title').textContent = chapters[index].title;
     const root = $('ai-revision');
     root.replaceChildren();
@@ -131,16 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-ai-chapter]').forEach(button =>
     button.addEventListener('click',()=>activateChapter(Number(button.dataset.aiChapter))));
   const tabs=[...document.querySelectorAll('[data-ai-tab]')];
-  tabs.forEach((button,i)=>{
+  tabs.forEach(button=>{
     button.addEventListener('click',()=>activateTab(button.dataset.aiTab));
     button.addEventListener('keydown',event=>{
+      const visible=tabs.filter(tab=>!tab.hidden);
+      const i=visible.indexOf(button);
+      if(i<0) return;
       let next;
-      if(event.key==='ArrowRight') next=(i+1)%tabs.length;
-      else if(event.key==='ArrowLeft') next=(i+tabs.length-1)%tabs.length;
+      if(event.key==='ArrowRight') next=(i+1)%visible.length;
+      else if(event.key==='ArrowLeft') next=(i+visible.length-1)%visible.length;
       else if(event.key==='Home') next=0;
-      else if(event.key==='End') next=tabs.length-1;
+      else if(event.key==='End') next=visible.length-1;
       else return;
-      event.preventDefault();activateTab(tabs[next].dataset.aiTab,true);
+      event.preventDefault();activateTab(visible[next].dataset.aiTab,true);
     });
   });
   $('ai-card').addEventListener('click',()=>{flipped=!flipped;renderCard();});

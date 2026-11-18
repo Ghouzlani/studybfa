@@ -32,7 +32,7 @@ for(const [slug,filename] of Object.entries(subjects)){
     assert(window.STUDY_BFA_AI[9].notes.some(x=>x[1].includes('IoT')),'IoT chapter missing');
     assert(!window.STUDY_BFA_AI.some(c=>c.notes.some(n=>/\bPareto\b|CrewAI|Dify/.test(n[1]))),'Unattributed outside-topic content present');
   }
-  assert(html.includes('/assets/ai-learning.js?v=231'), 'Outdated learning controller: '+slug);
+  assert(html.includes('/assets/ai-learning.js?v=232'), 'Outdated learning controller: '+slug);
   assert(html.includes('data-ai-tab="revision"'), 'Revision tab missing: '+slug);
   assert(html.includes('ai-revision-panel'), 'Revision panel missing: '+slug);
   assert(!html.includes('ai-video') && !html.includes('Vidéo bientôt disponible'), 'Obsolete chapter video element: '+slug);
@@ -46,6 +46,15 @@ for(const [slug,filename] of Object.entries(subjects)){
     assert(Array.isArray(chapter.cards)&&chapter.cards.length>0,'Missing cards: '+slug+'/'+number);
     assert(Array.isArray(chapter.quiz)&&chapter.quiz.length>0,'Missing quiz: '+slug+'/'+number);
     assert(Array.isArray(chapter.map)&&chapter.map.length>0,'Missing map: '+slug+'/'+number);
+    const exercises=chapter.exercises || [];
+    assert(Array.isArray(exercises),'Exercises must be an optional array');
+    for(const ex of exercises){
+      assert(typeof ex.title==='string'&&ex.title.trim(),'Missing exercise title');
+      assert(typeof ex.statement==='string'&&ex.statement.length>=60,'Incomplete exercise statement');
+      assert(typeof ex.solution==='string'&&ex.solution.length>=50,'Incomplete worked solution');
+    }
+    const allLearningText=JSON.stringify([chapter.notes,chapter.cards,chapter.quiz]);
+    assert(!/\\bFLK\\b/.test(allLearningText),'Named FLK exercise leaked into lesson content: '+slug+'/'+number);
     for(const [title,text] of chapter.notes){
       assert(typeof title==='string'&&title.trim(),'Empty lesson heading');
       assert(typeof text==='string'&&text.trim(),'Empty paragraph');
@@ -65,9 +74,9 @@ for(const [slug,filename] of Object.entries(subjects)){
     chapterCount++;cardCount+=chapter.cards.length;questionCount+=chapter.quiz.length;
   });
 }
-assert.equal(chapterCount,33,'Unexpected structured chapter count');
-assert.equal(cardCount,375,'Unexpected number of retained flashcards');
-assert.equal(questionCount,297,'Unexpected number of retained quiz questions');
+assert.equal(chapterCount,36,'Unexpected structured chapter count');
+assert.equal(cardCount,407,'Unexpected number of retained flashcards');
+assert.equal(questionCount,324,'Unexpected number of retained quiz questions');
 for(const slug of ['marche-financier','comptabilite-approfondie']){
   assert(fs.existsSync(path.join('matieres',slug,'index.html')),'Missing upcoming subject');
 }
@@ -118,6 +127,11 @@ for(const [slug,filename] of Object.entries(subjects)){
     const quizQuestions=c.quiz.map(x=>x[0]);
     assert.equal(new Set(cardQuestions).size,cardQuestions.length, 'Repeated flashcard prompt: '+slug+'/'+(i+1));
     assert.equal(new Set(quizQuestions).size,quizQuestions.length, 'Repeated quiz prompt: '+slug+'/'+(i+1));
+    const html=fs.readFileSync(path.join('matieres',slug,'index.html'),'utf8');
+    assert(html.includes('data-ai-tab="exercises"') && html.includes('id="ai-exercises-body"'),'Missing separated exercise panel: '+slug);
+    const isCaseAmount=(prompt)=>/\\d[\\d\\s]*\\s*DH\\b/i.test(prompt) && !/seuil|plafond|valeur unitaire|100 DH|5 000 DH|50 000 DH/i.test(prompt);
+    assert(!cardQuestions.some(isCaseAmount),'Numerical case in a flashcard: '+slug+'/'+(i+1));
+    assert(!quizQuestions.some(isCaseAmount),'Numerical case in a quiz: '+slug+'/'+(i+1));
     for(const [prompt,answer] of c.cards){
       assert(prompt.length<=145,'Overlong flashcard prompt: '+slug+'/'+(i+1));
       assert(answer.trim().length>=15,'Too-short flashcard explanation: '+slug+'/'+(i+1));
