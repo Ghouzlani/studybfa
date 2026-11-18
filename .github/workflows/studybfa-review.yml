@@ -3,8 +3,9 @@ name: StudyBFA revision build and quality checks
 on:
   push:
     branches:
-      - feature/marche-financier-sans-exercices-20261118
       - main
+      - 'fix/**'
+      - 'feature/**'
     paths:
       - 'assets/**'
       - 'tools/**'
@@ -14,6 +15,11 @@ on:
 
 permissions:
   contents: write
+
+# Many editorial commits may arrive in quick succession; only the newest branch state should publish PDFs.
+concurrency:
+  group: studybfa-revision-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   generate-and-verify:
@@ -44,7 +50,7 @@ jobs:
           from pathlib import Path
           from pypdf import PdfReader
           paths=list(Path('fiches').glob('*.pdf'))
-          assert len(paths)>=30, f'Expected >=30 PDF files, found {len(paths)}'
+          assert len(paths)>=45, f'Expected at least 45 PDF files, found {len(paths)}'
           for item in paths:
               pdf=PdfReader(str(item))
               assert pdf.pages, f'Missing pages: {item}'
@@ -58,6 +64,8 @@ jobs:
           git add fiches/*.pdf
           if ! git diff --cached --quiet; then
             git commit -m "Build readable revision PDFs from approved chapter notes"
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
             git push origin HEAD:"$GITHUB_REF_NAME"
           else
             echo "PDFs already in sync."
