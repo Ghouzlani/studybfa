@@ -24,3 +24,23 @@ html[data-theme="dark"] #ai-revision p { color: var(--academy-text, #f0f6ff); }
   #ai-revision h4, .ai-sheet h4 { font-size: 1.05rem; margin-top: 1.4rem; }
   #ai-revision p, .ai-sheet p { font-size: 1rem; line-height: 1.75; }
 }
+
+/* v20261121-clarity — distinct ideas and breathing room on every subject. */
+#ai-revision .sb-revision-prose,.be-sheet-prose{max-width:82ch;}
+#ai-revision .sb-revision-lines,.be-sheet-prose .sb-revision-lines{
+ display:flex;flex-direction:column;gap:.62rem;margin:.35rem 0 1.3rem;
+}
+#ai-revision .sb-revision-lines .sb-revision-line,.be-sheet-prose .sb-revision-lines .sb-revision-line{
+ display:block;margin:0;line-height:1.72;overflow-wrap:break-word;
+}
+#ai-revision .sb-revision-line strong,.be-sheet-prose .sb-revision-line strong{font-weight:700;}
+#ai-revision .sb-revision-formula,.be-sheet-prose .sb-revision-formula{
+ font-weight:650;border-left:2px solid var(--academy-line,var(--line,#bad0dc));
+ padding:.3rem 0 .3rem .85rem;margin:.25rem 0;
+}
+.be-sheet-prose h3{margin-top:1.45rem;margin-bottom:.6rem;}
+.be-sheet-prose > p{line-height:1.72;}
+@media(max-width:680px){
+ #ai-revision .sb-revision-lines,.be-sheet-prose .sb-revision-lines{gap:.7rem;}
+ #ai-revision .sb-revision-prose,.be-sheet-prose{max-width:100%;}
+}
