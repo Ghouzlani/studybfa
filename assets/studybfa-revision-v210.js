@@ -12,6 +12,8 @@ function splitIdeas(value){
   if(next>=text.length)continue;
   if(ch!==';'&&!/[A-ZÀ-ÖØ-Þ«“"'(]/u.test(text[next]))continue;
   if(ch==='.'){
+   const numeral=text.slice(start,i).match(/(?:^|[\\s(])(?:\\d{1,2}|[IVX]{1,5})$/u);
+   if(numeral)continue;
    const word=text.slice(start,i).match(/([\p{L}]+)$/u);
    if(word&&ABBR.has(word[1].toLowerCase()))continue;
    if(/[A-Z]/u.test(text[i-1]||'')&&/[A-Z]/u.test(text[i-2]||''))continue;
