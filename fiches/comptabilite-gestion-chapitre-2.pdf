@@ -7,176 +7,98 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 3 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R] /Count 3 >>
+<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
 endobj
 4 0 obj
-<< /Length 4821 >>
+<< /Length 2827 >>
 stream
-0.06 0.18 0.31 rg 0 795 595 47 re f
-BT /F2 10 Tf 1 1 1 rg 1 0 0 1 45 813 Tm (STUDY BFA ACADÉMIE  /  COMPTABILITÉ DE GESTION) Tj ET
-BT /F2 17 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 764 Tm (CHAPITRE 2 - CALCUL DES COÛTS) Tj ET
-0.20 0.58 0.65 RG 1.6 w 45 750 m 550 750 l S
-BT /F2 12.5 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 714 Tm (I. La notion de coût) Tj ET
-0.80 0.85 0.88 RG 0.6 w 45 703 m 550 703 l S
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 691 Tm (Selon le CGNC, un coût est une somme de charges associées à un élément déterminé du réseau) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 676.8 Tm (comptable. La comptabilité de gestion permet d’identifier, d’analyser et de contrôler les) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 662.5999999999999 Tm (coûts.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 633.3999999999999 Tm (Trois aspects du coût) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 614.3999999999999 Tm (Champ d’application : moyen d’exploitation, produit ou stade d’élaboration du produit.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 592.1999999999998 Tm (Contenu : charges retenues en totalité ou en partie, directes ou indirectes, fixes ou) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 577.9999999999998 Tm (variables.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 555.7999999999997 Tm (Moment de calcul : coût réel \(constaté\) ou coût préétabli \(estimé avant la période\).) Tj ET
-BT /F2 12.5 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 519.5999999999997 Tm (II. L’entreprise commerciale) Tj ET
-0.80 0.85 0.88 RG 0.6 w 45 508.5999999999997 m 550 508.5999999999997 l S
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 496.5999999999997 Tm (L’entreprise commerciale achète et revend des marchandises en l’état, sans transformation.) Tj ET
-0.91 0.96 0.97 rg 45 448.3999999999997 505 30 re f
-0.11 0.51 0.60 rg 45 448.3999999999997 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 461.3999999999997 Tm (CYCLE : Approvisionnement > Stock de marchandises > Distribution) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 429.3999999999997 Tm (1. Coût d’achat des marchandises achetées) Tj ET
-0.91 0.96 0.97 rg 45 384.3999999999997 505 30 re f
-0.11 0.51 0.60 rg 45 384.3999999999997 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 397.3999999999997 Tm (Coût d’achat = Prix d’achat HT + Charges accessoires + Charges d’approvisionnement) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 372.3999999999997 Tm (Le prix d’achat est net des taxes récupérables et des réductions commerciales : rabais,) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 358.1999999999997 Tm (remises et ristournes \(RRR\). L’escompte de règlement obtenu est traité comme un produit) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 343.9999999999997 Tm (financier, non déduit du prix d’achat dans le cours.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 321.7999999999997 Tm (Charges accessoires : transport, transit, assurance, droits de douane, honoraires. Charges) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 307.59999999999974 Tm (d’approvisionnement : réception, contrôle, manutention et fonctionnement du service) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 293.39999999999975 Tm (d’approvisionnement.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 264.19999999999976 Tm (2. Inventaire des stocks de marchandises) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 245.19999999999976 Tm (Inventaire permanent : suivi continu des quantités et des valeurs des entrées et sorties.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 230.99999999999977 Tm (Inventaire intermittent : constat périodique, notamment lors de l’inventaire physique.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 208.79999999999978 Tm (Les entrées sont évaluées au coût d’achat. Les sorties d’éléments individualisés peuvent) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 194.5999999999998 Tm (être évaluées au coût propre. Pour les éléments fongibles, le cours utilise le CMUP) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 180.3999999999998 Tm (périodique.) Tj ET
-0.91 0.96 0.97 rg 45 118.19999999999982 505 44 re f
-0.11 0.51 0.60 rg 45 118.19999999999982 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 145.19999999999982 Tm (CMUP = \(Valeur du stock initial + Valeur des entrées\) / \(Quantité initiale +) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 131.19999999999982 Tm (Quantités entrées\)) Tj ET
-0.91 0.96 0.97 rg 45 80.19999999999982 505 30 re f
-0.11 0.51 0.60 rg 45 80.19999999999982 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 93.19999999999982 Tm (Valeur des sorties = Quantité sortie x CMUP) Tj ET
-BT /F1 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 45 30 Tm (Fiche de révision · Adaptée du cours de Mme Hafsa CHANTIT · Support étudiant non officiel) Tj ET
-BT /F2 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 520 30 Tm (Page 1) Tj ET
+0.08 0.22 0.30 rg 0 790 595 52 re f
+BT /F2 10 Tf 1 1 1 rg 1 0 0 1 42 812 Tm (STUDY BFA  /  COMPTABILITÉ DE GESTION) Tj ET
+BT /F2 12 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 760 Tm (FICHE DE RÉVISION  ?  CHAPITRE 2) Tj ET
+BT /F2 20 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 729 Tm (Les bases et l’entreprise commerciale) Tj ET
+0.20 0.58 0.64 RG 1.4 w 42 711 m 553 711 l S
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 675 Tm (Notion de coût) Tj ET
+0.94 0.97 0.98 rg 42 592 511 72 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 649 Tm (Un coût est la somme de charges associées à un élément déterminé \(CGNC\).) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 631 Tm (Trois aspects : champ d’application \(objet du coût\), contenu \(charges retenues\),) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 613 Tm (moment du calcul \(coût constaté ou préétabli\).) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 571 Tm (Entreprise commerciale : acheter et revendre en l’état) Tj ET
+0.94 0.97 0.98 rg 42 470 511 90 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 545 Tm (Cycle : approvisionnement > stock de marchandises > distribution.) Tj ET
+BT /F2 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 527 Tm (Coût d’achat = Prix d’achat HT + Charges accessoires + Charges d’approvisionnement.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 509 Tm (Prix d’achat net des réductions commerciales \(RRR\) ; pas d’escompte déduit) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 491 Tm (du prix d’achat dans le traitement présenté par le cours.) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 449 Tm (Évaluation des stocks) Tj ET
+0.94 0.97 0.98 rg 42 330 511 108 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 423 Tm (Entrées des marchandises et MP : au coût d’achat ; entrées des PF : au coût) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 405 Tm (de production. Inventaire permanent : suivi continu ; intermittent : périodique.) Tj ET
+BT /F2 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 387 Tm (CMUP périodique = \(Valeur du stock initial + Valeur des entrées\)) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 369 Tm (                      / \(Quantité initiale + Quantités entrées\).) Tj ET
+BT /F2 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 351 Tm (Valeur des sorties = Quantité sortie x CMUP.) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 309 Tm (Coût de revient commercial) Tj ET
+0.94 0.97 0.98 rg 42 244 511 54 re f
+BT /F2 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 283 Tm (Coût de revient = Coût d’achat des marchandises vendues + Distribution.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 265 Tm (Distribution : frais de vente, promotion, livraison et service après-vente.) Tj ET
+BT /F1 8.5 Tf 0.36 0.42 0.48 rg 1 0 0 1 42 35 Tm (Source : cours de Mme Hafsa CHANTIT  ?  Synthèse étudiante non officielle) Tj ET
+BT /F2 8.5 Tf 0.36 0.42 0.48 rg 1 0 0 1 520 35 Tm (1 / 2) Tj ET
 endstream
 endobj
 5 0 obj
 << /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
 endobj
 6 0 obj
-<< /Length 4357 >>
+<< /Length 2929 >>
 stream
-0.06 0.18 0.31 rg 0 795 595 47 re f
-BT /F2 10 Tf 1 1 1 rg 1 0 0 1 45 813 Tm (STUDY BFA ACADÉMIE  /  COMPTABILITÉ DE GESTION) Tj ET
-BT /F2 17 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 764 Tm (CHAPITRE 2 - CALCUL DES COÛTS) Tj ET
-0.20 0.58 0.65 RG 1.6 w 45 750 m 550 750 l S
-0.91 0.96 0.97 rg 45 702 505 30 re f
-0.11 0.51 0.60 rg 45 702 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 715 Tm (Stock final \(quantité\) = Stock initial + Entrées - Sorties) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 683 Tm (3. Coût de revient et résultat analytique) Tj ET
-0.91 0.96 0.97 rg 45 624 505 44 re f
-0.11 0.51 0.60 rg 45 624 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 651 Tm (Coût de revient des marchandises vendues = Coût d’achat des marchandises vendues +) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 637 Tm (Distribution) Tj ET
-0.91 0.96 0.97 rg 45 572 505 44 re f
-0.11 0.51 0.60 rg 45 572 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 599 Tm (Résultat analytique = Chiffre d’affaires HT - Coût de revient des marchandises) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 585 Tm (vendues) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 560 Tm (Le coût de distribution comprend la préparation et la promotion des ventes, l’exécution des) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 545.8 Tm (commandes, la livraison ainsi que le service après-vente.) Tj ET
-BT /F2 12.5 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 509.5999999999999 Tm (III. L’entreprise industrielle) Tj ET
-0.80 0.85 0.88 RG 0.6 w 45 498.5999999999999 m 550 498.5999999999999 l S
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 486.5999999999999 Tm (L’entreprise industrielle transforme les matières premières \(MP\) achetées en produits finis) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 472.3999999999999 Tm (\(PF\) destinés à la vente.) Tj ET
-0.91 0.96 0.97 rg 45 424.19999999999993 505 30 re f
-0.11 0.51 0.60 rg 45 424.19999999999993 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 437.19999999999993 Tm (CYCLE : Approvisionnement > Stock MP > Production > Stock PF > Distribution) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 405.19999999999993 Tm (1. Coût d’achat des matières premières) Tj ET
-0.91 0.96 0.97 rg 45 346.19999999999993 505 44 re f
-0.11 0.51 0.60 rg 45 346.19999999999993 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 373.19999999999993 Tm (Coût d’achat MP = Prix d’achat HT MP + Charges accessoires + Charges) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 359.19999999999993 Tm (d’approvisionnement) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 334.19999999999993 Tm (Les entrées de MP sont évaluées au coût d’achat ; les matières premières consommées sortent) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 319.99999999999994 Tm (du stock au CMUP périodique retenu dans ce chapitre.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 290.79999999999995 Tm (2. Coût de production des produits finis) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 271.79999999999995 Tm (Le coût de production est déterminé à la sortie des services de production. Il comprend les) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 257.59999999999997 Tm (matières et fournitures consommées ainsi que les frais de fabrication \(main-d’œuvre,) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 243.39999999999998 Tm (énergie, amortissements, préparation, contrôle et test\).) Tj ET
-0.91 0.96 0.97 rg 45 181.2 505 44 re f
-0.11 0.51 0.60 rg 45 181.2 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 208.2 Tm (Coût de production des PF fabriqués = Coût d’achat des MP consommées + Frais de) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 194.2 Tm (fabrication) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 162.2 Tm (3. Inventaire des produits finis) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 143.2 Tm (Les entrées en stock sont évaluées au coût de production des PF fabriqués. Les sorties) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 129 Tm (correspondant aux ventes sont évaluées dans ce chapitre au CMUP périodique. Bien distinguer) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 114.8 Tm (les PF fabriqués et les PF vendus.) Tj ET
-BT /F1 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 45 30 Tm (Fiche de révision · Adaptée du cours de Mme Hafsa CHANTIT · Support étudiant non officiel) Tj ET
-BT /F2 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 520 30 Tm (Page 2) Tj ET
+0.08 0.22 0.30 rg 0 790 595 52 re f
+BT /F2 10 Tf 1 1 1 rg 1 0 0 1 42 812 Tm (STUDY BFA  /  COMPTABILITÉ DE GESTION) Tj ET
+BT /F2 12 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 760 Tm (FICHE DE RÉVISION  ?  CHAPITRE 2) Tj ET
+BT /F2 20 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 729 Tm (L’industrie et les classifications) Tj ET
+0.20 0.58 0.64 RG 1.4 w 42 711 m 553 711 l S
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 675 Tm (Entreprise industrielle : transformer avant de vendre) Tj ET
+0.94 0.97 0.98 rg 42 610 511 54 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 649 Tm (Cycle : approvisionnement > stock MP > production > stock PF > distribution.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 631 Tm (Coût d’achat MP = Prix d’achat HT + Charges accessoires + Approvisionnement.) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 589 Tm (Coût de production et coût de revient) Tj ET
+0.94 0.97 0.98 rg 42 452 511 126 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 563 Tm (Coût de production des PF fabriqués = Coût d’achat des MP consommées) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 545 Tm (                                      + Frais de fabrication.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 527 Tm (Fabrication : main-d’œuvre, énergie, amortissements, contrôle et préparation.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 509 Tm (Les PF entrent en stock au coût de production ; les sorties utilisent ici le CMUP.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 491 Tm (Coût de revient des PF vendus = Coût de production des PF vendus + Distribution.) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 473 Tm (Attention : PF fabriqués et PF vendus ne sont pas forcément identiques.) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 431 Tm (Résultat analytique) Tj ET
+0.94 0.97 0.98 rg 42 384 511 36 re f
+BT /F2 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 405 Tm (Résultat analytique = Chiffre d’affaires HT - Coût de revient des biens vendus.) Tj ET
+BT /F2 12.2 Tf 0.14 0.21 0.28 rg 1 0 0 1 42 363 Tm (Les classifications des coûts) Tj ET
+0.94 0.97 0.98 rg 42 244 511 108 re f
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 337 Tm (Période : coûts réels \(constatés\) / coûts préétablis \(estimés à l’avance\).) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 319 Tm (Volume : coûts variables \(suivent l’activité\) / coûts fixes \(stables sur la période\).) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 301 Tm (Charges imputées : coût complet \(toutes les charges incorporables, directes) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 283 Tm (et indirectes\) / coûts partiels \(seulement certaines charges\).) Tj ET
+BT /F1 10 Tf 0.14 0.21 0.28 rg 1 0 0 1 51 265 Tm (Types de coûts partiels : variable, direct, marginal et spécifique.) Tj ET
+BT /F1 8.5 Tf 0.36 0.42 0.48 rg 1 0 0 1 42 35 Tm (Source : cours de Mme Hafsa CHANTIT  ?  Synthèse étudiante non officielle) Tj ET
+BT /F2 8.5 Tf 0.36 0.42 0.48 rg 1 0 0 1 520 35 Tm (2 / 2) Tj ET
 endstream
 endobj
 7 0 obj
 << /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 6 0 R >>
 endobj
 8 0 obj
-<< /Length 3601 >>
-stream
-0.06 0.18 0.31 rg 0 795 595 47 re f
-BT /F2 10 Tf 1 1 1 rg 1 0 0 1 45 813 Tm (STUDY BFA ACADÉMIE  /  COMPTABILITÉ DE GESTION) Tj ET
-BT /F2 17 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 764 Tm (CHAPITRE 2 - CALCUL DES COÛTS) Tj ET
-0.20 0.58 0.65 RG 1.6 w 45 750 m 550 750 l S
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 721 Tm (4. Coût de revient et résultat analytique) Tj ET
-0.91 0.96 0.97 rg 45 662 505 44 re f
-0.11 0.51 0.60 rg 45 662 3 44 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 689 Tm (Coût de revient des PF vendus = Coût de production des PF vendus + Coût de) Tj ET
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 675 Tm (distribution) Tj ET
-0.91 0.96 0.97 rg 45 624 505 30 re f
-0.11 0.51 0.60 rg 45 624 3 30 re f
-BT /F2 9.2 Tf 0.13 0.20 0.32 rg 1 0 0 1 55 637 Tm (Résultat analytique = Chiffre d’affaires HT - Coût de revient des PF vendus) Tj ET
-BT /F2 12.5 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 598 Tm (IV. Les autres classifications des coûts) Tj ET
-0.80 0.85 0.88 RG 0.6 w 45 587 m 550 587 l S
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 568 Tm (1. Selon la période du calcul) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 549 Tm (Coûts réels : dépenses effectivement engagées et constatées. Coûts préétablis : estimations) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 534.8 Tm (établies avant l’activité, servant à comparer les prévisions aux coûts réels et à analyser) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 520.5999999999999 Tm (les écarts.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 491.3999999999999 Tm (2. Selon le volume d’activité) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 472.3999999999999 Tm (Coûts variables : évoluent selon la production ou les ventes. Coûts fixes : restent) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 458.19999999999993 Tm (constants pendant une période dans le cadre du niveau d’activité considéré.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 428.99999999999994 Tm (3. Selon la nature des charges à imputer) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 409.99999999999994 Tm (Coût complet : comprend l’ensemble des charges incorporables, directes et indirectes. Les) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 395.79999999999995 Tm (charges directes sont affectées sans répartition ; les indirectes sont imputées à l’aide de) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 381.59999999999997 Tm (clés ou d’unités d’œuvre.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 359.4 Tm (Coût partiel : ne retient qu’une partie des charges pour faciliter la décision et l’analyse) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 345.2 Tm (de rentabilité.) Tj ET
-BT /F2 11.1 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 316 Tm (Les principales formes des coûts partiels) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 297 Tm (Coût variable : charges variables uniquement, directes ou indirectes.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 274.8 Tm (Coût direct : charges directement rattachables au produit ou à l’activité, fixes ou) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 260.6 Tm (variables.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 238.40000000000003 Tm (Coût marginal : coût supplémentaire engendré par une unité ou série supplémentaire.) Tj ET
-BT /F1 10 Tf 0.13 0.20 0.32 rg 1 0 0 1 45 216.20000000000005 Tm (Coût spécifique : charges variables et charges fixes propres à chaque produit ou activité.) Tj ET
-BT /F1 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 45 30 Tm (Fiche de révision · Adaptée du cours de Mme Hafsa CHANTIT · Support étudiant non officiel) Tj ET
-BT /F2 8 Tf 0.35 0.43 0.52 rg 1 0 0 1 520 30 Tm (Page 3) Tj ET
-endstream
-endobj
-9 0 obj
-<< /Type /Page /Parent 3 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 8 0 R >>
-endobj
-10 0 obj
 << /Type /Catalog /Pages 3 0 R >>
 endobj
 xref
-0 11
+0 9
 0000000000 65535 f 
 0000000015 00000 n 
 0000000112 00000 n 
 0000000214 00000 n 
-0000000283 00000 n 
-0000005155 00000 n 
-0000005291 00000 n 
-0000009699 00000 n 
-0000009835 00000 n 
-0000013487 00000 n 
-0000013623 00000 n 
+0000000277 00000 n 
+0000003155 00000 n 
+0000003291 00000 n 
+0000006271 00000 n 
+0000006407 00000 n 
 trailer
-<< /Size 11 /Root 10 0 R >>
+<< /Size 9 /Root 8 0 R >>
 startxref
-13673
+6456
 %%EOF
