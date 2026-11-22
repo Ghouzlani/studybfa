@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const section = el('section', 'sb-revision-prose');
       const paragraph = el('p', '', body);
       // Preserve Arabic line breaks in the approved comprehensive summary.
-      if (chapters[index].kind === 'summary') paragraph.dataset.sbFormatted = '1';
+      paragraph.dataset.sbFormatted = '1';
       section.append(el('h4', '', heading), paragraph);
       root.append(section);
     });

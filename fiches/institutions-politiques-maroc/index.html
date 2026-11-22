@@ -30,10 +30,11 @@ body{margin:0;background:#eef3f7;color:#25374a;font:15px/2 Tahoma,"Noto Naskh Ar
 <div id="revision-sections"></div>
 <footer>ملخص طلابي غير رسمي مستند إلى العرض الدراسي، مع تدقيق الإحالات الدستورية وفق دستور المملكة المغربية لسنة 2011. يُرجع إلى النص الدستوري الأصلي عند الاقتباس.</footer>
 </main>
-<script src="/assets/institutions-politiques-content.js?v=2"></script><script src="/assets/institutions-politiques-synthese.js?v=1"></script>
+<script src="/assets/institutions-politiques-content.js?v=20261122-audit"></script><script src="/assets/institutions-politiques-synthese.js?v=20261122-audit"></script>
 <script>
 (()=>{'use strict';const data=window.STUDY_BFA_AI;
  const num=Number(new URLSearchParams(location.search).get('chapitre')||1);
+ if(num===6){location.replace('/fiches/institutions-politiques-maroc/synthese/');return;}
  if(!Array.isArray(data)||!Number.isInteger(num)||num<1||num>data.length){
  document.getElementById('chapter-name').textContent='فصل غير متوفر';return;}
  const c=data[num-1];const heading=c.kind==='summary'?'الملخص الشامل للمادة':'الفصل '+num+' — '+c.title;

@@ -16,11 +16,57 @@ body[data-matiere="institutions-politiques-maroc"] #ai-card-question,
 body[data-matiere="institutions-politiques-maroc"] #ai-card-answer{direction:rtl;line-height:1.8}
 body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker select{direction:rtl}
 @media(max-width:600px){body[data-matiere="institutions-politiques-maroc"] #ai-revision .sb-revision-prose p{font-size:15px}}
+
+/* Arabic lesson: calm academic layout, aligned with the semester homepage. */
+body[data-matiere="institutions-politiques-maroc"] main.ai-main{max-width:1000px;padding-top:18px}
+body[data-matiere="institutions-politiques-maroc"] .ai-hero{
+  background:transparent!important;border:0!important;border-bottom:1px solid var(--academy-line,var(--line,#d8e1ea))!important;
+  border-radius:0!important;box-shadow:none!important;text-align:center!important;
+  margin:4px 0 0!important;padding:18px 12px 25px!important;color:var(--academy-text,var(--ink,#172c49))!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .ai-hero .ai-kicker{
+  display:block;text-align:center!important;font-size:11px;letter-spacing:.08em;color:var(--academy-muted,#5f7185)!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .ai-hero h1{
+  color:var(--academy-text,var(--ink,#172c49))!important;text-align:center!important;
+  font-family:Tahoma,"Noto Naskh Arabic","Segoe UI",Arial,sans-serif!important;
+  font-weight:700;font-size:clamp(28px,4.2vw,44px);line-height:1.6!important;margin:5px 0 0!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker{
+  display:grid;grid-template-columns:minmax(145px,auto) minmax(0,1fr);gap:12px;align-items:center;
+  padding:8px 0!important;border:0!important;box-shadow:none!important;border-radius:0!important;
+  background:transparent!important;margin:18px 0 4px!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker label{font-size:14px;letter-spacing:0;font-weight:700}
+body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker select{
+  border:1px solid var(--academy-line,#b6c5d3);min-height:50px;border-radius:9px;padding:10px 15px;
+  font-family:inherit!important;text-align:right;direction:rtl;
+}
+body[data-matiere="institutions-politiques-maroc"] .ai-chapter-head{margin:12px 0 7px;text-align:right}
+body[data-matiere="institutions-politiques-maroc"] .ai-chapter-head h2{font-family:inherit!important;font-size:clamp(19px,2.6vw,26px);margin:4px 0 10px}
+body[data-matiere="institutions-politiques-maroc"] .ai-tabs{margin:6px 0 16px;gap:8px}
+body[data-matiere="institutions-politiques-maroc"] .ai-tabs button{border-radius:9px}
+body[data-matiere="institutions-politiques-maroc"] .ai-panel{
+  border:1px solid var(--academy-line,var(--line,#d6dfe8));border-radius:12px;
+  box-shadow:none!important;padding:clamp(16px,3.5vw,27px);
+}
+body[data-matiere="institutions-politiques-maroc"] #ai-revision .sb-revision-prose{max-width:100%;width:100%;margin-inline:0;direction:rtl;text-align:right}
+body[data-matiere="institutions-politiques-maroc"] #ai-revision .sb-revision-prose p{
+  direction:rtl;text-align:right!important;white-space:pre-line;line-height:2;overflow-wrap:break-word;
+}
+body[data-matiere="institutions-politiques-maroc"] #ai-revision .sb-revision-prose h4{direction:rtl;text-align:right!important}
+@media(max-width:620px){
+ body[data-matiere="institutions-politiques-maroc"] main.ai-main{padding:14px 13px 50px}
+ body[data-matiere="institutions-politiques-maroc"] .ai-hero{padding:9px 4px 17px!important}
+ body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker{grid-template-columns:1fr;gap:7px}
+ body[data-matiere="institutions-politiques-maroc"] .ai-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body[data-matiere="institutions-politiques-maroc"] .ai-tabs button{min-height:45px}
+}
+
 </style></head>
 <body data-matiere="institutions-politiques-maroc"><header><div class="nav"><a class="brand" href="/"><span class="bfa-brand-unit"><img src="/assets/est-mark-only-transparent.png" alt="Logo EST Casablanca" class="bfa-est-logo" loading="eager"><span class="bfa-brand-title">Study BFA<small>ACADÉMIE</small></span></span></a><nav><a href="/">Accueil</a><a href="/?semestre=1#modules">Matières</a><a href="/porteur-du-projet/">Porteur du projet</a></nav><button class="theme-toggle" type="button" data-theme-toggle aria-label="Activer le mode sombre">☾ Mode sombre</button></div></header>
 <main class="ai-main" dir="rtl"><a class="back" href="/?semestre=1#modules">مواد S1 ←</a>
 <div class="ai-hero"><span class="ai-kicker">STUDY BFA · S1</span><h1>المؤسسات السياسية بالمغرب</h1></div>
-<a class="sb-summary-link" href="/matieres/institutions-politiques-maroc/synthese/">ملخص الفيديو — قريبًا</a>
 <div class="chapter-selector" aria-label="اختر الفصل"><button type="button" class="chapter-choice active" data-ai-chapter="0"><b>الفصل 1</b><span>المفاهيم الأساسية والعلاقة بين السلط</span><small>ملخص · بطاقات · اختبار · خريطة ذهنية</small></button>
 <button type="button" class="chapter-choice" data-ai-chapter="1"><b>الفصل 2</b><span>التطور الدستوري بالمغرب</span><small>ملخص · بطاقات · اختبار · خريطة ذهنية</small></button>
 <button type="button" class="chapter-choice" data-ai-chapter="2"><b>الفصل 3</b><span>المؤسسة الملكية</span><small>ملخص · بطاقات · اختبار · خريطة ذهنية</small></button>
@@ -37,12 +83,10 @@ body[data-matiere="institutions-politiques-maroc"] .sb-chapter-picker select{dir
 <section id="ai-quiz" class="ai-panel" hidden><div class="ai-top"><span>اختبار الفهم</span><span id="ai-quiz-count"></span></div><div class="ai-meter"><span id="ai-quiz-meter"></span></div><div id="ai-quiz-body"></div></section>
 <section id="ai-map" class="ai-panel" hidden><h3>خريطة ذهنية تفاعلية</h3><p>اختر فرعًا للاطلاع على أفكاره.</p><div id="ai-map-body"></div><div id="ai-map-detail" class="ai-detail" aria-live="polite"></div></section>
 
-<div class="sb-quality-footer"><p>ملخصات طلابية غير رسمية مستندة إلى عرض المادة وإلى <a href="https://www.sgg.gov.ma/Portals/1/lois/constitution_2011_Ar.pdf" target="_blank" rel="noopener">دستور 2011</a> للتحقق من الإحالات الدستورية.</p><a href="mailto:Hamza@ghouzlani.com?subject=StudyBFA%20S1%20institutions">الإبلاغ عن ملاحظة</a></div></main><footer>Study BFA · Une initiative de Hamza Ghouzlani · <a href="/porteur-du-projet/">Porteur du projet</a></footer><script src="/assets/ressources.js"></script><script src="/assets/matieres.js"></script><script src="/assets/institutions-politiques-content.js?v=2" defer></script><script src="/assets/institutions-politiques-synthese.js?v=1" defer></script><script src="/assets/ai-learning-ar.js?v=1" defer></script><script src="/assets/studybfa-v2.js?v=1" defer></script><script src="/assets/studybfa-revision-v210.js?v=20261121-clarity" defer></script><script src="/assets/studybfa-chapter-picker.js?v=1" defer></script>
+<div class="sb-quality-footer"><p>ملخصات طلابية غير رسمية مستندة إلى عرض المادة وإلى <a href="https://www.sgg.gov.ma/Portals/1/lois/constitution_2011_Ar.pdf" target="_blank" rel="noopener">دستور 2011</a> للتحقق من الإحالات الدستورية.</p><a href="mailto:Hamza@ghouzlani.com?subject=StudyBFA%20S1%20institutions">الإبلاغ عن ملاحظة</a></div></main><footer>Study BFA · Une initiative de Hamza Ghouzlani · <a href="/porteur-du-projet/">Porteur du projet</a></footer><script src="/assets/ressources.js"></script><script src="/assets/matieres.js"></script><script src="/assets/institutions-politiques-content.js?v=20261122-audit" defer></script><script src="/assets/institutions-politiques-synthese.js?v=20261122-audit" defer></script><script src="/assets/ai-learning-ar.js?v=20261122-audit" defer></script><script src="/assets/studybfa-pdfs.js?v=20261122-audit" defer></script><script src="/assets/studybfa-v2.js?v=1" defer></script><script src="/assets/studybfa-revision-v210.js?v=20261121-clarity" defer></script><script src="/assets/studybfa-chapter-picker.js?v=1" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
  setTimeout(()=>{const label=document.querySelector('.sb-chapter-picker label');if(label)label.textContent='اختر الفصل أو الملخص الشامل'; const select=document.querySelector('.sb-chapter-picker select');if(select)select.dir='rtl';},0);
- const link=document.getElementById('bfa-dynamic-pdf'),tabs=[...document.querySelectorAll('[data-ai-chapter]')];if(!link)return;
- const update=()=>{const i=tabs.findIndex(b=>b.classList.contains('active'));if(i<0)return;link.hidden=false;link.removeAttribute('download');link.href='/fiches/institutions-politiques-maroc/?chapitre='+(i+1);link.textContent=window.STUDY_BFA_AI?.[i]?.kind==='summary'?'فتح الملخص الشامل وحفظه بصيغة PDF':'فتح ملخص الفصل وحفظه بصيغة PDF';};
- tabs.forEach(b=>b.addEventListener('click',update));update();
+
 });
 </script></body></html>

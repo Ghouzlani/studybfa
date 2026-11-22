@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="الملخص الشامل لمادة المؤسسات السياسية بالمغرب — Study BFA">
+<title>الملخص الشامل — المؤسسات السياسية بالمغرب | Study BFA</title>
+<style>
+@page{size:A4;margin:16mm 18mm}
+:root{--navy:#183b60;--ink:#25374a;--line:#d6e2ea}
+*{box-sizing:border-box}
+body{margin:0;background:#eef3f7;color:var(--ink);font:15px/1.95 Tahoma,"Noto Naskh Arabic","Segoe UI",Arial,sans-serif;direction:rtl;text-align:right}
+.toolbar{max-width:840px;margin:20px auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.toolbar a{color:var(--navy);text-decoration:none;font-size:14px}
+.toolbar button{font:600 14px Tahoma,Arial,sans-serif;background:var(--navy);color:white;border:0;border-radius:7px;padding:11px 19px;cursor:pointer}
+.sheet{background:#fff;max-width:840px;margin:0 auto 35px;padding:40px 46px;box-shadow:0 10px 32px #183b6010}
+.sheet header{border-bottom:2px solid var(--navy);padding-bottom:19px;margin-bottom:22px}
+.sheet header small{font-size:11px;letter-spacing:.05em;color:#406c8d;font-weight:700}
+.sheet header h1{font-size:25px;line-height:1.55;color:var(--navy);margin:11px 0 6px}
+.sheet header p{color:#536c81;margin:0}
+.section{margin:0 0 22px;break-inside:avoid;page-break-inside:avoid}
+.section h2{font-size:16px;color:#204e75;line-height:1.7;margin:0 0 7px}
+.section p{font-size:14px;line-height:1.95;white-space:pre-line;text-align:right;direction:rtl;margin:0;overflow-wrap:break-word}
+.sheet footer{border-top:1px solid var(--line);margin-top:28px;padding-top:13px;color:#607488;font-size:11px}
+#error{font-weight:600;color:#9f263d}
+@media print{body{background:#fff}.toolbar{display:none}.sheet{box-shadow:none;margin:0;padding:0;max-width:none}}
+@media(max-width:650px){.toolbar{margin:13px}.sheet{margin:0 10px 20px;padding:24px 20px}}
+</style></head><body>
+<div class="toolbar"><a href="/matieres/institutions-politiques-maroc/?chapitre=6">العودة إلى الملخص الشامل</a><button type="button" id="print">طباعة / حفظ بصيغة PDF</button></div>
+<main class="sheet"><header><small>STUDY BFA · S1</small><h1>الملخص الشامل للمؤسسات السياسية بالمغرب</h1><p>المحاور التسعة للمادة — مراجعة مختصرة ومركزة</p></header>
+<div id="revision-sections"></div><p id="error" hidden>تعذّر تحميل الملخص الشامل. الرجاء تحديث الصفحة.</p>
+<footer>ملخص طلابي غير رسمي؛ يرجع إلى دستور المملكة المغربية لسنة 2011 عند الاستشهاد بالمقتضيات الدستورية.</footer></main>
+<script src="/assets/institutions-politiques-content.js?v=20261122-audit"></script>
+<script src="/assets/institutions-politiques-synthese.js?v=20261122-audit"></script>
+<script>
+(()=>{'use strict';
+ const summary=Array.isArray(window.STUDY_BFA_AI)?window.STUDY_BFA_AI.find(x=>x.kind==='summary'):null;
+ const host=document.getElementById('revision-sections');
+ if(!summary||!Array.isArray(summary.notes)||summary.notes.length<9){
+  document.getElementById('error').hidden=false;
+  document.getElementById('print').disabled=true;
+  return;
+ }
+ for(const [name,content] of summary.notes){
+  const section=document.createElement('section');section.className='section';
+  const h=document.createElement('h2');h.textContent=name;
+  const p=document.createElement('p');p.textContent=content;
+  section.append(h,p);host.append(section);
+ }
+ document.getElementById('print').addEventListener('click',()=>window.print());
+})();
+</script></body></html>
