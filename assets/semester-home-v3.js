@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(!root)return;
  const tabs=[...root.querySelectorAll('[data-study-semester]')];
  const panels=new Map([1,2,3].map(n=>[n,document.getElementById('study-semester-panel-s'+n)]));
- const intro=document.getElementById('study-semester-intro');
- if(tabs.length!==3||[...panels.values()].some(x=>!x)||!intro)return;
+ if(tabs.length!==3||[...panels.values()].some(x=>!x))return;
  function select(n,focus){
   for(const tab of tabs){
    const active=Number(tab.dataset.studySemester)===n;
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded',()=>{
    if(active&&focus)tab.focus();
   }
   for(const [id,panel] of panels)panel.hidden=id!==n;
-  intro.hidden=true;
  }
  tabs.forEach((tab,i)=>{
   tab.addEventListener('click',()=>select(Number(tab.dataset.studySemester),false));
