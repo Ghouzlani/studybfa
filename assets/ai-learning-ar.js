@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // No diagram/grid conversion. The existing lecture notes are the sole source.
     chapters[index].notes.forEach(([heading, body]) => {
       const section = el('section', 'sb-revision-prose');
-      section.append(el('h4', '', heading), el('p', '', body));
+      const paragraph = el('p', '', body);
+      // Preserve Arabic line breaks in the approved comprehensive summary.
+      if (chapters[index].kind === 'summary') paragraph.dataset.sbFormatted = '1';
+      section.append(el('h4', '', heading), paragraph);
       root.append(section);
     });
     activateTab('revision');
@@ -149,5 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
   $('ai-card').addEventListener('click',()=>{flipped=!flipped;renderCard();});
   $('ai-prev').addEventListener('click',()=>{if(card>0){card--;flipped=false;renderCard();}});
   $('ai-next').addEventListener('click',()=>{if(card<chapters[chapter].cards.length-1){card++;flipped=false;renderCard();}});
-  activateChapter(0);
+  const requested = Number(new URLSearchParams(window.location.search).get('chapitre'));
+  activateChapter(Number.isInteger(requested) && requested >= 1 && requested <= chapters.length ? requested-1 : 0);
 });
