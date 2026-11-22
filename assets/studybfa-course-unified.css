@@ -1,0 +1,153 @@
+/* StudyBFA | Unified course hero, revision navigation — November 2026
+   Typographic design, original EST mark, no generated images or decorative flags. */
+body[data-matiere] .sb-course-shell{
+  position:relative;direction:inherit;isolation:isolate;
+  width:100%;max-width:100%;margin:8px 0 24px;
+  background:linear-gradient(128deg,#193b5b 0%,#112e4b 56%,#0a233e 100%);
+  color:#f4f8fe!important;border:1px solid #3b617e;
+  border-radius:18px;padding:27px clamp(17px,3vw,36px) 24px;
+  box-shadow:0 12px 30px -22px rgba(4,21,41,.5);
+}
+body[data-matiere] .sb-course-shell .sb-course-heading{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:0;max-width:100%;margin:0 auto 19px;
+}
+body[data-matiere] .sb-course-shell .sb-course-identity{
+  display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:9px;color:#b6d8f3;line-height:1.5;font:700 11px/1.4 Arial,Helvetica,sans-serif;
+  letter-spacing:.085em;
+}
+body[data-matiere] .sb-course-shell .sb-course-identity img{
+  width:34px!important;height:34px!important;max-width:34px!important;
+  object-fit:contain;flex:none;box-shadow:none!important;
+  background:#fff;border:1px solid #dce7f0;border-radius:6px;padding:3px;
+}
+body[data-matiere] .sb-course-shell .sb-course-school{
+  color:#d7e6f4;font-size:11px;font-weight:500;letter-spacing:.03em;
+  border-inline-start:1px solid #6685a1;padding-inline-start:10px;
+}
+body[data-matiere] .sb-course-shell .ai-hero,
+body[data-matiere] .sb-course-shell .intro.be-intro,
+body[data-matiere] .sb-course-shell .subject-intro{
+  width:100%;max-width:100%;
+  margin:0!important;padding:4px 0 0!important;
+  min-height:0!important;background:transparent!important;
+  box-shadow:none!important;border:0!important;border-radius:0!important;
+  text-align:center!important;color:#fff!important;
+}
+body[data-matiere] .sb-course-shell .ai-kicker,
+body[data-matiere] .sb-course-shell .kicker,
+body[data-matiere] .sb-course-shell .subject-kicker{
+  display:none!important;
+}
+body[data-matiere] .sb-course-shell .ai-hero h1,
+body[data-matiere] .sb-course-shell .intro.be-intro h1,
+body[data-matiere] .sb-course-shell .subject-intro h1{
+  display:block;width:auto;max-width:100%;margin:8px auto 0!important;
+  padding:0!important;background:transparent!important;
+  color:#f8fbff!important;text-align:center!important;letter-spacing:-.015em!important;
+  font-family:"Times New Roman",Times,Georgia,serif!important;
+  font-size:clamp(31px,4.1vw,53px)!important;font-weight:700!important;line-height:1.25!important;
+  text-shadow:none!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .sb-course-shell .ai-hero h1{
+  font-family:"Times New Roman","Noto Naskh Arabic",Tahoma,serif!important;
+  font-size:clamp(28px,3.8vw,45px)!important;line-height:1.65!important;letter-spacing:0!important;
+}
+body[data-matiere] .sb-course-shell .schedule,
+body[data-matiere] .sb-course-shell .sb-course-prof{
+  display:block;margin:8px auto 0!important;padding:0!important;
+  color:#c7daeb!important;background:transparent!important;
+  border:0!important;box-shadow:none!important;
+  font:500 12px/1.6 Arial,Helvetica,sans-serif!important;
+  text-align:center!important;
+}
+body[data-matiere] .sb-course-shell .sb-course-controls{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:12px 16px;align-items:end;
+  max-width:100%;margin:21px 0 0!important;padding:18px 0 0!important;
+  background:transparent!important;border:0!important;
+  border-top:1px solid rgba(187,214,236,.21)!important;
+  box-shadow:none!important;border-radius:0!important;
+}
+body[data-matiere] .sb-course-shell .sb-course-controls--video-only{
+  display:flex;justify-content:center;align-items:center;
+}
+body[data-matiere] .sb-course-shell .sb-chapter-picker{
+  display:flex!important;flex-direction:column!important;
+  align-items:stretch!important;justify-content:flex-end;
+  min-width:0;width:100%;max-width:100%;gap:6px!important;
+  margin:0!important;padding:0!important;
+  background:transparent!important;color:#eaf5ff!important;
+  border:0!important;box-shadow:none!important;border-radius:0!important;
+}
+body[data-matiere] .sb-course-shell .sb-chapter-picker label{
+  display:block!important;direction:inherit;margin:0!important;
+  font-family:Arial,Helvetica,sans-serif!important;
+  font-size:12px!important;line-height:1.5!important;letter-spacing:0!important;
+  font-weight:700!important;text-align:start!important;color:#c2dbed!important;
+}
+body[data-matiere] .sb-course-shell .sb-chapter-picker select{
+  display:block;direction:inherit;width:100%!important;height:48px!important;min-height:48px!important;
+  max-width:100%;margin:0!important;padding:9px 36px 9px 15px!important;
+  border:1px solid #7094b0!important;border-radius:9px!important;
+  background:#09233b!important;color:#f7fbff!important;
+  font-family:inherit!important;font-size:clamp(13px,1.25vw,15px)!important;
+  text-overflow:ellipsis;white-space:nowrap;cursor:pointer!important;
+  box-shadow:none!important;
+}
+body[data-matiere="institutions-politiques-maroc"] .sb-course-shell .sb-chapter-picker select{
+  direction:rtl!important;text-align:right!important;
+  padding:9px 15px 9px 36px!important;
+}
+body[data-matiere] .sb-course-shell .sb-chapter-picker select:focus-visible{
+  outline:2px solid #9fd8ff!important;outline-offset:3px!important;
+}
+body[data-matiere] .sb-course-shell .sb-video-inline{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  justify-self:end;align-self:end;
+  min-height:48px!important;max-width:100%;margin:0!important;
+  padding:10px 16px!important;gap:9px!important;
+  border:1px solid #749bb7!important;border-radius:9px!important;
+  background:rgba(88,142,180,.18)!important;color:#f7fbff!important;
+  font-family:inherit!important;font-size:13px!important;font-weight:700!important;
+  line-height:1.35!important;white-space:nowrap!important;
+  box-shadow:none!important;cursor:pointer!important;
+  text-decoration:none!important;transition:background .16s,border-color .16s,transform .16s;
+}
+body[data-matiere] .sb-course-shell .sb-video-inline:hover{
+  background:rgba(107,172,215,.32)!important;color:#fff!important;
+  border-color:#bddcf1!important;transform:translateY(-1px);
+}
+body[data-matiere] .sb-course-shell .sb-video-inline:focus-visible{
+  outline:3px solid #87c8f5!important;outline-offset:3px!important;
+}
+body[data-matiere] .sb-course-shell .sb-video-icon{
+  width:22px!important;height:22px!important;color:#d1ebff!important;
+}
+body[data-matiere] .sb-course-shell .sb-video-availability{
+  color:#c2d9eb!important;border-color:#799ab1!important;font-weight:500!important;
+}
+body[data-matiere] .sb-course-shell .sb-video-inline::after{display:none!important}
+html[data-theme="dark"] body[data-matiere] .sb-course-shell{
+  background:linear-gradient(130deg,#193553,#10293f 60%,#0b2136);
+  border-color:#365775;box-shadow:0 12px 25px -18px #0009;
+}
+@media(max-width:730px){
+  body[data-matiere] .sb-course-shell{
+    margin-top:5px;padding:20px 17px 18px;border-radius:14px;
+  }
+  body[data-matiere] .sb-course-shell .sb-course-heading{margin-bottom:11px}
+  body[data-matiere] .sb-course-shell .sb-course-identity{gap:6px;font-size:10px}
+  body[data-matiere] .sb-course-shell .sb-course-school{font-size:10px}
+  body[data-matiere] .sb-course-shell .sb-course-controls{
+    grid-template-columns:minmax(0,1fr)!important;gap:10px!important;
+    margin-top:14px!important;padding-top:14px!important;
+  }
+  body[data-matiere] .sb-course-shell .sb-video-inline{justify-self:center;min-height:42px!important;padding:8px 13px!important}
+  body[data-matiere] .sb-course-shell .sb-chapter-picker select{font-size:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-matiere] .sb-course-shell .sb-video-inline{transition:none!important}
+  body[data-matiere] .sb-course-shell .sb-video-inline:hover{transform:none!important}
+}
