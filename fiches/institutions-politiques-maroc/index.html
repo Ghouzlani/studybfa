@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ملخصات مادة المؤسسات السياسية بالمغرب قابلة للطباعة أو الحفظ بصيغة PDF.">
+<title>ملخص المؤسسات السياسية بالمغرب — Study BFA</title>
+<style>
+@page{size:A4;margin:17mm 18mm}
+:root{--ink:#183b60;--mute:#5e7285;--line:#d6e2ea}
+*{box-sizing:border-box}
+body{margin:0;background:#eef3f7;color:#25374a;font:15px/2 Tahoma,"Noto Naskh Arabic","Segoe UI",Arial,sans-serif}
+.toolbar{max-width:840px;margin:20px auto;display:flex;justify-content:space-between;gap:15px;align-items:center}
+.toolbar a{text-decoration:none;color:var(--ink);font-size:14px}
+.toolbar button{background:var(--ink);border:0;border-radius:5px;color:#fff;cursor:pointer;padding:11px 20px;font:600 13px Tahoma,Arial,sans-serif}
+.sheet{background:#fff;max-width:840px;margin:0 auto 35px;padding:40px 48px;box-shadow:0 12px 35px #183b6010}
+.sheet header{padding-bottom:18px;margin-bottom:26px;border-bottom:2px solid var(--ink)}
+.sheet header small{font:700 11px/1.4 Tahoma,Arial;color:#406c8d;letter-spacing:.06em}
+.sheet header h1{margin:10px 0 3px;font-size:26px;color:var(--ink)}
+#chapter-name{margin:0;font-size:18px;font-weight:bold;color:#284f73}
+.section{margin:0 0 24px;break-inside:avoid;page-break-inside:avoid}
+.section h2{font-size:16px;color:#204e75;margin:0 0 8px;line-height:1.6}
+.section p{font-size:14px;white-space:pre-line;margin:0;line-height:2}
+.sheet footer{border-top:1px solid var(--line);margin-top:35px;padding-top:12px;font-size:11px;color:var(--mute)}
+@media print{body{background:#fff}.toolbar{display:none}.sheet{box-shadow:none;margin:0;padding:0;max-width:none}.section{break-inside:avoid}}
+@media(max-width:650px){.toolbar{margin:14px}.sheet{padding:25px 21px;margin:0 14px 20px}}
+</style>
+</head><body>
+<div class="toolbar"><a href="/matieres/institutions-politiques-maroc/">العودة إلى المادة</a><button id="save-pdf" type="button">طباعة / حفظ بصيغة PDF</button></div>
+<main class="sheet">
+<header><small>STUDY BFA · SEMESTRE 1</small><h1>المؤسسات السياسية بالمغرب</h1><p id="chapter-name"></p></header>
+<div id="revision-sections"></div>
+<footer>ملخص طلابي غير رسمي مستند إلى العرض الدراسي، مع تدقيق الإحالات الدستورية وفق دستور المملكة المغربية لسنة 2011. يُرجع إلى النص الدستوري الأصلي عند الاقتباس.</footer>
+</main>
+<script src="/assets/institutions-politiques-content.js?v=1"></script>
+<script>
+(()=>{'use strict';const data=window.STUDY_BFA_AI;
+ const num=Number(new URLSearchParams(location.search).get('chapitre')||1);
+ if(!Array.isArray(data)||!Number.isInteger(num)||num<1||num>data.length){
+ document.getElementById('chapter-name').textContent='فصل غير متوفر';return;}
+ const c=data[num-1];document.title='الفصل '+num+' — '+c.title+' | Study BFA';
+ document.getElementById('chapter-name').textContent='الفصل '+num+' — '+c.title;
+ const root=document.getElementById('revision-sections');
+ for(const [name,body] of c.notes){
+  const sec=document.createElement('section');sec.className='section';
+  const h=document.createElement('h2');h.textContent=name;
+  const p=document.createElement('p');p.textContent=body;
+  sec.append(h,p);root.append(sec);
+ }
+ document.getElementById('save-pdf').addEventListener('click',()=>window.print());
+})();
+</script></body></html>
