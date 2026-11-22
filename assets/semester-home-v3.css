@@ -16,9 +16,9 @@ html body.academy-home .study-semester-heading h2 {
 }
 html body.academy-home .study-semester-picker {
   display:grid!important;
-  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
   width:100%!important;
-  gap:16px!important;
+  gap:14px!important;
   padding:0!important;
   margin:0!important;
   background:transparent!important;
@@ -31,7 +31,7 @@ html body.academy-home .study-semester-choice {
   justify-content:center!important;
   align-items:center!important;
   min-width:0!important;
-  min-height:202px!important;
+  min-height:190px!important;
   padding:22px!important;
   gap:12px!important;
   text-align:center!important;
@@ -44,7 +44,7 @@ html body.academy-home .study-semester-choice {
   transition:background .16s ease,border-color .16s ease;
 }
 html body.academy-home .study-semester-number {
-  font:400 clamp(49px,5vw,69px)/1 Georgia,"Times New Roman",serif!important;
+  font:400 clamp(45px,4vw,62px)/1 Georgia,"Times New Roman",serif!important;
   letter-spacing:-.055em;
   color:var(--ink)!important;
 }
@@ -137,7 +137,7 @@ html body.academy-home .study-semester-empty p {
 }
 @media(max-width:740px){
   html body.academy-home .study-semester-home{padding-top:42px;padding-bottom:55px}
-  html body.academy-home .study-semester-picker{gap:10px!important}
+  html body.academy-home .study-semester-picker{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
   html body.academy-home .study-semester-choice{min-height:159px!important;padding:16px!important}
   html body.academy-home .study-semester-number{font-size:49px!important}
   html body.academy-home .courses.study-semester-course-grid{grid-template-columns:1fr!important}
@@ -145,9 +145,9 @@ html body.academy-home .study-semester-empty p {
 @media(max-width:460px){
   html body.academy-home .study-semester-home{padding-top:36px;padding-bottom:40px}
   html body.academy-home .study-semester-heading{margin-bottom:24px}
-  html body.academy-home .study-semester-picker{gap:7px!important}
-  html body.academy-home .study-semester-choice{min-height:122px!important;padding:12px 4px!important;gap:9px!important;border-radius:7px!important}
-  html body.academy-home .study-semester-number{font-size:39px!important}
+  html body.academy-home .study-semester-picker{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+  html body.academy-home .study-semester-choice{min-height:130px!important;padding:12px 4px!important;gap:9px!important;border-radius:7px!important}
+  html body.academy-home .study-semester-number{font-size:43px!important}
   html body.academy-home .study-semester-year{font-size:11px!important}
   .study-semester-subject-heading{align-items:start;flex-direction:column}
   .study-semester-results{margin-top:24px}

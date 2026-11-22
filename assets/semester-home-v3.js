@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded',()=>{
  const root=document.querySelector('.study-semester-home');
  if(!root)return;
  const tabs=[...root.querySelectorAll('[data-study-semester]')];
- const panels=new Map([1,2,3].map(n=>[n,document.getElementById('study-semester-panel-s'+n)]));
- if(tabs.length!==3||[...panels.values()].some(x=>!x))return;
+ const panels=new Map([1,2,3,4].map(n=>[n,document.getElementById('study-semester-panel-s'+n)]));
+ if(tabs.length!==4||[...panels.values()].some(x=>!x))return;
  function select(n,focus){
   for(const tab of tabs){
    const active=Number(tab.dataset.studySemester)===n;
