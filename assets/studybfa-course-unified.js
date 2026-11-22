@@ -1,5 +1,4 @@
-/* StudyBFA — unified academic course header. Presentation-only enhancement.
-   Existing chapter selectors, click handlers, and downloadable resources are preserved. */
+/* StudyBFA course header — clean typographic layout, preserves existing learning controls. */
 (() => {
   'use strict';
   document.addEventListener('DOMContentLoaded', () => {
@@ -8,43 +7,36 @@
     const hero = main.querySelector(':scope > .ai-hero, :scope > .intro.be-intro, :scope > .subject-intro');
     const video = main.querySelector(':scope > .sb-video-inline');
     if (!hero || !video) return;
-
-    // The established chapter-picker enhancement runs before this listener.
-    // Moving its existing nodes preserves select choices and all event handlers.
     const picker = main.querySelector(':scope > .sb-chapter-picker');
 
     const shell = document.createElement('section');
     shell.className = 'sb-course-shell';
-    shell.setAttribute('aria-label', document.documentElement.lang === 'ar' ? 'عنوان المادة وأدوات التنقل' : 'Cours et navigation');
-
-    const identity = document.createElement('div');
-    identity.className = 'sb-course-identity';
-    const logo = document.createElement('img');
-    logo.src = '/assets/est-mark-only-transparent.png';
-    logo.alt = 'EST Casablanca';
-    logo.width = 36;
-    logo.height = 36;
-    logo.decoding = 'async';
-    const brand = document.createElement('span');
-    brand.textContent = 'STUDY BFA · ACADÉMIE';
-    const school = document.createElement('span');
-    school.className = 'sb-course-school';
-    school.textContent = 'EST Casablanca';
-    identity.append(logo, brand, school);
-
-    // Insert the panel while the original hero still belongs to main.
-    // Otherwise insertBefore would fail after moving hero into heading.
+    shell.setAttribute('aria-label', document.documentElement.lang === 'ar' ? 'عنوان المادة وأدوات المراجعة' : 'En-tête du cours et navigation');
     main.insertBefore(shell, hero);
+
     const heading = document.createElement('div');
     heading.className = 'sb-course-heading';
+    const identity = document.createElement('span');
+    identity.className = 'sb-course-identity';
+    identity.dir = 'ltr';
+    identity.textContent = 'STUDY BFA · ACADÉMIE';
     heading.append(identity, hero);
 
     const controls = document.createElement('div');
     controls.className = 'sb-course-controls';
-    if (picker) controls.append(picker);
-    else controls.classList.add('sb-course-controls--video-only');
+    if (picker) {
+      const select = picker.querySelector('select');
+      if (select && !picker.querySelector('.sb-course-select-wrap')) {
+        const wrap = document.createElement('div');
+        wrap.className = 'sb-course-select-wrap';
+        select.parentNode.insertBefore(wrap, select);
+        wrap.append(select);
+      }
+      controls.append(picker);
+    } else {
+      controls.classList.add('sb-course-controls--video-only');
+    }
     controls.append(video);
-
     shell.append(heading, controls);
     main.classList.add('sb-unified-course');
   });
