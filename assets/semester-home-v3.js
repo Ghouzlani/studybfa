@@ -27,5 +27,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    event.preventDefault();select(Number(tabs[index].dataset.studySemester),true);
   });
  });
+ const param=new URLSearchParams(window.location.search).get('semestre');
+ if(['1','2','3','4'].includes(param))select(Number(param),false);
 });
 })();
