@@ -1,0 +1,23 @@
+/* StudyBFA unified A4 printable revision sheet — navy header theme. */
+@page{size:A4;margin:17mm 18mm 16mm}
+:root{--sbfa-navy:#173b65;--sbfa-ink:#223648;--sbfa-line:#d8e3ed;--sbfa-muted:#62788b}
+*{box-sizing:border-box}
+html{color-scheme:light}
+body{margin:0;background:#eef3f7;color:var(--sbfa-ink);font:15px/1.95 Tahoma,"Noto Naskh Arabic","Segoe UI",Arial,sans-serif;direction:rtl;text-align:right}
+.toolbar{max-width:840px;margin:17px auto;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.toolbar a{color:var(--sbfa-navy);text-decoration:none;font-size:14px}
+.toolbar a:hover{text-decoration:underline}
+.toolbar button{color:white;background:var(--sbfa-navy);border:0;border-radius:7px;padding:11px 20px;font:600 13px Tahoma,Arial,sans-serif;cursor:pointer}
+.toolbar button:focus-visible{outline:2px solid #3984ba;outline-offset:2px}
+.sheet{max-width:840px;margin:0 auto 36px;padding:0 45px 32px;background:#fff;box-shadow:0 10px 32px #1b406013}
+.sheet header{background:var(--sbfa-navy);color:#fff;border:0;margin:0 -45px 30px;padding:18px 45px 19px;break-inside:avoid}
+.sheet header small{font-size:11px;letter-spacing:.05em;color:#cce0f0;font-weight:700;display:block;line-height:1.6}
+.sheet header h1{font-size:23px;font-weight:700;line-height:1.5;margin:6px 0 5px;color:#fff}
+.sheet header p,.sheet header #chapter-name{color:#e3eef7;margin:0;font-size:15px;font-weight:500;line-height:1.55}
+.section{margin:0 0 20px;break-inside:avoid;page-break-inside:avoid}
+.section h2{font-size:16px;font-weight:700;line-height:1.6;color:#17446b;margin:0 0 6px;border-inline-start:3px solid #428cba;padding-inline-start:10px}
+.section p{font-size:14px;line-height:1.9;margin:0;white-space:pre-line;direction:rtl;text-align:right;overflow-wrap:break-word}
+.sheet footer{border-top:1px solid var(--sbfa-line);margin-top:26px;padding-top:12px;color:var(--sbfa-muted);font-size:11px;line-height:1.7}
+#error{font-weight:600;color:#9f263d}
+@media print{html,body{background:#fff!important;color:#1a2e3f!important}.toolbar{display:none}.sheet{box-shadow:none;max-width:none;margin:0;padding:0}.sheet header{margin:0 0 21px;padding:15px 18px 16px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sheet header h1{font-size:20px}.section{margin-bottom:16px}.section h2{font-size:15px}.section p{font-size:12.5px;line-height:1.8}}
+@media(max-width:650px){.toolbar{margin:13px}.sheet{padding:0 20px 27px;margin:0 12px 22px}.sheet header{margin:0 -20px 23px;padding:18px 20px}.sheet header h1{font-size:21px}.section p{font-size:13.5px}}

@@ -1,5 +1,5 @@
 /* StudyBFA: approved Option B video navigation and compact pending-video view. */
-.sb-video-inline{display:flex!important;align-items:center;justify-content:center;gap:9px;width:fit-content;max-width:calc(100% - 20px);margin:9px auto 18px!important;padding:5px 9px!important;border:0!important;border-radius:8px;background:transparent!important;box-shadow:none!important;text-decoration:none!important;color:var(--text,#204364)!important;font:600 13px/1.4 inherit;direction:inherit;transition:background-color .16s ease,color .16s ease}
+.sb-video-inline{display:flex!important;align-items:center;justify-content:center;gap:9px;width:fit-content;max-width:calc(100% - 20px);margin:9px auto 18px!important;padding:5px 9px!important;border:0!important;border-radius:8px;background:transparent!important;box-shadow:none!important;text-decoration:none!important;color:var(--text,#204364)!important;font-size:13px;font-weight:600;line-height:1.4;font-family:inherit;direction:inherit;transition:background-color .16s ease,color .16s ease}
 .sb-video-inline:hover{background:rgba(55,115,157,.08)!important;color:#246a9d!important}
 .sb-video-inline:focus-visible{outline:2px solid #3984ba;outline-offset:3px}
 .sb-video-icon{display:block;flex:none;width:23px;height:23px;color:#41799e}
@@ -16,7 +16,7 @@
 .sb-video-stage h2{font-family:inherit;font-size:16px;color:var(--text,#173354);margin:0 0 10px}
 .sb-video-frame{aspect-ratio:auto!important;min-height:0!important;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:13px;margin:0!important;padding:13px 15px!important;border:1px solid var(--line,#ccdce9)!important;border-radius:10px!important;background:var(--card,#f4f7fa)!important;color:var(--text,#254763)!important;box-shadow:none!important;text-align:start}
 .sb-video-frame svg{width:25px;height:25px;flex:none}
-.sb-video-frame strong{font:600 13px/1.4 inherit}
+.sb-video-frame strong{font-size:13px;font-weight:600;line-height:1.4;font-family:inherit}
 .sb-video-frame p{font-size:12px;margin:0;color:var(--muted,#637487);line-height:1.4}
 .sb-video-footnote{margin:13px 0 0;font-size:12px;line-height:1.6;color:var(--muted,#637487)}
 html[data-theme=dark] .sb-video-inline,html.dark .sb-video-inline,body.dark .sb-video-inline{color:#e1eefa!important}
