@@ -1,6 +1,6 @@
 /* StudyBFA PDF links: deterministic chapter selection; Arabic summary has its own printable URL. */
 (()=>{'use strict';
-const VERSION='20261122-audit';
+const VERSION='20261122-navy';
 document.addEventListener('DOMContentLoaded',()=>{
  const a=document.getElementById('bfa-dynamic-pdf');
  if(!a)return;
