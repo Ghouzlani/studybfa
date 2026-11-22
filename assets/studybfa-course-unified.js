@@ -32,6 +32,9 @@
     school.textContent = 'EST Casablanca';
     identity.append(logo, brand, school);
 
+    // Insert the panel while the original hero still belongs to main.
+    // Otherwise insertBefore would fail after moving hero into heading.
+    main.insertBefore(shell, hero);
     const heading = document.createElement('div');
     heading.className = 'sb-course-heading';
     heading.append(identity, hero);
@@ -42,7 +45,6 @@
     else controls.classList.add('sb-course-controls--video-only');
     controls.append(video);
 
-    main.insertBefore(shell, hero); // insert before moving hero into the shell
     shell.append(heading, controls);
     main.classList.add('sb-unified-course');
   });
