@@ -24,3 +24,68 @@ html[data-theme=dark] .sb-video-hero h1,html.dark .sb-video-hero h1,body.dark .s
 html[data-theme=dark] .sb-video-frame,html.dark .sb-video-frame,body.dark .sb-video-frame{background:#1b2d43!important;border-color:#456079!important;color:#e5eff8!important}
 html[data-theme=dark] .sb-video-stage h2,html.dark .sb-video-stage h2,body.dark .sb-video-stage h2{color:#e5eff8}
 @media(max-width:620px){.sb-video-main{padding:18px 14px 50px}.sb-video-inline{margin:8px auto 12px!important}.sb-video-frame{flex-wrap:wrap;gap:8px}.sb-video-frame p{flex-basis:100%}}
+
+
+/* StudyBFA v3 — clearly clickable Option B and proper cinematic video placeholder */
+.sb-video-inline{
+  cursor:pointer!important;min-height:44px!important;
+  margin:10px auto 20px!important;padding:9px 15px!important;
+  border:1px solid #a9c6df!important;border-radius:999px!important;
+  background:linear-gradient(180deg,#f9fcff,#e6f1fa)!important;
+  color:#17496f!important;box-shadow:0 3px 11px #173e611c!important;
+  font-family:inherit!important;font-size:13px!important;font-weight:700!important;
+  text-decoration:none!important;transition:transform .16s,box-shadow .16s,background-color .16s;
+}
+.sb-video-inline:hover{background:#d5eafa!important;border-color:#6aa5ce!important;box-shadow:0 6px 17px #173e612b!important;transform:translateY(-1px)}
+.sb-video-inline:focus-visible{outline:3px solid #4d9bd0!important;outline-offset:3px}
+.sb-video-inline .sb-video-icon{color:#226ba2;width:23px;height:23px}
+.sb-video-inline .sb-video-availability{color:#4c667c!important;font-weight:650!important;border-color:#b6cada!important}
+.sb-video-inline::after{content:"";width:6px;height:6px;flex:none;border-top:2px solid currentColor;border-right:2px solid currentColor;transform:rotate(45deg);margin-inline-start:3px;opacity:.75}
+html[lang="ar"] .sb-video-inline::after{transform:rotate(225deg)}
+html[data-theme="dark"] .sb-video-inline{background:linear-gradient(180deg,#254864,#193650)!important;color:#e7f4ff!important;border-color:#7098b7!important;box-shadow:0 3px 10px #0004!important}
+html[data-theme="dark"] .sb-video-inline:hover{background:#305b7c!important;border-color:#a4c8e3!important}
+html[data-theme="dark"] .sb-video-inline .sb-video-icon{color:#d0edff}
+html[data-theme="dark"] .sb-video-inline .sb-video-availability{color:#ccdeed!important;border-color:#6387a1!important}
+body:not(.academy-home) main.sb-video-main{max-width:1000px!important;width:100%;margin:0 auto!important;padding:25px 24px 75px!important}
+.sb-video-back{display:inline-flex!important;align-items:center;gap:7px;margin:0 0 15px!important;padding:8px 0;color:var(--muted,#5b7590)!important;text-decoration:none!important;font-size:13px;font-weight:700}
+.sb-video-back:hover{text-decoration:underline!important;color:var(--blue,#2e77af)!important}
+.sb-video-hero{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:6px 8px 8px!important;margin:0 0 19px!important;text-align:center!important}
+.sb-video-hero .sb-video-eyebrow{display:block!important;text-align:center!important;color:var(--muted,#5c7189)!important;font-size:11px;font-weight:750;letter-spacing:.1em}
+.sb-video-hero h1{font-family:inherit!important;font-size:clamp(25px,3.5vw,39px)!important;font-weight:780!important;line-height:1.5!important;color:var(--ink,#173b65)!important;margin:9px auto 3px!important;text-align:center!important}
+.sb-video-stage{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important}
+.sb-video-stage-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.sb-video-stage-heading h2{margin:0!important;font-family:inherit!important;font-size:16px!important;font-weight:750!important;color:var(--ink,#173b65)!important}
+.sb-video-status{font-size:11px;font-weight:700;color:var(--muted,#687d92);border:1px solid var(--line,#d4e1ec);background:var(--surface-soft,#f1f6fb);padding:5px 11px;border-radius:999px}
+.sb-video-frame{
+  position:relative;isolation:isolate;overflow:hidden;
+  width:100%;aspect-ratio:16/9!important;min-height:280px!important;
+  display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important;
+  padding:42px 24px!important;margin:0!important;
+  background:radial-gradient(circle at 72% 19%,#4e89ba38,transparent 34%),linear-gradient(135deg,#09192c 0%,#102d49 55%,#1a4164 100%)!important;
+  color:#f4faff!important;border:1px solid #31587a!important;border-radius:19px!important;
+  text-align:center!important;box-shadow:0 23px 48px -30px #051c3d9c!important;
+}
+.sb-video-frame::before{content:"";position:absolute;inset:14px;border:1px solid #a7caea21;border-radius:12px;z-index:-1;pointer-events:none}
+.sb-video-frame-top,.sb-video-frame-bottom{position:absolute;inset-inline:26px;display:flex;justify-content:space-between;align-items:center;gap:8px;color:#accbe3;letter-spacing:.06em;font-size:10px;font-weight:750}
+.sb-video-frame-top{top:26px}.sb-video-frame-bottom{bottom:25px;color:#92b3d1}
+.sb-video-frame-center{display:flex;flex-direction:column;align-items:center;max-width:410px}
+.sb-video-play-symbol{width:82px;height:82px;display:grid;place-items:center;margin:0 0 21px;border-radius:50%;border:1px solid #d2e7fa60;background:#c3e5ff16;box-shadow:0 0 0 9px #dcefff0c}
+.sb-video-play-symbol svg{width:32px!important;height:32px!important;color:#ecf7ff}
+.sb-video-frame strong{font-family:inherit!important;font-size:clamp(22px,3vw,34px)!important;font-weight:750!important;line-height:1.35!important;color:#fff!important;margin:0 0 10px}
+.sb-video-frame p{font-size:clamp(12px,1.5vw,14px)!important;max-width:340px;color:#c1d4e5!important;line-height:1.7!important;margin:0!important}
+.sb-video-under{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:16px 2px}
+.sb-video-under span{font-size:13px;color:var(--muted,#6a8093)}
+.sb-video-revision-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line,#cfdfeb);border-radius:9px;padding:10px 14px;background:var(--surface,#fff);color:var(--ink,#163f62)!important;text-decoration:none!important;font-size:13px;font-weight:700}
+.sb-video-revision-link:hover{border-color:#80b7dd;background:var(--soft-blue,#eaf2fa);color:var(--blue,#266fa3)!important}
+body[data-matiere="institutions-politiques-maroc"] .sb-video-hero h1{line-height:1.8!important}
+html[data-theme="dark"] .sb-video-stage-heading h2{color:#e8f2fc!important}
+@media(max-width:650px){
+ body:not(.academy-home) main.sb-video-main{padding:18px 14px 55px!important}
+ .sb-video-hero{margin-bottom:17px!important}
+ .sb-video-frame{min-height:265px!important;border-radius:14px!important;padding:44px 16px!important}
+ .sb-video-frame-top,.sb-video-frame-bottom{inset-inline:16px;font-size:9px}
+ .sb-video-frame-top{top:18px}.sb-video-frame-bottom{bottom:17px}
+ .sb-video-play-symbol{width:65px;height:65px;margin-bottom:17px}
+ .sb-video-play-symbol svg{width:26px!important;height:26px!important}
+}
+@media(prefers-reduced-motion:reduce){.sb-video-inline{transition:none!important}.sb-video-inline:hover{transform:none}}
