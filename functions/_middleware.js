@@ -12,42 +12,62 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radi
 h1{font-size:clamp(34px,7vw,44px);font-weight:400;letter-spacing:-1px;line-height:1.08;margin:0 0 15px}.lead{font-size:17px;line-height:1.65;color:#b6c6d3;margin:0 0 31px}.line{height:1px;background:linear-gradient(90deg,#b7c6d036,transparent);margin-bottom:28px}label{display:block;margin:0 0 11px;color:#e0e9ed;font-size:15px;letter-spacing:.2px}input{display:block;width:100%;height:53px;padding:0 17px;border:1px solid #9db7c74a;border-radius:9px;background:#071321b8;color:#fff;font:19px "Times New Roman",serif;outline:none;transition:border-color .2s,box-shadow .2s}input:focus{border-color:#c1dce8;box-shadow:0 0 0 3px #95d3f11c}button{width:100%;height:53px;margin-top:17px;border:1px solid #d5e8eb70;border-radius:9px;background:linear-gradient(135deg,#d9e6e6,#a7c3d1);color:#11253a;font:600 16px "Times New Roman",serif;letter-spacing:.3px;cursor:pointer;transition:transform .2s,filter .2s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:focus-visible{outline:3px solid #fff;outline-offset:3px}.error{color:#ffb9b9;font:14px system-ui,sans-serif;margin:15px 0 0}.footer{font:11px/1.6 system-ui,sans-serif;letter-spacing:1.5px;color:#8ba1b2;text-transform:uppercase;margin:26px 0 0}.spark{display:inline-block;width:5px;height:5px;margin:0 10px 2px;border-radius:50%;background:#a8c9d3;box-shadow:0 0 12px #a8c9d3}
 @media(max-width:480px){.panel{padding:34px 26px}.shell{padding:24px 0}.crest{margin-bottom:17px}}@media(prefers-reduced-motion:reduce){button{transition:none}}
 </style></head><body><main class="shell"><div class="crest" aria-hidden="true">S</div><p class="eyebrow">Espace académique privé</p><section class="panel"><h1>Bienvenue sur<br>StudyBFA<span style="color:#a7c6d1">.</span></h1><p class="lead">Un espace dédié à l'apprentissage et à la réussite. Veuillez vous identifier pour poursuivre.</p><div class="line"></div><form method="post" action="/__studybfa_login"><label for="password">Mot de passe d'accès</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Saisissez votre mot de passe" required autofocus><button type="submit">Accéder à la plateforme &nbsp;→</button></form><p class="error" id="error" role="alert" hidden>Mot de passe incorrect. Veuillez réessayer.</p></section><p class="footer">StudyBFA <span class="spark"></span> Accès réservé</p></main><script>if(new URLSearchParams(location.search).has("error"))document.getElementById("error").hidden=false;</script></body></html>`;
-function b64(bytes) { return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\\+/g,"-").replace(/\\//g,"_").replace(/=+$/,""); }
+function b64(bytes) {
+  return btoa(String.fromCharCode(...new Uint8Array(bytes)))
+    .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
 async function signature(value, secret) {
-  const key = await crypto.subtle.importKey("raw",encoder.encode(secret),"HMAC",{hash:"SHA-256"},false,["sign"]);
-  return b64(await crypto.subtle.sign("HMAC",key,encoder.encode(value)));
+  const key = await crypto.subtle.importKey(
+    "raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
+  );
+  return b64(await crypto.subtle.sign("HMAC", key, encoder.encode(value)));
 }
-function equal(a,b) {
-  const aa=encoder.encode(a),bb=encoder.encode(b);
-  let diff=aa.length^bb.length;
-  for(let i=0;i<Math.max(aa.length,bb.length);i++) diff|=(aa[i]||0)^(bb[i]||0);
-  return diff===0;
+function equal(a, b) {
+  const aa = encoder.encode(a), bb = encoder.encode(b);
+  let diff = aa.length ^ bb.length;
+  for (let i = 0; i < Math.max(aa.length, bb.length); i++)
+    diff |= (aa[i] || 0) ^ (bb[i] || 0);
+  return diff === 0;
 }
-function headers(extra={}) { return {"Cache-Control":"no-store","X-Robots-Tag":"noindex, nofollow","X-Content-Type-Options":"nosniff",...extra}; }
+function headers(extra = {}) {
+  return { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow",
+    "X-Content-Type-Options": "nosniff", ...extra };
+}
 export async function onRequest(context) {
-  const {request,env,next}=context;
-  const secret=env.STUDYBFA_PASSWORD;
-  if(!secret) return new Response("StudyBFA access is not configured. Set STUDYBFA_PASSWORD in Cloudflare Pages environment variables.",{status:503,headers:headers()});
-  const url=new URL(request.url);
-  if(url.pathname==="/__studybfa_login" && request.method==="POST") {
-    const form=await request.formData().catch(()=>null);
-    const submitted=String(form?.get("password")||"");
-    if(!equal(submitted,secret)) return Response.redirect(url.origin+"/?error=1",303);
-    const expires=Math.floor(Date.now()/1000)+MAX_AGE;
-    const payload=String(expires);
-    const token=payload+"."+await signature(payload,secret);
-    return new Response(null,{status:303,headers:headers({"Location":url.origin+"/","Set-Cookie":COOKIE+"="+token+"; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age="+MAX_AGE})});
+  const { request, env, next } = context;
+  const secret = env.STUDYBFA_PASSWORD;
+  if (!secret) return new Response(
+    "StudyBFA access is not configured. Set STUDYBFA_PASSWORD in Cloudflare Pages environment variables.",
+    { status: 503, headers: headers() }
+  );
+  const url = new URL(request.url);
+  if (url.pathname === "/__studybfa_login" && request.method === "POST") {
+    const form = await request.formData().catch(() => null);
+    const submitted = String(form?.get("password") || "");
+    if (!equal(submitted, secret)) return Response.redirect(url.origin + "/?error=1", 303);
+    const expires = Math.floor(Date.now() / 1000) + MAX_AGE;
+    const payload = String(expires);
+    const token = payload + "." + await signature(payload, secret);
+    return new Response(null, { status: 303, headers: headers({
+      "Location": url.origin + "/",
+      "Set-Cookie": COOKIE + "=" + token + "; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=" + MAX_AGE
+    }) });
   }
-  const raw=request.headers.get("Cookie")||"";
-  const cookie=raw.split(";").map(x=>x.trim()).find(x=>x.startsWith(COOKIE+"="))?.slice(COOKIE.length+1)||"";
-  const parts=cookie.split(".");
-  if(parts.length===2 && /^\\d+$/.test(parts[0]) && Number(parts[0])>Date.now()/1000 && equal(parts[1],await signature(parts[0],secret))) {
-    const response=await next();
-    const h=new Headers(response.headers);
-    h.set("X-Robots-Tag","noindex, nofollow");
-    h.set("Cache-Control","private, no-store");
-    return new Response(response.body,{status:response.status,statusText:response.statusText,headers:h});
+  const raw = request.headers.get("Cookie") || "";
+  const cookie = raw.split(";").map(x => x.trim())
+    .find(x => x.startsWith(COOKIE + "="))?.slice(COOKIE.length + 1) || "";
+  const parts = cookie.split(".");
+  if (parts.length === 2 && /^\d+$/.test(parts[0]) &&
+      Number(parts[0]) > Date.now() / 1000 &&
+      equal(parts[1], await signature(parts[0], secret))) {
+    const response = await next();
+    const h = new Headers(response.headers);
+    h.set("X-Robots-Tag", "noindex, nofollow");
+    h.set("Cache-Control", "private, no-store");
+    return new Response(response.body, { status: response.status, statusText: response.statusText, headers: h });
   }
-  if(request.method!=="GET" && request.method!=="HEAD") return new Response("Unauthorized",{status:401,headers:headers()});
-  return new Response(loginHtml,{status:200,headers:headers({"Content-Type":"text/html; charset=utf-8"})});
+  if (request.method !== "GET" && request.method !== "HEAD")
+    return new Response("Unauthorized", { status: 401, headers: headers() });
+  return new Response(loginHtml, { status: 200,
+    headers: headers({ "Content-Type": "text/html; charset=utf-8" }) });
 }
