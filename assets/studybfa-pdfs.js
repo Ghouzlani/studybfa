@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   }else if(slug==='analyse-financiere' && i>=7 && i<=9){
    // Chapter 3: printable revision sheet, preserving the same navy StudyBFA header.
    const chapterNumber=i+1;
-   a.href='/fiches/analyse-financiere-chapitre-'+chapterNumber+'/';
-   a.textContent='↓ Ouvrir la fiche · Imprimer / Enregistrer en PDF';
-   a.removeAttribute('download');a.target='_blank';a.rel='noopener';
+   a.href='/fiches/analyse-financiere-chapitre-'+chapterNumber+'.pdf';
+   a.textContent='↓ Télécharger la fiche de révision (PDF)';
+   a.setAttribute('download','');a.removeAttribute('target');
   }else{
    // Static PDF files are named by the published revision unit (1-based).
    const chapterNumber=i+1;
