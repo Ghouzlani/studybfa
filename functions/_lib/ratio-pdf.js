@@ -21,15 +21,15 @@ function chunks(text,max=92){
  for(const word of words){if((line+" "+word).trim().length>max&&line){lines.push(line);line=word;}else line+=(line?" ":"")+word;}
  if(line)lines.push(line);return lines;
 }
-function pdf(index){
- const unit=UNITS[index],W=595,H=842,left=52,bottom=58;
+function pdf(index, unit=UNITS[index], subject='ANALYSE FINANCIERE', chapter='CHAPITRE 3 - LA METHODE DES RATIOS', prefix='Partie '){
+ const W=595,H=842,left=52,bottom=58;
  const pages=[];let cmds=[],y=H-128;
  function push(){if(cmds.length){pages.push(cmds.join("\n"));cmds=[];}}
  function newPage(){
    push();y=H-128;
    cmds.push("0.075 0.18 0.29 rg 0 768 595 74 re f");
    cmds.push('BT /B 20 Tf 1 1 1 rg 52 799 Td (StudyBFA) Tj ET');
-   cmds.push('BT /R 9 Tf 0.83 0.90 0.95 rg 52 783 Td (FICHE DE REVISION - ANALYSE FINANCIERE) Tj ET');
+   cmds.push('BT /R 9 Tf 0.83 0.90 0.95 rg 52 783 Td ('+esc('FICHE DE REVISION - '+subject)+') Tj ET');
    cmds.push('0.80 0.87 0.91 RG 52 54 m 543 54 l S');
  }
  function line(text,size=11,bold=false,color="0.10 0.20 0.30",leading=16){
@@ -38,13 +38,13 @@ function pdf(index){
   y-=leading;
  }
  newPage();
- line("CHAPITRE 3 - LA METHODE DES RATIOS",10,true,"0.20 0.39 0.53",25);
- for(const t of chunks("Partie "+(index+1)+" - "+unit.title,45))line(t,17,true,"0.075 0.18 0.29",24);
+ line(chapter,10,true,"0.20 0.39 0.53",25);
+ for(const t of chunks(prefix+(index+1)+" - "+unit.title,45))line(t,17,true,"0.075 0.18 0.29",24);
  y-=13;
  for(const [heading,body] of unit.notes){
   const lines=body.split('\n').flatMap((part)=>chunks(part,77).map(t=>({t,bold:/[=×]| \/ |^(Repère|Attention)/u.test(part)})));
   if(y < bottom+35+lines.length*16)newPage();
-  line(heading,13,true,"0.08 0.29 0.44",21);
+  for(const h of chunks(heading,65))line(h,13,true,"0.08 0.29 0.44",21);
   for(const item of lines)line(item.t,11,item.bold,item.bold?"0.08 0.29 0.44":"0.14 0.20 0.29",16);
   y-=12;
  }
@@ -73,4 +73,9 @@ export function renderRatioPDF(index) {
  if(index<0||index>=UNITS.length)return new Response("Not found",{status:404});
  const data=pdf(index);
  return new Response(data,{headers:{"Content-Type":"application/pdf","Content-Disposition":"attachment; filename=\"StudyBFA-Analyse-financiere-Chapitre-3-Partie-"+(index+1)+".pdf\"","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff"}});
+}
+
+export function renderStudyPDF(unit,index,subject,chapter,filename){
+ if(!unit||!Array.isArray(unit.notes))return new Response("Fiche introuvable",{status:404});
+ return new Response(pdf(index,unit,subject,chapter,"Chapitre "),{headers:{"Content-Type":"application/pdf","Content-Disposition":"attachment; filename=\""+filename+"\"","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff"}});
 }
