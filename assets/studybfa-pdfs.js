@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     ? 'فتح الملخص الشامل وحفظه بصيغة PDF'
     : 'فتح ملخص الفصل وحفظه بصيغة PDF';
    a.removeAttribute('download');a.target='_blank';a.rel='noopener';
+  }else if(slug==='analyse-financiere' && i>=7 && i<=9){
+   // Chapter 3: printable revision sheet, preserving the same navy StudyBFA header.
+   const chapterNumber=i+1;
+   a.href='/fiches/analyse-financiere-chapitre-'+chapterNumber+'/';
+   a.textContent='↓ Ouvrir la fiche · Imprimer / Enregistrer en PDF';
+   a.removeAttribute('download');a.target='_blank';a.rel='noopener';
   }else{
    // Static PDF files are named by the published revision unit (1-based).
    const chapterNumber=i+1;
