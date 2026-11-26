@@ -3,7 +3,9 @@
 const ABBR=new Set(['dr','mme','m','mr','mrs','ms','pr','prof','ex','cf','art','fig','p','n','no','vol','éd','ed','st','ste']);
 const normalize=value=>String(value||'').replace(/\s+/gu,' ').trim();
 function splitIdeas(value){
- const text=normalize(value),parts=[];let start=0;
+ const raw=String(value||'');
+ if(/\r?\n/u.test(raw))return raw.split(/\r?\n/u).flatMap(v=>splitIdeas(v)).filter(Boolean);
+ const text=normalize(raw),parts=[];let start=0;
  for(let i=0;i<text.length;i++){
   const ch=text[i];if(!'.!?;'.includes(ch))continue;
   let stop=i+1;while(stop<text.length&&/[»”"’')]/u.test(text[stop]))stop++;
@@ -26,7 +28,7 @@ function splitIdeas(value){
 }
 function makeLine(value){
  const p=document.createElement('p');p.className='sb-revision-line';
- if(/\s=\s/u.test(value)||/^(?:CMUP|CAF|BFR|FRNG|TVA|EBE|VA|COÛT|Coût|Résultat|RÉSULTAT|Stock final|Valeur des sorties)\b[^.]{0,120}=/iu.test(value))p.classList.add('sb-revision-formula');
+ if(/\s=\s/u.test(value)||(/\s\/\s/u.test(value)&&!/[.!?]$/u.test(value)&&value.length<220)||/^(?:Repère du cours|Seuil|Attention|Règle)\s*:/iu.test(value)||/^(?:CMUP|CAF|BFR|FRNG|TVA|EBE|VA|COÛT|Coût|Résultat|RÉSULTAT|Stock final|Valeur des sorties)\b[^.]{0,120}=/iu.test(value))p.classList.add('sb-revision-formula');
  const match=value.match(/^([^:]{2,64}:)(\s+)(.+)$/u);
  if(match&&!match[1].includes('://')){
   const strong=document.createElement('strong');strong.textContent=match[1];
@@ -36,9 +38,9 @@ function makeLine(value){
 }
 function formatParagraph(p){
  if(!p||p.dataset.sbFormatted)return;
- const original=normalize(p.textContent);if(!original)return;
- const parts=splitIdeas(original);
- if(parts.length===1){p.classList.add('sb-revision-line');p.dataset.sbFormatted='1';return;}
+ const raw=p.textContent;const original=normalize(raw);if(!original)return;
+ const parts=splitIdeas(raw);
+ if(parts.length===1){const line=makeLine(parts[0]);line.dataset.sbFormatted='1';p.replaceWith(line);return;}
  if(normalize(parts.join(' '))!==original)return;
  const group=document.createElement('div');group.className='sb-revision-lines';group.dataset.sbFormatted='1';
  parts.forEach(s=>group.append(makeLine(s)));p.replaceWith(group);
