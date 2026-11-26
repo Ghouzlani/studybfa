@@ -26,9 +26,22 @@ function splitIdeas(value){
  if(text.slice(start).trim())parts.push(text.slice(start).trim());
  return parts.length?parts:[text];
 }
+function isFormula(value){
+ return /(?:[=≈≠≤≥×÷]| \/\s)/u.test(value) && value.length<=420;
+}
+function isolate(value){
+ const result=[];
+ for(const sentence of splitIdeas(value)){
+  // Explicit introductory text must not be part of the mathematical expression.
+  const m=sentence.match(/^(.{5,150}?:)\s+(.+[=≈]\s*.+)$/u);
+  if(m&&!isFormula(m[1])&&isFormula(m[2]))result.push(m[1],m[2]);
+  else result.push(sentence);
+ }
+ return result;
+}
 function makeLine(value){
  const p=document.createElement('p');p.className='sb-revision-line';
- if(/\s=\s/u.test(value)||(/\s\/\s/u.test(value)&&!/[.!?]$/u.test(value)&&value.length<220)||/^(?:Repère du cours|Seuil|Attention|Règle)\s*:/iu.test(value)||/^(?:CMUP|CAF|BFR|FRNG|TVA|EBE|VA|COÛT|Coût|Résultat|RÉSULTAT|Stock final|Valeur des sorties)\b[^.]{0,120}=/iu.test(value))p.classList.add('sb-revision-formula');
+ if(isFormula(value)||/\s=\s/u.test(value)||(/\s\/\s/u.test(value)&&!/[.!?]$/u.test(value)&&value.length<220)||/^(?:Repère du cours|Seuil|Attention|Règle)\s*:/iu.test(value)||/^(?:CMUP|CAF|BFR|FRNG|TVA|EBE|VA|COÛT|Coût|Résultat|RÉSULTAT|Stock final|Valeur des sorties)\b[^.]{0,120}=/iu.test(value))p.classList.add('sb-revision-formula');
  const match=value.match(/^([^:]{2,64}:)(\s+)(.+)$/u);
  if(match&&!match[1].includes('://')){
   const strong=document.createElement('strong');strong.textContent=match[1];
@@ -39,7 +52,7 @@ function makeLine(value){
 function formatParagraph(p){
  if(!p||p.dataset.sbFormatted)return;
  const raw=p.textContent;const original=normalize(raw);if(!original)return;
- const parts=splitIdeas(raw);
+ const parts=isolate(raw);
  if(parts.length===1){const line=makeLine(parts[0]);line.dataset.sbFormatted='1';p.replaceWith(line);return;}
  if(normalize(parts.join(' '))!==original)return;
  const group=document.createElement('div');group.className='sb-revision-lines';group.dataset.sbFormatted='1';
@@ -51,5 +64,5 @@ document.addEventListener('DOMContentLoaded',()=>{
  const sheet=document.getElementById('ai-revision');
  if(sheet&&window.MutationObserver){const watcher=new MutationObserver(refresh);watcher.observe(sheet,{childList:true,subtree:true});}
 });
-window.StudyBFARevisionStructure={splitIdeas,refresh};
+window.StudyBFARevisionStructure={splitIdeas:isolate,refresh,isFormula};
 })();
