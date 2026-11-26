@@ -44,3 +44,30 @@ html[data-theme="dark"] #ai-revision p { color: var(--academy-text, #f0f6ff); }
  #ai-revision .sb-revision-lines,.be-sheet-prose .sb-revision-lines{gap:.7rem;}
  #ai-revision .sb-revision-prose,.be-sheet-prose{max-width:100%;}
 }
+
+/* Clear formulas and rules: a separate, high-contrast reading line in light and dark themes. */
+#ai-revision .sb-revision-formula,.be-sheet-prose .sb-revision-formula{
+ display:block;
+ box-sizing:border-box;
+ padding:.65rem .8rem!important;
+ margin:.3rem 0 .45rem!important;
+ border-inline-start:3px solid #3973a3;
+ border-left-width:3px;
+ border-radius:5px;
+ background:#eaf2f9;
+ color:#163955;
+ font-weight:700;
+ font-variant-numeric:tabular-nums;
+ line-height:1.65;
+ overflow-wrap:anywhere;
+}
+html[data-theme="dark"] #ai-revision .sb-revision-formula,
+html[data-theme="dark"] .be-sheet-prose .sb-revision-formula{
+ background:#223b52;
+ color:#edf5ff;
+ border-inline-start-color:#86b7e1;
+}
+#ai-revision .sb-revision-prose{margin:0 0 1.3rem}
+#ai-revision .sb-revision-prose h4{margin-top:.9rem}
+#ai-revision .sb-revision-prose[dir="rtl"]{text-align:right}
+body[data-matiere="institutions-politiques-maroc"] #ai-revision .sb-revision-prose p{white-space:pre-line;text-align:right}
