@@ -8,14 +8,14 @@ const CP1252 = { 0x20ac:128,0x201a:130,0x0192:131,0x201e:132,0x2026:133,
 0x203a:155,0x0153:156,0x017e:158,0x0178:159 };
 function bytes(s) {
   const out=[];
-  for(const c of s.replace(/−/g,'–').replace(/→/g,'>')) { const n=c.codePointAt(0);
+  for(const c of s) { const n=c.codePointAt(0);
     if(n<256)out.push(n);
     else if(CP1252[n])out.push(CP1252[n]);
     else out.push(63);
   }
   return new Uint8Array(out);
 }
-function esc(s) {return String(s).replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");}
+function esc(s) {return String(s).replace(/−/g,'-').replace(/→/g,' -> ').replace(/≠/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/Σ/g,'Somme').replace(/Δ/g,'Delta ').replace(/≈/g,'~').replace(/\s+/g,' ').replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");}
 function chunks(text,max=92){
  const words=String(text).split(/\s+/);const lines=[];let line="";
  for(const word of words){if((line+" "+word).trim().length>max&&line){lines.push(line);line=word;}else line+=(line?" ":"")+word;}
@@ -29,7 +29,7 @@ function pdf(index, unit=UNITS[index], subject='ANALYSE FINANCIERE', chapter='CH
    push();y=H-128;
    cmds.push("0.075 0.18 0.29 rg 0 768 595 74 re f");
    cmds.push('BT /B 20 Tf 1 1 1 rg 52 799 Td (StudyBFA) Tj ET');
-   cmds.push('BT /R 9 Tf 0.83 0.90 0.95 rg 52 783 Td ('+esc('FICHE DE REVISION - '+subject)+') Tj ET');
+   cmds.push('BT /R 9 Tf 0.83 0.90 0.95 rg 52 783 Td ('+esc('FICHE DE RÉVISION - '+subject)+') Tj ET');
    cmds.push('0.80 0.87 0.91 RG 52 54 m 543 54 l S');
  }
  function line(text,size=11,bold=false,color="0.10 0.20 0.30",leading=16){
@@ -39,10 +39,14 @@ function pdf(index, unit=UNITS[index], subject='ANALYSE FINANCIERE', chapter='CH
  }
  newPage();
  line(chapter,10,true,"0.20 0.39 0.53",25);
- for(const t of chunks(prefix+(index+1)+" - "+unit.title,45))line(t,17,true,"0.075 0.18 0.29",24);
+ for(const t of chunks((prefix?prefix+(index+1)+" - ":"")+unit.title,45))line(t,17,true,"0.075 0.18 0.29",24);
  y-=13;
  for(const [heading,body] of unit.notes){
-  const lines=body.split('\n').flatMap((part)=>chunks(part,77).map(t=>({t,bold:/[=×]| \/ |^(Repère|Attention)/u.test(part)})));
+  const parts=String(body).split(/\r?\n|(?<=[.!?;])\s+(?=[A-ZÀ-ÖØ-Þ])/u).flatMap(p=>{
+    const m=p.match(/^(.{5,150}?:)\s+(.+[=≈]\s*.+)$/u);
+    return m?[m[1],m[2]]:[p];
+  }).filter(Boolean);
+  const lines=parts.flatMap(part=>chunks(part,70).map(t=>({t,bold:/[=×÷≈≠≥≤]| \/\s|^(Repère|Attention|Règle|Seuil)/u.test(part)})));
   if(y < bottom+35+lines.length*16)newPage();
   for(const h of chunks(heading,65))line(h,13,true,"0.08 0.29 0.44",21);
   for(const item of lines)line(item.t,11,item.bold,item.bold?"0.08 0.29 0.44":"0.14 0.20 0.29",16);
@@ -77,5 +81,5 @@ export function renderRatioPDF(index) {
 
 export function renderStudyPDF(unit,index,subject,chapter,filename){
  if(!unit||!Array.isArray(unit.notes))return new Response("Fiche introuvable",{status:404});
- return new Response(pdf(index,unit,subject,chapter,"Chapitre "),{headers:{"Content-Type":"application/pdf","Content-Disposition":"attachment; filename=\""+filename+"\"","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff"}});
+ return new Response(pdf(index,unit,subject,chapter,""),{headers:{"Content-Type":"application/pdf","Content-Disposition":"attachment; filename=\""+filename+"\"","Cache-Control":"private, no-store","X-Content-Type-Options":"nosniff"}});
 }
