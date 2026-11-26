@@ -1,76 +1,36 @@
-/* Accessible connected concept map for the six structured subjects. */
-(function () {
-  'use strict';
-  const namespace='http://www.w3.org/2000/svg';
-  function render(host, detail, title, branches) {
-    if (!host || !detail) return;
-    if (host._mapObserver) { host._mapObserver.disconnect(); host._mapObserver=null; }
-    if (host._mapResize) { window.removeEventListener('resize',host._mapResize); host._mapResize=null; }
-    host.replaceChildren();
-    host.className='sb-map-accessible';
-    const svg=document.createElementNS(namespace,'svg');
-    svg.setAttribute('class','sb-map-connections');
-    svg.setAttribute('aria-hidden','true');
-    host.append(svg);
-    const center=document.createElement('div');
-    center.className='sb-map-core';
-    center.textContent=title;
-    host.append(center);
-    const tree=document.createElement('div');
-    tree.className='sb-map-tree';
-    host.append(tree);
-    const items=Array.isArray(branches)?branches:[];
-    const nodes=[];
-    function select(index) {
-      nodes.forEach((button,i)=>{
-        button.classList.toggle('is-selected',i===index);
-        button.setAttribute('aria-pressed',String(i===index));
-      });
-      detail.replaceChildren();
-      const h=document.createElement('strong');
-      h.textContent=items[index][0];
-      const p=document.createElement('p');
-      p.textContent=items[index][1];
-      detail.append(h,p);
-    }
-    items.forEach(([label], index) => {
-      const button=document.createElement('button');
-      button.type='button';
-      button.className='sb-map-node';
-      button.setAttribute('aria-pressed','false');
-      button.textContent=label;
-      button.addEventListener('click',()=>select(index));
-      tree.append(button);nodes.push(button);
-    });
-    function connectors() {
-      const hostRect=host.getBoundingClientRect();
-      const origin=center.getBoundingClientRect();
-      if(!hostRect.width||!origin.width) return;
-      const width=hostRect.width,height=hostRect.height;
-      svg.setAttribute('viewBox','0 0 '+width+' '+height);
-      svg.replaceChildren();
-      const startX=origin.left+origin.width/2-hostRect.left;
-      const startY=origin.bottom-hostRect.top;
-      nodes.forEach((node,i)=>{
-        const rect=node.getBoundingClientRect();
-        const endX=rect.left+rect.width/2-hostRect.left;
-        const endY=rect.top-hostRect.top;
-        const path=document.createElementNS(namespace,'path');
-        const midY=startY+(endY-startY)*.45;
-        path.setAttribute('d','M '+startX+' '+startY+' C '+startX+' '+midY+', '+endX+' '+midY+', '+endX+' '+endY);
-        path.setAttribute('class','sb-map-link sb-map-link-'+i%4);
-        svg.append(path);
-      });
-    }
-    detail.classList.add('be-map-detail');
-    if(items.length)select(0);
-    host._mapResize=()=>connectors();
-    window.addEventListener('resize',host._mapResize);
-    if(typeof ResizeObserver==='function') {
-      host._mapObserver=new ResizeObserver(connectors);
-      host._mapObserver.observe(host);
-    }
-    requestAnimationFrame(connectors);
-  }
-  window.StudyBFAAcademyMap={render};
+/* StudyBFA concept maps: chapter-specific semantic groups and visible explanations. */
+(function(){'use strict';
+const GROUPS={"institutions-politiques-maroc":[[["المفاهيم",0,1],["السلط الثلاث",2,3,4],["العلاقة بين السلط",5]],[["نشأة الدستور",0,1],["التطور التاريخي",2,3,4]],[["الوظائف الدستورية",0,1],["علاقة الملك بالحكومة",2,3],["اختصاصات أخرى",4,5]],[["التكوين والتنصيب",0,1,2],["ممارسة السلطة والمسؤولية",3,4,5]],[["التركيبة والتمثيل",0,1],["التشريع والمالية",2,3,4],["الرقابة والضمانات",5,6]]],"culture-entrepreneuriale":[[["Notions de base",0,1,2],["Niveaux de culture",3],["Effets attendus",4]],[["Création et développement",0,1,2],["Autres modes d’entreprendre",3,4]],[["Écosystème",0],["Acteurs",1,2,3],["Accompagnement",4]],[["Profil",0,1,2],["Logiques entrepreneuriales",3,4],["Statut",5]],[["Valider l’opportunité",0,1],["Préparer et financer",2,3],["Créer juridiquement",4,5]]],"management-organisations":[[["Objectif",0],["Trois niveaux",1,2,3],["Articulation des niveaux",4]],[["Organisation du travail",0,1],["Administration et structure",2,3],["Apports et limites",4]],[["Groupes et relations sociales",0,1],["Théories de la motivation",2,3],["Applications",4]],[["Fondement de la décision",0],["Démarche",1,4],["Classification",2,3]],[["Principe de contingence",0],["Facteurs d’adaptation",1,2,3],["Réponse flexible",4]],[["Démarche stratégique",0],["Diagnostic externe",1,2],["Diagnostic interne",3],["Synthèse des deux diagnostics",4]],[["Types de structure",0,1,2,3],["Pilotage",4]]],"comptabilite-gestion":[[["Rôle et méthode",0,1,2],["Passage aux charges incorporées",3,4,5]],[["Notion de coût",0],["Selon l’activité",1,3],["Stocks et résultat",2,4]],[["Identifier les stocks",0,1],["Suivre les mouvements",2,3],["Évaluer les sorties",4,5]]],"fiscalite":[[["Cadre fiscal",0,1],["TVA sur ventes et achats",2,3],["Champ d’application",4,5]],[["TVA sur ventes et exigibilité",0,1,2],["Droit à déduction",3,4,5]],[["Calcul de la taxe",0,1,2],["Conditions de paiement",3,4],["Déclaration",5]],[["Droit initial",0,1,2],["Régularisations",3,4],["Application",5]],[["Champ et point de départ",0,1],["Passage au résultat fiscal",2,3,4],["Conditions de déductibilité",5]]],"systeme-information-erp":[[["Système d’information",0,1,2],["Données et gestion",3,4,5]],[["Approche de l’organisation",0,1,2],["Fonctions et exemples",3,4,5]],[["ERP et domaines",0,1],["Apports et limites",2,3],["Solutions",4,5]],[["Évolution",0,1],["Modèles de service",2,3],["Bénéfices et risques",4,5]],[["Processus",0,1],["Exécution",2,3],["Pilotage et amélioration",4,5]],[["Bénéfices et modélisation",0,1],["Organisation des tâches",2,3],["Infrastructure et pilotage",4,5]],[["Cadre BPMN",0,1],["Participants",2,3],["Éléments du processus",4,5]],[["Relations du processus",0,1,2],["Informations complémentaires",3],["Construction du modèle",4,5]],[["Acteurs",0,1],["Usages numériques",2,3,4,5]],[["Définition et objectifs",0,1],["Applications",2,3],["Données et sécurité",4,5]]],"intelligence-artificielle":[[["Comprendre l’IA",0,2,3],["Usages",1,5],["Enjeux",4]],[["Principes du prompt",0,1],["Construction et types",2,3],["Amélioration",4,5]]],"entrepreneuriat-business-plan":[[["Concepts",0,1,2],["Bénéfices et risques",3,4],["Formes",5]],[["Nature et fonctions",0,1],["Destinataires",2,3],["Types et distinction",4,5]]],"analyse-financiere":[[["Objectif et sources",0,1],["Critères financiers",2,3],["Formation du résultat",4,5,6,7]],[["Point de départ",0,1,2,3],["Création de richesse et exploitation",4,5,6],["Résultats successifs",7,8]],[["Ressource interne",0],["Deux méthodes de calcul",1,2,3,4],["Financement et interprétation",5,6,7]],[["Principe",0],["Retraitements",1,2,3,4,5],["Impact sur les soldes",6]],[["Bilan et structure",0,1,2],["Équilibre financier : FR − BFR = TN",3,4,5]],[["Principes fonctionnels",0],["Cycles",1,2,3,4],["Équilibre : FRF − BFR = TN",5,6,7]],[["Principes de classement",0,1,2],["Retraitements de l’actif",3,4,5,6],["Retraitements du passif",7,8]],[["Objectif des ratios",0],["Mesurer la rentabilité",1,2,3],["Structure et solvabilité",4,5,6,7]],[["Durées de stockage",0,1,2],["Délais d’exploitation",3,4],["Répartition de la richesse",5],["Capacité de paiement",6,7,8]],[["Mesurer les rentabilités",0,1,2,3],["Relation entre dette et rentabilité",4],["Interpréter le signe",5,6,7],["Risque financier",8]]],"marche-financier":[[["Définition et rôles",0,1],["Cycle des titres",2,3],["Organisation et typologie",4,5,6]],[["Intervenants et instruments",0,1,2],["Actions et formes",3,4],["Valeurs et prix",5,6,7,8]],[["Contrat obligataire",0,1,2,3],["Caractéristiques",4,5],["Échange après émission",6,7,8]],[["Placement collectif",0,1,2],["Institutions du marché",3,4],["Professionnels et services",5,6,7,8]],[["Caractéristiques du titre",0,1,2,3,4,5],["Modalités de remboursement",6,7,8]],[["Prix et coupon",0,1,2,3],["Évaluation",4,5],["Relation prix-taux",6,7,8]],[["Profil des intérêts",0,1,2],["Rang et émetteur",3,4],["Usages et instruments hybrides",5,6,7,8]],[["Types de risques",0,1,2,3,4],["Mesure des variations de prix",5,6,7,8]]],"tec":[[["Finalité et définition",0,1],["Information vers action",2,3],["Clarté et contrôle",4,5]],[["Composants et circulation du message",0,1,2,3],["Modèles de communication",4,5]],[["Six fonctions",0,1,2],["Enjeux et adaptation",3,4,5]],[["Dimensions de l’oral",0,1,2,3],["Application professionnelle",4,5]],[["Intention",0],["Trois modes de persuasion",1,2,3],["Échange en réunion",4,5]],[["Construire l’exposé",0,1,2,3],["Format court",4,5]],[["Cohérence et reformulation",0,1,2],["Explication et argumentation",3,4,5]],[["Traiter une objection",0,1,2,3],["Maîtrise de l’oral et clôture",4,5]]]};
+
+function render(host,detail,title,branches){
+ if(!host||!detail)return;
+ if(host._mapObserver)host._mapObserver.disconnect();
+ if(host._mapResize)window.removeEventListener('resize',host._mapResize);
+ const items=Array.isArray(branches)?branches:[];
+ const slug=document.body.dataset.matiere||'';
+ const active=document.querySelector('[data-ai-chapter].active');
+ const i=Number(active?.dataset.aiChapter||0);
+ const rtl=slug==='institutions-politiques-maroc';
+ const config=GROUPS[slug]?.[i]||[[rtl?'المفاهيم الأساسية':'Notions essentielles',...items.map((_,n)=>n)]];
+ const make=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
+ host.replaceChildren();host.className='sb-concept-map';host.dir=rtl?'rtl':'ltr';
+ if(!document.getElementById('sb-concept-map-style')){
+ const style=make('style');style.id='sb-concept-map-style';style.textContent=
+ '.sb-concept-map{--map-border:var(--academy-line,var(--line,#c5d7e6));--map-text:var(--academy-text,var(--ink,#173354));color:var(--map-text);padding:12px 0 18px}.sb-concept-map .concept-root{max-width:660px;margin:auto;background:#173b65;color:#fff;text-align:center;padding:18px 20px;border-radius:12px;font-weight:700;font-size:1.15rem;position:relative}.sb-concept-map .concept-root:after{content:"";position:absolute;top:100%;left:50%;height:20px;border-left:2px solid var(--map-border)}.sb-concept-map .concept-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:15px;padding-top:20px}.sb-concept-map .concept-group{min-width:0;border:1px solid var(--map-border);border-radius:12px;position:relative;padding:13px;background:var(--academy-card,var(--panel,transparent));display:flex;flex-direction:column;gap:12px}.sb-concept-map .concept-group:before{content:"";position:absolute;left:50%;bottom:100%;height:20px;border-left:2px solid var(--map-border)}.sb-concept-map .concept-heading{font-weight:700;text-align:center;padding:9px 8px;border-radius:7px;background:#224e79;color:#fff;line-height:1.35}.sb-concept-map .concept-items{display:grid;gap:10px;border-inline-start:2px solid var(--map-border);padding-inline-start:12px}.sb-concept-map .concept-item{position:relative;display:block;width:100%;text-align:start;padding:12px;border:1px solid var(--map-border);border-radius:8px;background:transparent;color:var(--map-text);font:inherit;cursor:pointer;overflow-wrap:anywhere}.sb-concept-map .concept-item:before{content:"";position:absolute;inset-inline-end:100%;top:24px;width:12px;border-top:2px solid var(--map-border)}.sb-concept-map .concept-item strong,.sb-concept-map .concept-item span{display:block;line-height:1.5;color:inherit}.sb-concept-map .concept-item strong{font-size:.96rem;margin-bottom:5px}.sb-concept-map .concept-item span{font-size:.88rem;font-weight:400}.sb-concept-map .concept-item[aria-pressed=true]{border-color:#4689c1;box-shadow:0 0 0 2px #4689c129}.sb-concept-map .concept-item:focus-visible{outline:3px solid #4689c1;outline-offset:2px}@media(max-width:560px){.sb-concept-map .concept-groups{grid-template-columns:1fr;gap:20px}.sb-concept-map .concept-group:before{height:20px}}';
+ document.head.append(style);}
+ host.append(make('div','concept-root',title));
+ const groups=make('div','concept-groups');host.append(groups);const buttons=[];
+ function select(button,label,description){buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));detail.replaceChildren(make('strong','',label),make('p','',description));}
+ const seen=new Set();
+ function group(label,ids){
+ const box=make('section','concept-group');box.append(make('div','concept-heading',label));const list=make('div','concept-items');box.append(list);
+ ids.forEach(n=>{if(!items[n]||seen.has(n))return;seen.add(n);const [name,desc]=items[n];const b=make('button','concept-item');b.type='button';b.setAttribute('aria-pressed','false');b.append(make('strong','',name),make('span','',desc));b.addEventListener('click',()=>select(b,name,desc));buttons.push(b);list.append(b);});
+ if(list.children.length)groups.append(box);
+ }
+ config.forEach(([label,...ids])=>group(label,ids));
+ const remaining=items.map((_,n)=>n).filter(n=>!seen.has(n));if(remaining.length)group(rtl?'مفاهيم إضافية':'Compléments',remaining);
+ detail.replaceChildren();detail.hidden=false;
+ if(buttons.length)buttons[0].click();
+}
+window.StudyBFAAcademyMap={render};
 })();
