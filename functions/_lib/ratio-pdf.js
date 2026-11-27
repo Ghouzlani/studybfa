@@ -15,7 +15,7 @@ function bytes(s) {
   }
   return new Uint8Array(out);
 }
-function esc(s) {return String(s).replace(/−/g,'-').replace(/→/g,' -> ').replace(/≠/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/Σ/g,'Somme').replace(/Δ/g,'Delta ').replace(/≈/g,'~').replace(/\s+/g,' ').replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");}
+function esc(s) {return String(s).replace(/−/g,'-').replace(/→/g,' -> ').replace(/≠/g,'!=').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/Σ/g,'Somme').replace(/∑/g,'Somme').replace(/↑/g,'hausse').replace(/↓/g,'baisse').replace(/⁻/g,'-').replace(/¹/g,'1').replace(/²/g,'^2').replace(/³/g,'^3').replace(/₀/g,'0').replace(/₁/g,'1').replace(/₂/g,'2').replace(/ᵗ/g,'t').replace(/α/g,'alpha').replace(/β/g,'beta').replace(/Δ/g,'Delta ').replace(/≈/g,'~').replace(/\s+/g,' ').replace(/\\/g,"\\\\").replace(/\(/g,"\\(").replace(/\)/g,"\\)");}
 function chunks(text,max=92){
  const words=String(text).split(/\s+/);const lines=[];let line="";
  for(const word of words){if((line+" "+word).trim().length>max&&line){lines.push(line);line=word;}else line+=(line?" ":"")+word;}
